@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://beusemty43sfw"]
+
+[ext_resource type="Script" uid="uid://chmgagndot7lu" path="res://scenes/stage_start_screen.gd" id="1_4frsg"]
+
+[node name="StageStartScreen" type="Control" unique_id=731072768]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4frsg")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=963578701]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=1097326139]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer" unique_id=265011143]
+layout_mode = 2
+text = "Stage"
+horizontal_alignment = 1
+
+[node name="LabelWorld" type="Label" parent="PanelContainer/HBoxContainer" unique_id=248020688]
+layout_mode = 2
+text = "1"
+
+[node name="Label2" type="Label" parent="PanelContainer/HBoxContainer" unique_id=458230238]
+layout_mode = 2
+text = "-"
+
+[node name="LabelStage" type="Label" parent="PanelContainer/HBoxContainer" unique_id=900609413]
+layout_mode = 2
+text = "1"

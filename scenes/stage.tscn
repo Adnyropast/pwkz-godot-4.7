@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b4mq1kqjjcbsd"]
+
+[ext_resource type="PackedScene" uid="uid://bmcql7jlewip3" path="res://scenes/battle_commands_menu.tscn" id="1_8rem4"]
+
+[node name="Stage" type="Node3D" unique_id=818123241]
+
+[node name="BattleCommandsMenu" parent="." unique_id=396960885 instance=ExtResource("1_8rem4")]

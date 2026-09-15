@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bmcql7jlewip3"]
+
+[ext_resource type="Script" uid="uid://cqq2q0hcl46fo" path="res://scenes/battle_commands_menu.gd" id="1_krgkg"]
+
+[node name="BattleCommandsMenu" type="Control" unique_id=396960885]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_krgkg")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1383396926]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=363262340]
+layout_mode = 2
+
+[node name="ButtonNextStage" type="Button" parent="MarginContainer/VBoxContainer" unique_id=51144591]
+layout_mode = 2
+text = "(Next Stage)"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonNextStage" to="." method="_on_button_next_stage_pressed"]

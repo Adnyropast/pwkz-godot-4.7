@@ -14,6 +14,10 @@ config/name="PWKZ Godot 4.7"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Worlds="*uid://bn6ltyeo3484"
+
 [display]
 
 window/stretch/mode="canvas_items"
