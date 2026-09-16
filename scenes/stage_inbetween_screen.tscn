@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://crg1te3mao6la"]
+
+[ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="1_e88x3"]
+[ext_resource type="Script" uid="uid://cv2eu11s1rhsq" path="res://scenes/stage_inbetween_screen.gd" id="1_v7b06"]
+
+[node name="StageInbetweenScreen" type="Control" unique_id=590702788]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v7b06")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=592669515]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer" unique_id=120920331]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer" unique_id=1860074886]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/CenterContainer/HBoxContainer" unique_id=1914508844]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_e88x3")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/CenterContainer/HBoxContainer" unique_id=271943312]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_e88x3")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="PanelContainer/CenterContainer/HBoxContainer" unique_id=816158840]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_e88x3")
+expand_mode = 1

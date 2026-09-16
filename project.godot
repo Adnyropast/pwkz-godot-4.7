@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Worlds="*uid://bn6ltyeo3484"
+StagePhases="*uid://clmhl2qgfe0ie"
 
 [display]
 
