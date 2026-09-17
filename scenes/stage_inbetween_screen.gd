@@ -9,5 +9,4 @@ func _process(_delta: float) -> void:
 		load_phase()
 
 func load_phase() -> void:
-	var tree: SceneTree = Engine.get_main_loop()
-	tree.change_scene_to_file("res://scenes/stage.tscn")
+	Scenes.go_to_stage_scene()

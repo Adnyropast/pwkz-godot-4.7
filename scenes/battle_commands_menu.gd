@@ -1,9 +1,10 @@
 extends Control
 
-var stage_node: Node
+signal next_stage_button_pressed
+signal next_phase_button_pressed
 
 func _on_button_next_stage_pressed() -> void:
-	Worlds.next_stage()
+	next_stage_button_pressed.emit()
 
 func _on_button_next_phase_pressed() -> void:
-	stage_node.next_phase()
+	next_phase_button_pressed.emit()
