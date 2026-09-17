@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b7latik14ltrx"]
+
+[ext_resource type="Script" uid="uid://trj4vewlt6hx" path="res://scenes/battle_text_box.gd" id="1_cvxho"]
+
+[node name="BattleTextBox" type="Control" unique_id=929214716]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cvxho")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=453485818]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=623634040]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=65171196]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=45844930]
+layout_mode = 2
+text = "Text"
+horizontal_alignment = 1

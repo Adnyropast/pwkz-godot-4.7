@@ -1,7 +1,29 @@
 [gd_scene format=3 uid="uid://b4mq1kqjjcbsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmcql7jlewip3" path="res://scenes/battle_commands_menu.tscn" id="1_8rem4"]
+[ext_resource type="Script" uid="uid://cacjfswvmbfwo" path="res://scenes/stage.gd" id="1_kewym"]
+[ext_resource type="PackedScene" uid="uid://b7latik14ltrx" path="res://scenes/battle_text_box.tscn" id="2_gi7kc"]
 
 [node name="Stage" type="Node3D" unique_id=818123241]
+script = ExtResource("1_kewym")
 
-[node name="BattleCommandsMenu" parent="." unique_id=396960885 instance=ExtResource("1_8rem4")]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1696979599]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=1989183270]
+layout_mode = 2
+
+[node name="BattleCommandsMenu" parent="HBoxContainer/MarginContainer" unique_id=396960885 instance=ExtResource("1_8rem4")]
+layout_mode = 2
+
+[node name="BattleTextBoxContainer" type="Control" parent="HBoxContainer" unique_id=1241570757]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BattleTextBox" parent="HBoxContainer/BattleTextBoxContainer" unique_id=929214716 instance=ExtResource("2_gi7kc")]
+visible = false
+layout_mode = 1

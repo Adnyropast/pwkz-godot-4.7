@@ -212,3 +212,6 @@ func next_phase() -> void:
 	else:
 		var tree: SceneTree = Engine.get_main_loop()
 		tree.change_scene_to_file("res://scenes/stage_inbetween_screen.tscn")
+
+func has_more_phases() -> bool:
+	return current_phase < len(PHASES[Worlds.current_world - 1][Worlds.current_stage - 1]) - 1
