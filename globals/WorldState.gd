@@ -5,6 +5,7 @@ var current_stage: int = 1
 var current_phase: int = 0
 
 func next_stage() -> void:
+	current_phase = 0
 	current_stage += 1
 	
 	if current_stage > WorldConstants.WORLD_STAGES_COUNT:
@@ -28,5 +29,4 @@ func next_phase() -> void:
 		current_phase += 1
 		Scenes.go_to_stage_inbetween_screen()
 	else:
-		current_phase = 0
 		next_stage()
