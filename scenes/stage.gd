@@ -20,4 +20,7 @@ func end_phase() -> void:
 	if WorldState.has_more_phases():
 		WorldState.next_phase()
 	else:
-		text_box_node.set_victory()
+		if WorldState.is_final_stage():
+			WorldState.next_phase_rescue()
+		else:
+			text_box_node.set_victory()

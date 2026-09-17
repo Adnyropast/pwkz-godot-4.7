@@ -3,8 +3,10 @@ extends Node
 var current_world: int = 1
 var current_stage: int = 1
 var current_phase: int = 0
+var prince_saved: bool
 
 func next_stage() -> void:
+	prince_saved = false
 	current_phase = 0
 	current_stage += 1
 	
@@ -30,3 +32,13 @@ func next_phase() -> void:
 		Scenes.go_to_stage_inbetween_screen()
 	else:
 		next_stage()
+
+func is_final_stage() -> bool:
+	return current_stage == WorldConstants.WORLD_STAGES_COUNT
+
+func next_phase_rescue() -> void:
+	prince_saved = true
+	Scenes.go_to_stage_inbetween_screen()
+
+func end_rescue() -> void:
+	next_stage()

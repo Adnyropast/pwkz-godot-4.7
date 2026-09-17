@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bcndn27lq5pdu"]
+
+[ext_resource type="Script" uid="uid://dkvy6ghr7gawr" path="res://scenes/dialogue_box.gd" id="1_rc1id"]
+
+[node name="DialogueBox" type="MarginContainer" unique_id=332011556]
+script = ExtResource("1_rc1id")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=756980191]
+layout_mode = 2
+
+[node name="LabelName" type="Label" parent="VBoxContainer" unique_id=228119346]
+layout_mode = 2
+text = "Name"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=2058441217]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer" unique_id=780236428]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 32
+
+[node name="LabelMessage" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer" unique_id=1545553720]
+layout_mode = 2
+text = "Text"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=357955586]
+layout_mode = 2
+alignment = 2
+
+[node name="ButtonNext" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1721829975]
+layout_mode = 2
+text = "Next"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonNext" to="." method="_on_button_next_pressed"]

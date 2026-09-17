@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://yknkyyc33s8b"]
+
+[ext_resource type="PackedScene" uid="uid://bcndn27lq5pdu" path="res://scenes/dialogue_box.tscn" id="1_esnag"]
+[ext_resource type="Script" uid="uid://cqox2t8v2bt4o" path="res://scenes/rescue_screen.gd" id="1_fheb7"]
+
+[node name="RescueScreen" type="Node3D" unique_id=906251841]
+script = ExtResource("1_fheb7")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1633957362]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -85.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 32
+
+[node name="DialogueBox" parent="MarginContainer" unique_id=332011556 instance=ExtResource("1_esnag")]
+layout_mode = 2
+
+[connection signal="next_button_pressed" from="MarginContainer/DialogueBox" to="." method="_on_dialogue_box_next_button_pressed"]

@@ -9,4 +9,7 @@ func _process(_delta: float) -> void:
 		load_phase()
 
 func load_phase() -> void:
-	Scenes.go_to_stage_scene()
+	if WorldState.prince_saved:
+		Scenes.go_to_rescue_screen()
+	else:
+		Scenes.go_to_stage_scene()
