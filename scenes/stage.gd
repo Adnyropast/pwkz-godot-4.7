@@ -1,7 +1,5 @@
 extends Node3D
 
-class_name StageScene
-
 @onready var commands_menu_node: Node = $HBoxContainer/MarginContainer/BattleCommandsMenu
 @onready var text_box_node: Node = $HBoxContainer/BattleTextBoxContainer/BattleTextBox
 
