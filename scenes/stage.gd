@@ -3,6 +3,10 @@ extends Node3D
 @onready var commands_menu_node: Node = $HBoxContainer/MarginContainer/BattleCommandsMenu
 @onready var text_box_node: Node = $HBoxContainer/BattleTextBoxContainer/BattleTextBox
 
+func _ready() -> void:
+	text_box_node.pause()
+	text_box_node.hide()
+
 func _on_battle_commands_menu_next_phase_button_pressed() -> void:
 	end_phase()
 
