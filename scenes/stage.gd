@@ -16,6 +16,10 @@ func _on_battle_commands_menu_next_stage_button_pressed() -> void:
 func _on_battle_text_box_closed() -> void:
 	PopupInterfaces.open_rewards_popup(on_rewards_closed)
 
+func _on_battle_commands_menu_battle_info_button_pressed() -> void:
+	commands_menu_node.pause()
+	PopupInterfaces.open_battle_info_screen_popup(on_battle_info_screen_closed)
+
 func end_phase() -> void:
 	commands_menu_node.hide()
 	
@@ -32,3 +36,6 @@ func on_rewards_closed() -> void:
 
 func on_equip_screen_closed() -> void:
 	WorldState.next_phase()
+
+func on_battle_info_screen_closed() -> void:
+	commands_menu_node.unpause()
