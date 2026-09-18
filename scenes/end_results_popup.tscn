@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://ceavqugl7pbww"]
+
+[ext_resource type="Script" uid="uid://bf12r30uboywy" path="res://scenes/end_results_popup.gd" id="1_bmfxy"]
+[ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="2_ib8s7"]
+
+[node name="EndResultsPopup" type="Control" unique_id=439247439]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bmfxy")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1588239623]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer" unique_id=1942055591]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/CenterContainer" unique_id=5837123]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CenterContainer/PanelContainer" unique_id=779338570]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer" unique_id=452132958]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1078097588]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=409740059]
+layout_mode = 2
+text = "Results"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1013978896]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=122412533]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ib8s7")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=2022523832]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ib8s7")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1252222693]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ib8s7")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=353717414]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ib8s7")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=845889749]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ib8s7")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1582480146]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ib8s7")
+expand_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=607734590]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ib8s7")
+expand_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=803754247]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("2_ib8s7")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2072725692]
+layout_mode = 2
+alignment = 2
+
+[node name="ButtonContinue" type="Button" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1295980290]
+layout_mode = 2
+text = "Continue"
+
+[connection signal="pressed" from="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ButtonContinue" to="." method="_on_button_continue_pressed"]

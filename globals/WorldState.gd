@@ -42,3 +42,6 @@ func next_phase_rescue() -> void:
 
 func end_rescue() -> void:
 	next_stage()
+
+func is_final_world() -> bool:
+	return current_world == WorldConstants.WORLDS_COUNT
