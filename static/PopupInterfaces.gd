@@ -17,3 +17,11 @@ static func open_rewards_popup(callback_callable: Callable) -> void:
 	next_button_pressed.connect(callback_callable)
 	next_button_pressed.connect(popup.queue_free)
 	tree.root.add_child(popup)
+
+static func open_equip_screen_popup(callback_callable: Callable) -> void:
+	var tree: SceneTree = Engine.get_main_loop()
+	var popup = preload("res://scenes/equip_screen_popup.tscn").instantiate()
+	var next_button_pressed: Signal = popup.next_button_pressed
+	next_button_pressed.connect(callback_callable)
+	next_button_pressed.connect(popup.queue_free)
+	tree.root.add_child(popup)

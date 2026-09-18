@@ -28,4 +28,7 @@ func end_phase() -> void:
 			text_box_node.set_victory()
 
 func on_rewards_closed() -> void:
+	PopupInterfaces.open_equip_screen_popup(on_equip_screen_closed)
+
+func on_equip_screen_closed() -> void:
 	WorldState.next_phase()
