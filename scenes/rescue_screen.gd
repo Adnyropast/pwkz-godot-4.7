@@ -4,6 +4,7 @@ const STEP_0: int = 0
 const STEP_1: int = 1
 const STEP_END: int = 2
 const STEP_END_RESULTS: int = 3
+const STEP_REWARDS: int = 4
 
 @onready var dialogue_box: Node = $MarginContainer/DialogueBox
 var step: int = STEP_0
@@ -21,6 +22,8 @@ func init_step(new_step: int) -> void:
 		init_step_0()
 	elif step == STEP_1:
 		init_step_1()
+	elif step == STEP_REWARDS:
+		init_step_rewards()
 	elif step == STEP_END_RESULTS:
 		init_step_end_results()
 	else:
@@ -31,6 +34,8 @@ func cleanup_step() -> void:
 		cleanup_step_0()
 	elif step == STEP_1:
 		cleanup_step_1()
+	elif step == STEP_REWARDS:
+		cleanup_step_rewards()
 	elif step == STEP_END_RESULTS:
 		cleanup_step_end_results()
 	else:
@@ -41,10 +46,7 @@ func init_step_0() -> void:
 	dialogue_box.set_message("Thank you for saving me!")
 
 func cleanup_step_0() -> void:
-	if WorldState.is_final_world():
-		init_step(STEP_END_RESULTS)
-	else:
-		init_step(STEP_1)
+	init_step(STEP_REWARDS)
 
 func init_step_1() -> void:
 	dialogue_box.set_message("Please save my other friend, too.")
@@ -57,6 +59,15 @@ func init_step_end_results() -> void:
 
 func cleanup_step_end_results() -> void:
 	init_step(STEP_1)
+
+func init_step_rewards() -> void:
+	PopupInterfaces.open_rewards_popup(cleanup_step)
+
+func cleanup_step_rewards() -> void:
+	if WorldState.is_final_world():
+		init_step(STEP_END_RESULTS)
+	else:
+		init_step(STEP_1)
 
 func end_step() -> void:
 	WorldState.end_rescue()

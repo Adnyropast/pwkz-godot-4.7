@@ -10,7 +10,7 @@ func _on_battle_commands_menu_next_stage_button_pressed() -> void:
 	WorldState.next_stage()
 
 func _on_battle_text_box_closed() -> void:
-	WorldState.next_phase()
+	PopupInterfaces.open_rewards_popup(on_rewards_closed)
 
 func end_phase() -> void:
 	commands_menu_node.hide()
@@ -22,3 +22,6 @@ func end_phase() -> void:
 			WorldState.next_phase_rescue()
 		else:
 			text_box_node.set_victory()
+
+func on_rewards_closed() -> void:
+	WorldState.next_phase()

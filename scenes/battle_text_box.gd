@@ -9,9 +9,16 @@ func _process(_delta: float) -> void:
 
 func set_victory() -> void:
 	label_node.text = "You won!"
+	unpause()
 	show()
 
 func confirm() -> void:
-	hide()
+	pause()
 	
 	closed.emit()
+
+func pause() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
+
+func unpause() -> void:
+	process_mode = Node.PROCESS_MODE_INHERIT
