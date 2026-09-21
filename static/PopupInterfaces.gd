@@ -41,3 +41,8 @@ static func open_return_to_title_popup(callback_callable: Callable) -> void:
 	cancel_button_pressed.connect(callback_callable)
 	cancel_button_pressed.connect(popup.queue_free)
 	tree.root.add_child(popup)
+
+static func open_defeat_popup() -> void:
+	var tree: SceneTree = Engine.get_main_loop()
+	var popup = preload("res://scenes/defeat_popup.tscn").instantiate()
+	tree.root.add_child(popup)

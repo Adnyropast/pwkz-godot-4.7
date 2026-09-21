@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cdlaolb5kifqt"]
+
+[ext_resource type="Script" uid="uid://6s8icyshrgw0" path="res://scenes/defeat_popup.gd" id="1_wx5fh"]
+
+[node name="DefeatPopup" type="Control" unique_id=1451044020]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wx5fh")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1939193421]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=630949315]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=1669812939]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=389866279]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1042022703]
+layout_mode = 2
+text = "Retry?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=945499680]
+layout_mode = 2
+
+[node name="ButtonRetry" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=326008242]
+layout_mode = 2
+text = "Retry"
+
+[node name="ButtonWorldSelect" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=557094889]
+layout_mode = 2
+text = "World Select"
+
+[node name="ButtonTitleScreen" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=471707114]
+layout_mode = 2
+text = "Title Screen"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ButtonRetry" to="." method="_on_button_retry_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ButtonWorldSelect" to="." method="_on_button_world_select_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ButtonTitleScreen" to="." method="_on_button_title_screen_pressed"]

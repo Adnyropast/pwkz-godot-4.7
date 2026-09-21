@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ddtt8ox5wl40c"]
+
+[ext_resource type="Script" uid="uid://8pg7nyijkn5t" path="res://scenes/world_select_progress_screen.gd" id="1_w5l6x"]
+[ext_resource type="PackedScene" uid="uid://5fiv7sch53kc" path="res://scenes/world_select_screen.tscn" id="1_ynyv7"]
+
+[node name="WorldSelectProgressScreen" type="Control" unique_id=2126095799]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w5l6x")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=476563682]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorldSelectScreen" parent="MarginContainer" unique_id=271351972 instance=ExtResource("1_ynyv7")]
+layout_mode = 2

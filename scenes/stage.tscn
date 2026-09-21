@@ -29,6 +29,7 @@ visible = false
 layout_mode = 1
 
 [connection signal="battle_info_button_pressed" from="HBoxContainer/MarginContainer/BattleCommandsMenu" to="." method="_on_battle_commands_menu_battle_info_button_pressed"]
+[connection signal="lose_battle_button_pressed" from="HBoxContainer/MarginContainer/BattleCommandsMenu" to="." method="_on_battle_commands_menu_lose_battle_button_pressed"]
 [connection signal="next_phase_button_pressed" from="HBoxContainer/MarginContainer/BattleCommandsMenu" to="." method="_on_battle_commands_menu_next_phase_button_pressed"]
 [connection signal="next_stage_button_pressed" from="HBoxContainer/MarginContainer/BattleCommandsMenu" to="." method="_on_battle_commands_menu_next_stage_button_pressed"]
 [connection signal="closed" from="HBoxContainer/BattleTextBoxContainer/BattleTextBox" to="." method="_on_battle_text_box_closed"]

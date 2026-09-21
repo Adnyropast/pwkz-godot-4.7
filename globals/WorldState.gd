@@ -55,3 +55,7 @@ func move_to_world(world: int) -> void:
 
 func move_to_first_world() -> void:
 	move_to_world(1)
+
+func retry_stage() -> void:
+	current_phase = 0
+	Scenes.go_to_stage_start_screen()

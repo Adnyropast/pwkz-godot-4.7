@@ -32,6 +32,10 @@ text = "(Next Phase)"
 layout_mode = 2
 text = "(Next Stage)"
 
+[node name="ButtonLoseBattle" type="Button" parent="MarginContainer/VBoxContainer" unique_id=104606917]
+layout_mode = 2
+text = "(Lose Battle)"
+
 [node name="ButtonRetire" type="Button" parent="MarginContainer/VBoxContainer" unique_id=412689342]
 layout_mode = 2
 text = "Retire"
@@ -39,4 +43,5 @@ text = "Retire"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonBattleInfo" to="." method="_on_button_battle_info_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonNextPhase" to="." method="_on_button_next_phase_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonNextStage" to="." method="_on_button_next_stage_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLoseBattle" to="." method="_on_button_lose_battle_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonRetire" to="." method="_on_button_retire_pressed"]

@@ -3,15 +3,6 @@ extends Control
 @onready var worlds_container: Container = $CenterContainer/WorldsContainer
 var next_world: int
 
-func _ready() -> void:
-	var worlds: Array = WorldSelectOptions.get_next_worlds_options()
-	
-	for world in worlds:
-		var item: Node = InterfaceItems.create_world_select_item(world)
-		var select_button_pressed: Signal = item.select_button_pressed
-		select_button_pressed.connect(on_select_button_pressed)
-		worlds_container.add_child(item)
-
 func on_select_button_pressed(world: int) -> void:
 	next_world = world
 	pause()
@@ -25,3 +16,10 @@ func pause() -> void:
 
 func unpause() -> void:
 	process_mode = Node.PROCESS_MODE_INHERIT
+
+func set_worlds(worlds: Array[int]) -> void:
+	for world in worlds:
+		var item: Node = InterfaceItems.create_world_select_item(world)
+		var select_button_pressed: Signal = item.select_button_pressed
+		select_button_pressed.connect(on_select_button_pressed)
+		worlds_container.add_child(item)

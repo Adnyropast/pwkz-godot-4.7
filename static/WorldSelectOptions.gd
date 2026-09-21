@@ -38,3 +38,27 @@ static func worlds_random_pop(worlds: Array[int]) -> int:
 	var index: int = randi_range(0, worlds.size() - 1)
 	var world: int = worlds.pop_at(index)
 	return world
+
+static func get_retry_worlds_options() -> Array[int]:
+	return get_retry_worlds_options_for_world(WorldState.current_world)
+
+static func get_retry_worlds_options_for_world(world: int) -> Array[int]:
+	var other_options: Array[int] = []
+	
+	for i in range(1, world):
+		other_options.append(i)
+	
+	var options: Array[int] = []
+	
+	if other_options.size() > 0:
+		var other_world: int = worlds_random_pop(other_options)
+		options.append(other_world)
+	
+	if other_options.size() > 0:
+		var other_world: int = worlds_random_pop(other_options)
+		options.append(other_world)
+	
+	options.sort()
+	options.append(world)
+	
+	return options
