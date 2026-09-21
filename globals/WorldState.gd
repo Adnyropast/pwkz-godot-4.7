@@ -41,7 +41,14 @@ func next_phase_rescue() -> void:
 	Scenes.go_to_stage_inbetween_screen()
 
 func end_rescue() -> void:
-	next_stage()
+	Scenes.go_to_world_select_screen()
 
 func is_final_world() -> bool:
 	return current_world == WorldConstants.WORLDS_COUNT
+
+func move_to_world(world: int) -> void:
+	current_world = world
+	current_stage = 1
+	current_phase = 0
+	prince_saved = false
+	Scenes.go_to_stage_start_screen()

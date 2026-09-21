@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://5fiv7sch53kc"]
+
+[ext_resource type="Script" uid="uid://b1bmphiov7meg" path="res://scenes/world_select_screen.gd" id="1_36itx"]
+
+[node name="WorldSelectScreen" type="Control" unique_id=50652251]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_36itx")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1949911576]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorldsContainer" type="HBoxContainer" parent="CenterContainer" unique_id=558357691]
+layout_mode = 2
+theme_override_constants/separation = 64
