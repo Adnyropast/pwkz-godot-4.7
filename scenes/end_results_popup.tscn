@@ -101,8 +101,13 @@ expand_mode = 1
 layout_mode = 2
 alignment = 2
 
+[node name="ButtonQuit" type="Button" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1126251883]
+layout_mode = 2
+text = "Quit"
+
 [node name="ButtonContinue" type="Button" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1295980290]
 layout_mode = 2
 text = "Continue"
 
+[connection signal="pressed" from="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ButtonQuit" to="." method="_on_button_quit_pressed"]
 [connection signal="pressed" from="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ButtonContinue" to="." method="_on_button_continue_pressed"]

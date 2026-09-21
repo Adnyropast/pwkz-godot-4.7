@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://tagymrlkhr1g"]
+
+[ext_resource type="Script" uid="uid://ck7l035kk02g4" path="res://scenes/return_to_title_popup.gd" id="1_uouyy"]
+
+[node name="ReturnToTitlePopup" type="Control" unique_id=1811353790]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uouyy")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=475893986]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=166228108]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=1213833002]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=953182769]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=630997147]
+layout_mode = 2
+text = "Return to Title Screen?"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2090741103]
+layout_mode = 2
+
+[node name="ButtonCancel" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1500220850]
+layout_mode = 2
+text = "Cancel"
+
+[node name="ButtonReturnToTitle" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1016886591]
+layout_mode = 2
+text = "Return to Title Screen"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ButtonCancel" to="." method="_on_button_cancel_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ButtonReturnToTitle" to="." method="_on_button_return_to_title_pressed"]

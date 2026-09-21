@@ -52,3 +52,6 @@ func move_to_world(world: int) -> void:
 	current_phase = 0
 	prince_saved = false
 	Scenes.go_to_stage_start_screen()
+
+func move_to_first_world() -> void:
+	move_to_world(1)

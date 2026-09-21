@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dwq2odlfwmq21"]
+
+[ext_resource type="Script" uid="uid://4vk3t4bmgrow" path="res://scenes/title_screen.gd" id="1_fgkus"]
+
+[node name="TitleScreen" type="Control" unique_id=1044247816]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgkus")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1436553939]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=322025628]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 224
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer" unique_id=676479797]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Project WORLDS KINGDOMS ZERO"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1953001699]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 32
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer2" unique_id=827920541]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/CenterContainer" unique_id=1253935200]
+layout_mode = 2
+
+[node name="ButtonStart" type="Button" parent="VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer" unique_id=245483327]
+layout_mode = 2
+text = "Start"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=757428876]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer3" unique_id=1371360661]
+layout_mode = 2
+text = "v.0.0.0"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]

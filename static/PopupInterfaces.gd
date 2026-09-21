@@ -33,3 +33,11 @@ static func open_battle_info_screen_popup(callback_callable: Callable) -> void:
 	close_button_pressed.connect(callback_callable)
 	close_button_pressed.connect(popup.queue_free)
 	tree.root.add_child(popup)
+
+static func open_return_to_title_popup(callback_callable: Callable) -> void:
+	var tree: SceneTree = Engine.get_main_loop()
+	var popup = preload("res://scenes/return_to_title_popup.tscn").instantiate()
+	var cancel_button_pressed: Signal = popup.cancel_button_pressed
+	cancel_button_pressed.connect(callback_callable)
+	cancel_button_pressed.connect(popup.queue_free)
+	tree.root.add_child(popup)

@@ -21,3 +21,7 @@ static func go_to_rescue_screen() -> void:
 static func go_to_world_select_screen() -> void:
 	var tree: SceneTree = Engine.get_main_loop()
 	tree.change_scene_to_file("res://scenes/world_select_screen.tscn")
+
+static func go_to_title_screen() -> void:
+	var tree: SceneTree = Engine.get_main_loop()
+	tree.change_scene_to_file("res://scenes/title_screen.tscn")
