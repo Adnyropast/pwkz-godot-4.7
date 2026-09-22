@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cacjfswvmbfwo" path="res://scenes/stage.gd" id="1_kewym"]
 [ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="2_6c5u0"]
 [ext_resource type="PackedScene" uid="uid://b7latik14ltrx" path="res://scenes/battle_text_box.tscn" id="2_gi7kc"]
+[ext_resource type="PackedScene" uid="uid://cktqoqd2ayamx" path="res://scenes/player_hud.tscn" id="3_vcsse"]
 
 [node name="Stage" type="Node3D" unique_id=818123241]
 script = ExtResource("1_kewym")
@@ -26,6 +27,18 @@ custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 texture = ExtResource("2_6c5u0")
 expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1643685994]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="PlayerHUD" parent="MarginContainer" unique_id=1303436572 instance=ExtResource("3_vcsse")]
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1696979599]
 anchors_preset = 15
