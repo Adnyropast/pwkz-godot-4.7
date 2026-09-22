@@ -1,0 +1,37 @@
+extends BaseAction
+
+class_name PlayerAttack
+
+signal enemy_defeated
+
+func perform(sender: Sender) -> void:
+	step_attack(sender)
+
+func step_attack(sender: Sender) -> void:
+	sender.send_timed(
+		"Maria attacks!",
+		step_damage.bind(sender),
+		2.0
+	)
+
+func step_damage(sender: Sender) -> void:
+	var damage = 1500
+	Enemy.hp -= damage
+	var enemy_name = Enemies.get_enemy_name(WorldState.get_phase_enemy_id())
+	sender.send_timed(
+		enemy_name + " takes " + str(damage) + " damage.",
+		step_defeat.bind(sender),
+		2.0
+	)
+
+func step_defeat(sender: Sender) -> void:
+	if Enemy.hp <= 0:
+		enemy_defeated.emit()
+		var enemy_name = Enemies.get_enemy_name(WorldState.get_phase_enemy_id())
+		sender.send_timed(
+			enemy_name + " was defeated!",
+			step_end,
+			2.0
+		)
+	else:
+		step_end()

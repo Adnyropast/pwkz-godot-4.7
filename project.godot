@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 WorldState="*uid://4pje516f2n4m"
 WorldConstants="*uid://cnis2p8xnc05p"
 Princes="*uid://cfkpufs2a6v8m"
+Enemy="*uid://52qganqhf3lc"
 
 [display]
 

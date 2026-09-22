@@ -2,27 +2,25 @@ extends Control
 
 @onready var label_node: Label = $MarginContainer/PanelContainer/MarginContainer/Label
 signal closed
-var is_victory: bool = false
 var confirm_tween: Tween
+var sender: Sender = Sender.new()
+
+func _ready() -> void:
+	sender.message_sent.connect(on_message_sent)
+	sender.timed_message_sent.connect(on_timed_message_sent)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		confirm()
 
-func set_victory() -> void:
-	is_victory = true
-	label_node.text = "You won!"
-	unpause()
-	show()
-
 func confirm() -> void:
-	confirm_tween.kill()
+	if confirm_tween:
+		confirm_tween.kill()
+	
 	pause()
+	hide()
 	
-	if not is_victory:
-		hide()
-	
-	closed.emit(is_victory)
+	closed.emit()
 
 func pause() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
@@ -30,18 +28,16 @@ func pause() -> void:
 func unpause() -> void:
 	process_mode = Node.PROCESS_MODE_INHERIT
 
-func set_player_idle() -> void:
-	label_node.text = "Maria is standing by."
-	unpause()
-	show()
-	tween_confirm()
-
-func set_enemy_idle(enemy_id: int) -> void:
-	label_node.text = Enemies.get_enemy_name(enemy_id) + " is standing by."
-	unpause()
-	show()
-	tween_confirm()
-
-func tween_confirm() -> void:
+func tween_confirm(timeout: float) -> void:
 	confirm_tween = create_tween()
-	confirm_tween.tween_callback(confirm).set_delay(2.0)
+	confirm_tween.tween_callback(confirm).set_delay(timeout)
+
+func on_message_sent(message: String, callback_callable: Callable) -> void:
+	label_node.text = message
+	unpause()
+	show()
+	closed.connect(callback_callable, CONNECT_ONE_SHOT)
+
+func on_timed_message_sent(message: String, callback_callable: Callable, timeout: float) -> void:
+	on_message_sent(message, callback_callable)
+	tween_confirm(timeout)
