@@ -2,8 +2,10 @@ extends Node3D
 
 @onready var commands_menu_node: Node = $HBoxContainer/MarginContainer/BattleCommandsMenu
 @onready var text_box_node: Node = $HBoxContainer/BattleTextBoxContainer/BattleTextBox
+@onready var enemy_texture: TextureRect = $CenterContainer/EnemyTexture
 
 func _ready() -> void:
+	enemy_texture.texture = Enemies.get_enemy_texture(WorldState.get_phase_enemy_id())
 	text_box_node.pause()
 	text_box_node.hide()
 

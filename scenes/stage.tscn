@@ -2,10 +2,30 @@
 
 [ext_resource type="PackedScene" uid="uid://bmcql7jlewip3" path="res://scenes/battle_commands_menu.tscn" id="1_8rem4"]
 [ext_resource type="Script" uid="uid://cacjfswvmbfwo" path="res://scenes/stage.gd" id="1_kewym"]
+[ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="2_6c5u0"]
 [ext_resource type="PackedScene" uid="uid://b7latik14ltrx" path="res://scenes/battle_text_box.tscn" id="2_gi7kc"]
 
 [node name="Stage" type="Node3D" unique_id=818123241]
 script = ExtResource("1_kewym")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2016165473]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyTexture" type="TextureRect" parent="CenterContainer" unique_id=828051645]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+texture = ExtResource("2_6c5u0")
+expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1696979599]
 anchors_preset = 15

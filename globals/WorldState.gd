@@ -59,3 +59,6 @@ func move_to_first_world() -> void:
 func retry_stage() -> void:
 	current_phase = 0
 	Scenes.go_to_stage_start_screen()
+
+func get_phase_enemy_id() -> int:
+	return WorldConstants.PHASES[current_world - 1][current_stage - 1][current_phase]
