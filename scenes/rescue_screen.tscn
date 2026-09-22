@@ -2,9 +2,27 @@
 
 [ext_resource type="PackedScene" uid="uid://bcndn27lq5pdu" path="res://scenes/dialogue_box.tscn" id="1_esnag"]
 [ext_resource type="Script" uid="uid://cqox2t8v2bt4o" path="res://scenes/rescue_screen.gd" id="1_fheb7"]
+[ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="2_jvwdm"]
 
 [node name="RescueScreen" type="Node3D" unique_id=906251841]
 script = ExtResource("1_fheb7")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1170711260]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -32)
+
+[node name="PrinceTexture" type="TextureRect" parent="CenterContainer" unique_id=1701394404]
+custom_minimum_size = Vector2(384, 384)
+layout_mode = 2
+texture = ExtResource("2_jvwdm")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1633957362]
 anchors_preset = 12

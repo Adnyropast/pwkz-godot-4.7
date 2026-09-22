@@ -7,6 +7,7 @@ const STEP_END_RESULTS: int = 3
 const STEP_REWARDS: int = 4
 
 @onready var dialogue_box: Node = $MarginContainer/DialogueBox
+@onready var prince_texture: TextureRect = $CenterContainer/PrinceTexture
 var step: int = STEP_0
 
 func _ready() -> void:
@@ -42,6 +43,7 @@ func cleanup_step() -> void:
 		end_step()
 
 func init_step_0() -> void:
+	prince_texture.texture = Princes.get_prince_texture(WorldState.current_world)
 	dialogue_box.set_speaker_name(Princes.get_prince_name(WorldState.current_world))
 	dialogue_box.set_message("Thank you for saving me!")
 
