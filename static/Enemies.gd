@@ -25,8 +25,37 @@ const ENEMIES_TEXTURES: Array[Texture] = [
 	preload("res://images/enemies/e28.png"),
 ]
 
-static func get_enemy_texture(id: int) -> Texture:
+const ENEMIES_NAMES: Array[String] = [
+	"Slime",
+	"Goblin Swordsman",
+	"Goblin Chopper",
+	"Goblin Archer",
+	"Wolf",
+	"Orc",
+	"Softpuff",
+	"Land Shark",
+	"Spider",
+	"Flower Pot",
+	"Lantern",
+	"Wraith",
+	"White Cyclops",
+	"Noble Moth",
+	"Maw Flower",
+	"Blue Taurus",
+	"Giant Rooster",
+	"Cursed Doll",
+	"Space Dragon",
+	"Demon Tide",
+]
+
+static func convert_enemy_id(id: int) -> int:
 	if id > 20:
 		id = id - (21 - (12 + 1))
 	
-	return ENEMIES_TEXTURES[id - 1]
+	return id - 1
+
+static func get_enemy_texture(id: int) -> Texture:
+	return ENEMIES_TEXTURES[convert_enemy_id(id)]
+
+static func get_enemy_name(id: int) -> String:
+	return ENEMIES_NAMES[convert_enemy_id(id)]

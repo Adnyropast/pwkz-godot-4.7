@@ -70,4 +70,18 @@ layout_mode = 2
 layout_mode = 2
 text = "Close"
 
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=2068745041]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2" unique_id=72263145]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer" unique_id=587668486]
+layout_mode = 2
+text = "Name"
+
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/ButtonClose" to="." method="_on_button_close_pressed"]
