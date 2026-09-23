@@ -6,8 +6,7 @@ extends Node3D
 var turn_system: TurnSystem = TurnSystem.new()
 
 func _ready() -> void:
-	Enemy.reset_hp()
-	enemy_texture.texture = Enemies.get_enemy_texture(WorldState.get_phase_enemy_id())
+	enemy_texture.texture = Enemy.get_texture()
 	text_box_node.pause()
 	text_box_node.hide()
 	commands_menu_node.pause()
@@ -23,7 +22,7 @@ func _on_battle_commands_menu_next_phase_button_pressed() -> void:
 	end_phase()
 
 func _on_battle_commands_menu_next_stage_button_pressed() -> void:
-	WorldState.next_stage()
+	Stages.next_stage()
 
 func _on_battle_commands_menu_battle_info_button_pressed() -> void:
 	commands_menu_node.pause()
@@ -52,10 +51,10 @@ func end_phase() -> void:
 	commands_menu_node.hide()
 	
 	if WorldState.has_more_phases():
-		WorldState.next_phase()
+		Phases.next_phase()
 	else:
 		if WorldState.is_final_stage():
-			WorldState.next_phase_rescue()
+			Phases.next_phase_rescue()
 		else:
 			text_box_node.sender.send("You won!", PopupInterfaces.open_rewards_popup.bind(on_rewards_closed))
 
@@ -63,7 +62,7 @@ func on_rewards_closed() -> void:
 	PopupInterfaces.open_equip_screen_popup(on_equip_screen_closed)
 
 func on_equip_screen_closed() -> void:
-	WorldState.next_phase()
+	Phases.next_phase()
 
 func on_battle_info_screen_closed() -> void:
 	commands_menu_node.unpause()

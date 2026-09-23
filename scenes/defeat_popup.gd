@@ -2,7 +2,7 @@ extends Control
 
 func _on_button_retry_pressed() -> void:
 	queue_free()
-	PopupInterfaces.open_equip_screen_popup(WorldState.retry_stage)
+	PopupInterfaces.open_equip_screen_popup(Stages.retry_stage)
 
 func _on_button_world_select_pressed() -> void:
 	queue_free()

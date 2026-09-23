@@ -6,7 +6,7 @@ func perform(sender: Sender) -> void:
 	step_attack(sender)
 
 func step_attack(sender: Sender) -> void:
-	var enemy_name = Enemies.get_enemy_name(WorldState.get_phase_enemy_id())
+	var enemy_name = Enemy.get_enemy_name()
 	sender.send_timed(
 		enemy_name + " attacks!",
 		step_damage.bind(sender),

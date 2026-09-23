@@ -72,4 +72,4 @@ func cleanup_step_rewards() -> void:
 		init_step(STEP_1)
 
 func end_step() -> void:
-	WorldState.end_rescue()
+	Phases.end_rescue()

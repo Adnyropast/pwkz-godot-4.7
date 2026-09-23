@@ -17,7 +17,7 @@ func step_attack(sender: Sender) -> void:
 func step_damage(sender: Sender) -> void:
 	var damage = 1500
 	Enemy.hp -= damage
-	var enemy_name = Enemies.get_enemy_name(WorldState.get_phase_enemy_id())
+	var enemy_name = Enemy.get_enemy_name()
 	sender.send_timed(
 		enemy_name + " takes " + str(damage) + " damage.",
 		step_defeat.bind(sender),
@@ -27,7 +27,7 @@ func step_damage(sender: Sender) -> void:
 func step_defeat(sender: Sender) -> void:
 	if Enemy.hp <= 0:
 		enemy_defeated.emit()
-		var enemy_name = Enemies.get_enemy_name(WorldState.get_phase_enemy_id())
+		var enemy_name = Enemy.get_enemy_name()
 		sender.send_timed(
 			enemy_name + " was defeated!",
 			step_end,

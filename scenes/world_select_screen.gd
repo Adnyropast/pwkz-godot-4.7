@@ -9,7 +9,7 @@ func on_select_button_pressed(world: int) -> void:
 	PopupInterfaces.open_equip_screen_popup(on_equip_screen_closed)
 
 func on_equip_screen_closed() -> void:
-	WorldState.move_to_world(next_world)
+	Worlds.move_to_world(next_world)
 
 func pause() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
