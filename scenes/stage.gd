@@ -13,6 +13,7 @@ func _ready() -> void:
 	commands_menu_node.pause()
 	commands_menu_node.hide()
 	
+	turn_system.defeat.connect(on_defeat)
 	turn_system.victory.connect(on_victory)
 	turn_system.player_turn.connect(on_player_turn)
 	turn_system.enemy_turn.connect(on_enemy_turn)
@@ -72,12 +73,13 @@ func on_player_turn() -> void:
 	commands_menu_node.unpause()
 
 func on_enemy_turn() -> void:
-	var action = EnemyIdle.new()
-	action.ended.connect(turn_system.end_turn)
-	action.perform(text_box_node.sender)
+	EnemyActionPicker.pick_action(text_box_node.sender, turn_system.end_turn)
 
 func on_victory() -> void:
 	end_phase()
 
 func on_enemy_defeated() -> void:
 	enemy_texture.hide()
+
+func on_defeat() -> void:
+	PopupInterfaces.open_defeat_popup()

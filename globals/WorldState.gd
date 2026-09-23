@@ -6,6 +6,7 @@ var current_phase: int = 0
 var prince_saved: bool
 
 func next_stage() -> void:
+	Player.reset_hp()
 	prince_saved = false
 	current_phase = 0
 	current_stage += 1
@@ -47,6 +48,7 @@ func is_final_world() -> bool:
 	return current_world == WorldConstants.WORLDS_COUNT
 
 func move_to_world(world: int) -> void:
+	Player.reset_hp()
 	current_world = world
 	current_stage = 1
 	current_phase = 0
@@ -57,6 +59,7 @@ func move_to_first_world() -> void:
 	move_to_world(1)
 
 func retry_stage() -> void:
+	Player.reset_hp()
 	current_phase = 0
 	Scenes.go_to_stage_start_screen()
 
