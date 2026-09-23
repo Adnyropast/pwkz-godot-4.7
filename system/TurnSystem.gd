@@ -5,20 +5,23 @@ class_name TurnSystem
 signal player_turn
 signal enemy_turn
 signal victory
-var turn_pointer: bool = true
+var turn_pointer: bool = false
 
 func start() -> void:
 	start_pre_turn()
 
 func end_turn() -> void:
-	turn_pointer = !turn_pointer
 	start_pre_turn()
 
 func start_pre_turn() -> void:
 	if VictorySystem.check_victory():
 		victory.emit()
 	else:
+		pick_character()
 		start_turn()
+
+func pick_character() -> void:
+	turn_pointer = !turn_pointer
 
 func start_turn() -> void:
 	if turn_pointer:
