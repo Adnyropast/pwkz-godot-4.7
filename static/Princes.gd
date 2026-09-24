@@ -1,6 +1,8 @@
 extends Node
 
-const PRINCES_NAMES: Array = [
+class_name Princes
+
+const PRINCES_NAMES: Array[String] = [
 	"Princess Clara",
 	"Prince Grant",
 	"Princess Lima",
@@ -11,7 +13,7 @@ const PRINCES_NAMES: Array = [
 	"Prince Maeve",
 ]
 
-const PRINCES_TEXTURES: Array = [
+const PRINCES_TEXTURES: Array[Texture] = [
 	preload("res://images/princes/s1.png"),
 	preload("res://images/princes/s2.png"),
 	preload("res://images/princes/s3.png"),
@@ -22,8 +24,8 @@ const PRINCES_TEXTURES: Array = [
 	preload("res://images/princes/s8.png"),
 ]
 
-func get_prince_name(world: int) -> String:
+static func get_prince_name(world: int) -> String:
 	return PRINCES_NAMES[world - 1]
 
-func get_prince_texture(world: int) -> Texture:
+static func get_prince_texture(world: int) -> Texture:
 	return PRINCES_TEXTURES[world - 1]
