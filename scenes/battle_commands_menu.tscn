@@ -24,6 +24,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Attack"
 
+[node name="ButtonHeal" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1232357565]
+layout_mode = 2
+text = "Heal"
+
 [node name="ButtonPass" type="Button" parent="MarginContainer/VBoxContainer" unique_id=922880484]
 layout_mode = 2
 text = "(Pass Turn)"
@@ -49,6 +53,7 @@ layout_mode = 2
 text = "Retire"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonAttack" to="." method="_on_button_attack_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonHeal" to="." method="_on_button_heal_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonPass" to="." method="_on_button_pass_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonBattleInfo" to="." method="_on_button_battle_info_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonNextPhase" to="." method="_on_button_next_phase_pressed"]

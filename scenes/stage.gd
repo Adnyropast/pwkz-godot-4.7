@@ -48,6 +48,13 @@ func _on_battle_commands_menu_attack_button_pressed() -> void:
 	action.ended.connect(turn_system.end_turn)
 	action.perform(text_box_node.sender)
 
+func _on_battle_commands_menu_heal_button_pressed() -> void:
+	commands_menu_node.pause()
+	commands_menu_node.hide()
+	var action = PlayerHeal.new()
+	action.ended.connect(turn_system.end_turn)
+	action.perform(text_box_node.sender)
+
 func end_phase() -> void:
 	commands_menu_node.hide()
 	
