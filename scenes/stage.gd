@@ -7,6 +7,8 @@ var turn_system: TurnSystem = TurnSystem.new()
 
 func _ready() -> void:
 	enemy_texture.texture = Enemy.get_texture()
+	Enemy.enemy_defeated.connect(on_enemy_defeated)
+	
 	text_box_node.pause()
 	text_box_node.hide()
 	commands_menu_node.pause()
@@ -43,7 +45,6 @@ func _on_battle_commands_menu_attack_button_pressed() -> void:
 	commands_menu_node.pause()
 	commands_menu_node.hide()
 	var action = PlayerAttack.new()
-	action.enemy_defeated.connect(on_enemy_defeated)
 	action.ended.connect(turn_system.end_turn)
 	action.perform(text_box_node.sender)
 

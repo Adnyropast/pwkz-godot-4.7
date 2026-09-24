@@ -2,8 +2,6 @@ extends BaseAction
 
 class_name PlayerAttack
 
-signal enemy_defeated
-
 func perform(sender: Sender) -> void:
 	step_attack(sender)
 
@@ -16,7 +14,7 @@ func step_attack(sender: Sender) -> void:
 
 func step_damage(sender: Sender) -> void:
 	var damage = 1500
-	Enemy.hp -= damage
+	Enemy.subtract_hp(damage)
 	var enemy_name = Enemy.get_enemy_name()
 	sender.send_timed(
 		enemy_name + " takes " + str(damage) + " damage.",
@@ -25,8 +23,8 @@ func step_damage(sender: Sender) -> void:
 	)
 
 func step_defeat(sender: Sender) -> void:
-	if Enemy.hp <= 0:
-		enemy_defeated.emit()
+	if Enemy.is_ko():
+		Enemy.try_emit_enemy_defeated()
 		var enemy_name = Enemy.get_enemy_name()
 		sender.send_timed(
 			enemy_name + " was defeated!",
