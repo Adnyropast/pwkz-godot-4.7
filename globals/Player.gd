@@ -1,13 +1,17 @@
 extends Node
 
+const MAX_HP = 3000
+
 signal player_defeated
+signal hp_changed
 var hp: int
 
 func reset_hp() -> void:
-	hp = 3000
+	set_hp(MAX_HP)
 
 func set_hp(new_hp: int) -> void:
 	hp = new_hp
+	hp_changed.emit()
 
 func subtract_hp(value_hp: int) -> void:
 	set_hp(hp - value_hp)
