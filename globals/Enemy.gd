@@ -3,8 +3,11 @@ extends Node
 signal enemy_defeated
 var hp: int
 
+func get_max_hp() -> int:
+	return 3000
+
 func reset_hp() -> void:
-	hp = 3000
+	hp = get_max_hp()
 
 func subtract_hp(value_hp: int) -> void:
 	hp -= value_hp
