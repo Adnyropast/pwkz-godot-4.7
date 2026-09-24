@@ -88,6 +88,7 @@ func on_player_turn() -> void:
 	commands_menu_node.unpause()
 
 func on_enemy_turn() -> void:
+	Enemy.on_turn_start()
 	EnemyActionPicker.pick_action(text_box_node.sender, turn_system.end_turn)
 
 func on_victory() -> void:

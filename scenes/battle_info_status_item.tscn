@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://d0nn2fwa255s4"]
+
+[ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="1_6lgkk"]
+[ext_resource type="Script" uid="uid://oofedh8r8oh7" path="res://scenes/battle_info_status_item.gd" id="1_svxot"]
+
+[node name="BattleInfoStatusItem" type="MarginContainer" unique_id=141039329]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_svxot")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=590427787]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=615769930]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=2088076385]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=2079703053]
+layout_mode = 2
+
+[node name="StatusTexture" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/CenterContainer" unique_id=59959386]
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_6lgkk")
+expand_mode = 1
+
+[node name="StatusLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=26635455]
+layout_mode = 2
+text = "Status"

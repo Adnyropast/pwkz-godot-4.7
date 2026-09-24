@@ -13,7 +13,7 @@ func step_attack(sender: Sender) -> void:
 	)
 
 func step_damage(sender: Sender) -> void:
-	var damage = 1500
+	var damage = DamageCalcs.get_modified_damage_to_enemy(1500)
 	Enemy.subtract_hp(damage)
 	var enemy_name = Enemy.get_enemy_name()
 	sender.send_timed(

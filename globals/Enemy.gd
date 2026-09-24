@@ -2,6 +2,7 @@ extends Node
 
 signal enemy_defeated
 var hp: int
+var is_defending: bool
 
 func get_max_hp() -> int:
 	return 3000
@@ -41,3 +42,9 @@ func is_ko() -> bool:
 func try_emit_enemy_defeated() -> void:
 	if is_ko():
 		enemy_defeated.emit()
+
+func make_defend() -> void:
+	is_defending = true
+
+func on_turn_start() -> void:
+	is_defending = false

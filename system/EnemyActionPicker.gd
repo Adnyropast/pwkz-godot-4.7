@@ -8,7 +8,7 @@ static func pick_action(sender: Sender, on_ended: Callable) -> void:
 	action.perform(sender)
 
 static func get_random_action() -> BaseAction:
-	var options: Array = [EnemyIdle, EnemyAttack, EnemyHeal]
+	var options: Array = [EnemyIdle, EnemyAttack, EnemyHeal, EnemyDefend]
 	var index: int = randi_range(0, options.size() - 1)
 	var action: BaseAction = options[index].new()
 	return action

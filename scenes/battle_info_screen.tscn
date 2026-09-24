@@ -128,4 +128,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_wl4qe")
 value = 100.0
 show_percentage = false
 
+[node name="StatusesContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer" unique_id=1303263917]
+layout_mode = 2
+
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/ButtonClose" to="." method="_on_button_close_pressed"]
