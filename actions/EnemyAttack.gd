@@ -14,7 +14,7 @@ func step_attack(sender: Sender) -> void:
 	)
 
 func step_damage(sender: Sender) -> void:
-	var damage = 1000
+	var damage = DamageCalcs.get_modified_damage_to_player(1000)
 	Player.subtract_hp(damage)
 	sender.send_timed(
 		"Maria takes " + str(damage) + " damage.",

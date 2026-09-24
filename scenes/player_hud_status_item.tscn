@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://2w51hn1dutr7"]
+
+[ext_resource type="Script" uid="uid://sexy036neoml" path="res://scenes/player_hud_status_item.gd" id="1_kchif"]
+[ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="2_pkods"]
+
+[node name="PlayerHudStatusItem" type="MarginContainer" unique_id=2088245537]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kchif")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1812741314]
+layout_mode = 2
+
+[node name="StatusTexture" type="TextureRect" parent="CenterContainer" unique_id=360957566]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_pkods")
+expand_mode = 1

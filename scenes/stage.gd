@@ -48,6 +48,13 @@ func _on_battle_commands_menu_attack_button_pressed() -> void:
 	action.ended.connect(turn_system.end_turn)
 	action.perform(text_box_node.sender)
 
+func _on_battle_commands_menu_defend_button_pressed() -> void:
+	commands_menu_node.pause()
+	commands_menu_node.hide()
+	var action = PlayerDefend.new()
+	action.ended.connect(turn_system.end_turn)
+	action.perform(text_box_node.sender)
+
 func _on_battle_commands_menu_heal_button_pressed() -> void:
 	commands_menu_node.pause()
 	commands_menu_node.hide()
@@ -76,6 +83,7 @@ func on_battle_info_screen_closed() -> void:
 	commands_menu_node.unpause()
 
 func on_player_turn() -> void:
+	Player.on_turn_start()
 	commands_menu_node.show()
 	commands_menu_node.unpause()
 

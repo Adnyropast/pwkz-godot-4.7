@@ -4,7 +4,9 @@ const MAX_HP = 3000
 
 signal player_defeated
 signal hp_changed
+signal statuses_changed
 var hp: int
+var is_defending: bool
 
 func reset_hp() -> void:
 	set_hp(MAX_HP)
@@ -30,3 +32,11 @@ func is_ko() -> int:
 func try_emit_player_defeated() -> void:
 	if is_ko():
 		player_defeated.emit()
+
+func make_defend() -> void:
+	is_defending = true
+	statuses_changed.emit()
+
+func on_turn_start() -> void:
+	is_defending = false
+	statuses_changed.emit()
