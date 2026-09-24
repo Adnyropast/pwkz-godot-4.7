@@ -12,6 +12,8 @@ func reset_hp() -> void:
 func set_hp(new_hp: int) -> void:
 	if new_hp > MAX_HP:
 		hp = MAX_HP
+	elif new_hp < 0:
+		hp = 0
 	else:
 		hp = new_hp
 	hp_changed.emit()
