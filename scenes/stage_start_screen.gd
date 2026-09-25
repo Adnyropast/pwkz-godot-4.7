@@ -15,4 +15,4 @@ func _process(_delta: float) -> void:
 		load_stage()
 
 func load_stage() -> void:
-	Scenes.go_to_stage_scene()
+	Scenes.go_to_battle_scene()

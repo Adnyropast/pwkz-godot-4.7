@@ -12,4 +12,4 @@ func load_phase() -> void:
 	if WorldState.prince_saved:
 		Scenes.go_to_rescue_screen()
 	else:
-		Scenes.go_to_stage_scene()
+		Scenes.go_to_battle_scene()

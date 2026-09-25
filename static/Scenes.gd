@@ -2,9 +2,9 @@ extends Node
 
 class_name Scenes
 
-static func go_to_stage_scene() -> void:
+static func go_to_battle_scene() -> void:
 	var tree: SceneTree = Engine.get_main_loop()
-	tree.change_scene_to_file("res://scenes/stage.tscn")
+	tree.change_scene_to_file("res://scenes/battle_scene.tscn")
 
 static func go_to_stage_start_screen() -> void:
 	var tree: SceneTree = Engine.get_main_loop()
