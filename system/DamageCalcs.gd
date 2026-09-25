@@ -3,9 +3,12 @@ extends Node
 class_name DamageCalcs
 
 static func get_modified_damage_to_player(damage: int) -> int:
+	var multiplier: float = 1
+	
 	if Player.is_defending:
-		damage = floori(damage * 0.6)
-	return damage
+		multiplier *= MagiciteDamageMinus.get_modified_multiplier(0.6)
+	
+	return floori(damage * multiplier)
 
 static func get_modified_damage_to_enemy(damage: int) -> int:
 	var multiplier: float = 1
