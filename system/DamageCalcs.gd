@@ -8,6 +8,11 @@ static func get_modified_damage_to_player(damage: int) -> int:
 	return damage
 
 static func get_modified_damage_to_enemy(damage: int) -> int:
+	var multiplier: float = 1
+	
 	if Enemy.is_defending:
-		damage = floori(damage * 0.6)
-	return damage
+		multiplier *= 0.6
+	
+	multiplier *= MagicitePowerPlus.get_power_multiplier()
+	
+	return floori(damage * multiplier)
