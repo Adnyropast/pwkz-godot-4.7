@@ -31,3 +31,10 @@ static func add_and_get_random_magicites() -> Dictionary[Magicite, int]:
 	var rewards: Dictionary[Magicite, int] = get_random_magicites()
 	Inventory.add_magicites(rewards)
 	return rewards
+
+static func debug_max_magicites() -> void:
+	var res: Dictionary[Magicite, int]
+	for i in range(0, magicites.size()):
+		var magicite: Magicite = magicites[i]
+		res.set(magicite, 99)
+	Inventory.add_magicites(res)

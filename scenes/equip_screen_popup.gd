@@ -19,6 +19,10 @@ func _on_button_defend_pressed() -> void:
 func _on_button_heal_pressed() -> void:
 	set_tab_heal()
 
+func _on_button_debug_max_pressed() -> void:
+	RewardSystem.debug_max_magicites()
+	refresh_tabs()
+
 func _on_button_next_pressed() -> void:
 	next_button_pressed.emit()
 
