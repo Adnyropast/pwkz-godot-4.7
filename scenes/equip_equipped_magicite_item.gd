@@ -4,10 +4,9 @@ signal button_pressed
 @onready var magicite_texture: TextureRect = $PanelContainer/MarginContainer/HBoxContainer/MagiciteTexture
 @onready var name_label: Label = $PanelContainer/MarginContainer/HBoxContainer/NameLabel
 var index: int
-var magicite: Magicite
 
 func _on_item_button_pressed() -> void:
-	button_pressed.emit(index, magicite)
+	button_pressed.emit(index)
 
 func set_magicite_texture(texture: Texture) -> void:
 	magicite_texture.texture = texture
@@ -18,8 +17,7 @@ func set_magicite_name(magicite_name: String) -> void:
 func set_index(p_index: int) -> void:
 	index = p_index
 
-func set_magicite(p_magicite: Magicite) -> void:
-	magicite = p_magicite
+func set_magicite(magicite: Magicite) -> void:
 	if magicite == null:
 		set_magicite_texture(null)
 		set_magicite_name("---")

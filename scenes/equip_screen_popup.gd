@@ -28,11 +28,9 @@ func _on_button_next_pressed() -> void:
 
 func on_inventory_magicite_item_pressed(magicite: Magicite) -> void:
 	PlayerMagicites.equip_magicite_end(tab, magicite)
-	Inventory.remove_magicite(magicite)
 	refresh_tabs()
 
-func on_equipped_magicite_item_pressed(index: int, magicite: Magicite) -> void:
-	Inventory.add_magicite(magicite)
+func on_equipped_magicite_item_pressed(index: int) -> void:
 	PlayerMagicites.unequip_magicite_at(tab, index)
 	refresh_tabs()
 
