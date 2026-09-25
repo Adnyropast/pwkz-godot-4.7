@@ -18,4 +18,4 @@ static func end_rescue() -> void:
 	Scenes.go_to_world_select_screen()
 
 static func on_phase_start() -> void:
-	Enemy.reset_hp()
+	Enemy.reset_enemy()

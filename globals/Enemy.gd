@@ -15,9 +15,6 @@ func set_hp(new_hp: int) -> void:
 	else:
 		hp = new_hp
 
-func reset_hp() -> void:
-	set_hp(get_max_hp())
-
 func subtract_hp(value_hp: int) -> void:
 	set_hp(hp - value_hp)
 
@@ -47,4 +44,8 @@ func make_defend() -> void:
 	is_defending = true
 
 func on_turn_start() -> void:
+	is_defending = false
+
+func reset_enemy() -> void:
+	set_hp(get_max_hp())
 	is_defending = false
