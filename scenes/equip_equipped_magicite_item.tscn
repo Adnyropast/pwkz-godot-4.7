@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://o2i7141ra8uv"]
+
+[ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="1_f3qbr"]
+[ext_resource type="Script" uid="uid://dfogjlhfmanlk" path="res://scenes/equip_equipped_magicite_item.gd" id="1_ivlou"]
+
+[node name="EquipEquippedMagiciteItem" type="MarginContainer" unique_id=1326501629]
+offset_right = 256.0
+offset_bottom = 24.0
+script = ExtResource("1_ivlou")
+
+[node name="ItemButton" type="Button" parent="." unique_id=601530122]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=415376443]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=175572920]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=652494912]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="MagiciteTexture" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1890635445]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_f3qbr")
+expand_mode = 1
+
+[node name="NameLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=308505527]
+layout_mode = 2
+text = "---"
+
+[connection signal="pressed" from="ItemButton" to="." method="_on_item_button_pressed"]

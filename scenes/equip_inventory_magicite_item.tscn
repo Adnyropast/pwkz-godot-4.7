@@ -8,12 +8,17 @@ offset_right = 122.0
 offset_bottom = 24.0
 script = ExtResource("1_dk5fb")
 
+[node name="ItemButton" type="Button" parent="." unique_id=347893219]
+layout_mode = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=477232588]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="MagiciteTexture" type="TextureRect" parent="HBoxContainer" unique_id=1462188113]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("1_ou04n")
 expand_mode = 1
 
@@ -23,6 +28,7 @@ text = "Magicite"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=584766784]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="HBoxContainer/HBoxContainer" unique_id=2082850577]
@@ -32,3 +38,5 @@ text = "×"
 [node name="QuantityLabel" type="Label" parent="HBoxContainer/HBoxContainer" unique_id=1885091666]
 layout_mode = 2
 text = "1"
+
+[connection signal="pressed" from="ItemButton" to="." method="_on_item_button_pressed"]
