@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 WorldState="*uid://4pje516f2n4m"
-WorldConstants="*uid://cnis2p8xnc05p"
 Enemy="*uid://52qganqhf3lc"
 Player="*uid://cb4aoybwjua47"
 

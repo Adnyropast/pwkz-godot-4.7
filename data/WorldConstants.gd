@@ -1,5 +1,7 @@
 extends Node
 
+class_name WorldConstants
+
 const WORLDS_COUNT: int = 8
 const WORLD_STAGES_COUNT: int = 4
 const PHASES: Array = [
@@ -202,5 +204,5 @@ const PHASES: Array = [
 	],
 ]
 
-func get_phases_count(world: int, stage: int) -> int:
+static func get_phases_count(world: int, stage: int) -> int:
 	return len(PHASES[world - 1][stage - 1])
