@@ -18,9 +18,21 @@ func step_damage(sender: Sender) -> void:
 	var enemy_name = Enemy.get_enemy_name()
 	sender.send_timed(
 		enemy_name + " takes " + str(damage) + " damage.",
-		step_defeat.bind(sender),
+		step_drain.bind(sender, damage),
 		2.0
 	)
+
+func step_drain(sender: Sender, damage: int) -> void:
+	if MagiciteDrainPlus.has_magicites():
+		var healing: int = MagiciteDrainPlus.get_drain_healing(damage)
+		Player.add_hp(healing)
+		sender.send_timed(
+			"Maria recovers " + str(healing) + " hp.",
+			step_defeat.bind(sender),
+			2.0
+		)
+	else:
+		step_defeat(sender)
 
 func step_defeat(sender: Sender) -> void:
 	if Enemy.is_ko():
