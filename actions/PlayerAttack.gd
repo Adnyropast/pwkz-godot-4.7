@@ -8,9 +8,21 @@ func perform(sender: Sender) -> void:
 func step_attack(sender: Sender) -> void:
 	sender.send_timed(
 		"Maria attacks!",
-		step_damage.bind(sender),
+		step_instant_ko.bind(sender),
 		2.0
 	)
+
+func step_instant_ko(sender: Sender) -> void:
+	if MagiciteInstantKOPlus.roll_instant_ko():
+		var damage = Enemy.hp
+		Enemy.subtract_hp(damage)
+		sender.send_timed(
+			"Instant K.O.!!!",
+			step_drain.bind(sender, damage),
+			2.0
+		)
+	else:
+		step_damage(sender)
 
 func step_damage(sender: Sender) -> void:
 	var damage = DamageCalcs.get_modified_damage_to_enemy(1500)
