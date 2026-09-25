@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cvb48lr6wp2vg"]
 
-[ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="1_hoyi3"]
 [ext_resource type="Script" uid="uid://bj28ds7bvvqsr" path="res://scenes/rewards_popup.gd" id="1_twdr0"]
 
 [node name="RewardsPopup" type="Control" unique_id=866865378]
@@ -42,34 +41,8 @@ layout_mode = 2
 text = "Obtained"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1588517389]
+[node name="MagicitesContainer" type="VBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1588517389]
 layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2034760886]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=771861063]
-custom_minimum_size = Vector2(24, 24)
-layout_mode = 2
-texture = ExtResource("1_hoyi3")
-expand_mode = 1
-
-[node name="LabelName" type="Label" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=158238303]
-layout_mode = 2
-text = "Power +20%"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=528508721]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="Label" type="Label" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1396039660]
-layout_mode = 2
-text = "×"
-
-[node name="LabelQuantity" type="Label" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1209714507]
-layout_mode = 2
-text = "1"
 
 [node name="ButtonNext" type="Button" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=402560058]
 layout_mode = 2

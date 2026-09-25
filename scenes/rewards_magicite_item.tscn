@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b708vxdy06day"]
+
+[ext_resource type="Script" uid="uid://cb67w13orlebf" path="res://scenes/rewards_magicite_item.gd" id="1_j4pjc"]
+[ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="1_wmsuj"]
+
+[node name="RewardsMagiciteItem" type="MarginContainer" unique_id=276963559]
+script = ExtResource("1_j4pjc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=90795298]
+layout_mode = 2
+
+[node name="MagiciteTexture" type="TextureRect" parent="HBoxContainer" unique_id=2057668180]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_wmsuj")
+expand_mode = 1
+
+[node name="NameLabel" type="Label" parent="HBoxContainer" unique_id=645885987]
+layout_mode = 2
+text = "Magicite"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=117360294]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer" unique_id=199972335]
+layout_mode = 2
+text = "×"
+
+[node name="QuantityLabel" type="Label" parent="HBoxContainer/HBoxContainer" unique_id=783591281]
+layout_mode = 2
+text = "1"

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c0ghugvsdou2g"]
+
+[ext_resource type="Script" uid="uid://bwkdfdijygs4" path="res://scenes/equip_inventory_magicite_item.gd" id="1_dk5fb"]
+[ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="1_ou04n"]
+
+[node name="EquipInventoryMagiciteItem" type="MarginContainer" unique_id=2050400391]
+offset_right = 122.0
+offset_bottom = 24.0
+script = ExtResource("1_dk5fb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=477232588]
+layout_mode = 2
+
+[node name="MagiciteTexture" type="TextureRect" parent="HBoxContainer" unique_id=1462188113]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_ou04n")
+expand_mode = 1
+
+[node name="NameLabel" type="Label" parent="HBoxContainer" unique_id=627692225]
+layout_mode = 2
+text = "Magicite"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=584766784]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer" unique_id=2082850577]
+layout_mode = 2
+text = "×"
+
+[node name="QuantityLabel" type="Label" parent="HBoxContainer/HBoxContainer" unique_id=1885091666]
+layout_mode = 2
+text = "1"

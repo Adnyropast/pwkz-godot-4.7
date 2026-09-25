@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Magicite" format=3 uid="uid://cmy0w6fax5n8s"]
+
+[ext_resource type="Script" uid="uid://c42lihie01k72" path="res://resource_classes/Magicite.gd" id="1_0rxux"]
+
+[resource]
+script = ExtResource("1_0rxux")
+name = "Heal +20%"
+type = 2
+metadata/_custom_type_script = "uid://c42lihie01k72"

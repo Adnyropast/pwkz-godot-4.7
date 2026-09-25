@@ -74,4 +74,17 @@ layout_mode = 2
 layout_mode = 2
 text = "Next"
 
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=2046962664]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2" unique_id=1673030901]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer" unique_id=709043507]
+layout_mode = 2
+text = "Inventory"
+
+[node name="MagicitesContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer" unique_id=1394199896]
+layout_mode = 2
+
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/ButtonNext" to="." method="_on_button_next_pressed"]

@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 WorldState="*uid://4pje516f2n4m"
 Enemy="*uid://52qganqhf3lc"
 Player="*uid://cb4aoybwjua47"
+Inventory="*uid://b8xehj3i8o4ev"
 
 [display]
 

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Magicite" format=3 uid="uid://b1wnoh1doingl"]
+
+[ext_resource type="Script" uid="uid://c42lihie01k72" path="res://resource_classes/Magicite.gd" id="1_h2r0g"]
+
+[resource]
+script = ExtResource("1_h2r0g")
+name = "Endure +1 Turn"
+type = 1
+metadata/_custom_type_script = "uid://c42lihie01k72"

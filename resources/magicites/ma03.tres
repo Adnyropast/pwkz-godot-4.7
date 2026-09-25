@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Magicite" format=3 uid="uid://cwy3h5ecv5efj"]
+
+[ext_resource type="Script" uid="uid://c42lihie01k72" path="res://resource_classes/Magicite.gd" id="1_knua6"]
+
+[resource]
+script = ExtResource("1_knua6")
+name = "Instant K.O. +20%"
+metadata/_custom_type_script = "uid://c42lihie01k72"
