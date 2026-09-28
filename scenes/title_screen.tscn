@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dwq2odlfwmq21"]
 
 [ext_resource type="Script" uid="uid://4vk3t4bmgrow" path="res://scenes/title_screen.gd" id="1_fgkus"]
+[ext_resource type="PackedScene" uid="uid://dxwyamer7mw3w" path="res://scenes/title_screen_games_menu.tscn" id="2_sa3yf"]
 
 [node name="TitleScreen" type="Control" unique_id=1044247816]
 layout_mode = 3
@@ -40,15 +41,22 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 32
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer2" unique_id=827920541]
+[node name="MenuContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer2" unique_id=827920541]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/CenterContainer" unique_id=1253935200]
+[node name="StartMenu" type="MarginContainer" parent="VBoxContainer/MarginContainer2/MenuContainer" unique_id=494273263]
 layout_mode = 2
 
-[node name="ButtonStart" type="Button" parent="VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer" unique_id=245483327]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2/MenuContainer/StartMenu" unique_id=1253935200]
+layout_mode = 2
+
+[node name="ButtonStart" type="Button" parent="VBoxContainer/MarginContainer2/MenuContainer/StartMenu/VBoxContainer" unique_id=245483327]
 layout_mode = 2
 text = "Start"
+
+[node name="TitleScreenGamesMenu" parent="VBoxContainer/MarginContainer2/MenuContainer" unique_id=786030751 instance=ExtResource("2_sa3yf")]
+visible = false
+layout_mode = 2
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=757428876]
 layout_mode = 2
@@ -62,4 +70,5 @@ layout_mode = 2
 text = "v.0.0.0"
 horizontal_alignment = 2
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer2/MenuContainer/StartMenu/VBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="canceled" from="VBoxContainer/MarginContainer2/MenuContainer/TitleScreenGamesMenu" to="." method="_on_title_screen_games_menu_canceled"]

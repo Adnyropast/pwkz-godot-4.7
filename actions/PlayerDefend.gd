@@ -7,8 +7,9 @@ func perform(sender: Sender) -> void:
 
 func step_defend(sender: Sender) -> void:
 	Player.make_defend()
+	var player_name = Player.get_player_name()
 	sender.send_timed(
-		"Maria defends!",
+		player_name + " defends!",
 		step_end,
 		2.0
 	)

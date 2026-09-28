@@ -6,8 +6,9 @@ func perform(sender: Sender) -> void:
 	step_heal(sender)
 
 func step_heal(sender: Sender) -> void:
+	var player_name = Player.get_player_name()
 	sender.send_timed(
-		"Maria heals!",
+		player_name + " heals!",
 		step_recovery.bind(sender),
 		2.0
 	)
@@ -17,8 +18,9 @@ func step_recovery(sender: Sender) -> void:
 	healing = MagiciteHealPlus.get_modified_healing(healing)
 	Player.add_hp(healing)
 	Player.make_heal()
+	var player_name = Player.get_player_name()
 	sender.send_timed(
-		"Maria recovers " + str(healing) + " hp.",
+		player_name + " recovers " + str(healing) + " hp.",
 		step_end,
 		2.0
 	)

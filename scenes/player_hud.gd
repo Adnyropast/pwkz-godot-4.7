@@ -7,7 +7,7 @@ extends Control
 @onready var statuses_container: Container = $MarginContainer/HBoxContainer/StatusesContainer
 
 func _ready() -> void:
-	player_texture.texture = preload("res://images/player/c1-1.png")
+	player_texture.texture = Player.get_player_texture()
 	hp_bar.max_value = Player.MAX_HP
 	hp_bar.value = Player.hp
 	max_hp_label.text = str(Player.MAX_HP)

@@ -17,11 +17,12 @@ func step_damage(sender: Sender) -> void:
 	var damage = Player.hp - 1
 	damage = DamageCalcs.get_modified_damage_to_player(damage)
 	Player.subtract_hp(damage)
+	var player_name = Player.get_player_name()
 	var message: String
 	if damage >= 0:
-		message = "Maria takes " + str(damage) + " damage."
+		message = player_name + " takes " + str(damage) + " damage."
 	else:
-		message = "Maria recovers " + str(-damage) + " hp."
+		message = player_name + " recovers " + str(-damage) + " hp."
 	sender.send_timed(
 		message,
 		step_reprisal.bind(sender, damage),

@@ -17,11 +17,12 @@ func step_damage(sender: Sender) -> void:
 	var damage = DamageCalcs.get_base_damage_to_player()
 	damage = DamageCalcs.get_modified_damage_to_player(damage)
 	Player.subtract_hp(damage)
+	var player_name = Player.get_player_name()
 	var message: String
 	if damage >= 0:
-		message = "Maria takes " + str(damage) + " damage."
+		message = player_name + " takes " + str(damage) + " damage."
 	else:
-		message = "Maria recovers " + str(-damage) + " hp."
+		message = player_name + " recovers " + str(-damage) + " hp."
 	sender.send_timed(
 		message,
 		step_reprisal.bind(sender, damage),
@@ -60,8 +61,9 @@ func step_defeat(sender: Sender) -> void:
 			step_revive(sender)
 		else:
 			Player.try_emit_player_defeated()
+			var player_name = Player.get_player_name()
 			sender.send_timed(
-				"Maria was defeated!",
+				player_name + " was defeated!",
 				step_end,
 				2.0
 			)
@@ -72,8 +74,9 @@ func step_revive(sender: Sender) -> void:
 	var healing: int = 1500
 	healing = MagiciteHealPlus.get_modified_healing(healing)
 	Player.set_hp(healing)
+	var player_name = Player.get_player_name()
 	sender.send_timed(
-		"But Maria was revived!",
+		"But " + player_name + " was revived!",
 		step_end,
 		2.0
 	)

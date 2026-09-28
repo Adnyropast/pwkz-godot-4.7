@@ -16,6 +16,13 @@ var attack_buff_turns: int
 var attack_buff_value: float
 var defense_buff_turns: int
 var defense_buff_value: float
+var player_mode: Players.Modes
+
+func get_player_name() -> String:
+	return Players.get_player_name(player_mode)
+
+func get_player_texture() -> Texture:
+	return Players.get_player_texture(player_mode)
 
 func set_hp(new_hp: int) -> void:
 	if new_hp > MAX_HP:
