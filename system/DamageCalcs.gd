@@ -34,6 +34,12 @@ static func get_base_damage_to_player() -> int:
 		damage = 0
 	return damage
 
+static func get_base_damage_to_enemy() -> int:
+	var damage: int = Player.get_stat_attack() - Enemy.get_stat_defense()
+	if damage < 0:
+		damage = 0
+	return damage
+
 static func get_reprisal_drain_to_player(damage: int) -> int:
 	var value: int = 0
 	

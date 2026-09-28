@@ -42,3 +42,9 @@ func update_statuses() -> void:
 		statuses_container.add_child(item)
 		item.set_status_name("Attack +" + str(floori(Enemy.attack_buff_value * 100)) + "% " + str(Enemy.attack_buff_turns) + " turns")
 		item.set_texture(preload("res://images/statuses/ef5.png"))
+	
+	if Enemy.defense_buff_turns > 0:
+		var item = preload("res://scenes/battle_info_status_item.tscn").instantiate()
+		statuses_container.add_child(item)
+		item.set_status_name("Defense +" + str(floori(Enemy.defense_buff_value * 100)) + "% " + str(Enemy.defense_buff_turns) + " turns")
+		item.set_texture(preload("res://images/statuses/ef6.png"))

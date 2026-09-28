@@ -109,7 +109,7 @@ func has_attack_buff() -> bool:
 	return attack_buff_turns > 0
 
 func get_stat_attack() -> int:
-	return floori(1500 * (1 + attack_buff_value))
+	return floori(2000 * (1 + attack_buff_value))
 
 func has_defense_buff() -> bool:
 	return defense_buff_turns > 0

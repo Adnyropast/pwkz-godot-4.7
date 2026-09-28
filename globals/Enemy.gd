@@ -10,6 +10,8 @@ var has_absorb_barrier: bool
 var has_reflect_barrier: bool
 var attack_buff_turns: int
 var attack_buff_value: float
+var defense_buff_turns: int
+var defense_buff_value: float
 
 func get_max_hp() -> int:
 	return 3000
@@ -58,6 +60,10 @@ func on_turn_start() -> void:
 		attack_buff_turns -= 1
 	if attack_buff_turns <= 0:
 		attack_buff_value = 0
+	if defense_buff_turns > 0:
+		defense_buff_turns -= 1
+	if defense_buff_turns <= 0:
+		defense_buff_value = 0
 
 func reset_enemy() -> void:
 	set_hp(get_max_hp())
@@ -66,9 +72,14 @@ func reset_enemy() -> void:
 	has_reflect_barrier = false
 	attack_buff_turns = 0
 	attack_buff_value = 0
+	defense_buff_turns = 0
+	defense_buff_value = 0
 
 func get_stat_attack() -> int:
 	return floori(2000 * (1 + attack_buff_value))
+
+func get_stat_defense() -> int:
+	return floori(500 * (1 + defense_buff_value))
 
 func make_absorb_barrier() -> void:
 	has_absorb_barrier = true
@@ -83,3 +94,11 @@ func make_buff_attack() -> void:
 	attack_buff_value += 0.2
 	if attack_buff_value > MAX_BUFF_VALUE:
 		attack_buff_value = MAX_BUFF_VALUE
+
+func make_buff_defense() -> void:
+	defense_buff_turns += 2
+	if defense_buff_turns > MAX_BUFF_TURNS:
+		defense_buff_turns = MAX_BUFF_TURNS
+	defense_buff_value += 0.2
+	if defense_buff_value > MAX_BUFF_VALUE:
+		defense_buff_value = MAX_BUFF_VALUE
