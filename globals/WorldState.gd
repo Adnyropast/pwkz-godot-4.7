@@ -16,3 +16,6 @@ func is_final_stage() -> bool:
 
 func is_final_world() -> bool:
 	return current_world == WorldConstants.WORLDS_COUNT
+
+func get_world_shape() -> Texture:
+	return WorldConstants.get_world_shape(current_world)

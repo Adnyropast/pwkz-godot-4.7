@@ -27,19 +27,19 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/CenterContainer/HBoxContainer" unique_id=1914508844]
+[node name="ShapeTexture1" type="TextureRect" parent="PanelContainer/CenterContainer/HBoxContainer" unique_id=1914508844]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("1_e88x3")
 expand_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="PanelContainer/CenterContainer/HBoxContainer" unique_id=271943312]
+[node name="ShapeTexture2" type="TextureRect" parent="PanelContainer/CenterContainer/HBoxContainer" unique_id=271943312]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("1_e88x3")
 expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="PanelContainer/CenterContainer/HBoxContainer" unique_id=816158840]
+[node name="ShapeTexture3" type="TextureRect" parent="PanelContainer/CenterContainer/HBoxContainer" unique_id=816158840]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("1_e88x3")
