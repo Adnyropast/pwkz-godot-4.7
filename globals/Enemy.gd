@@ -1,10 +1,15 @@
 extends Node
 
+const MAX_BUFF_TURNS: int = 9
+const MAX_BUFF_VALUE: float = 1
+
 signal enemy_defeated
 var hp: int
 var is_defending: bool
 var has_absorb_barrier: bool
 var has_reflect_barrier: bool
+var attack_buff_turns: int
+var attack_buff_value: float
 
 func get_max_hp() -> int:
 	return 3000
@@ -49,18 +54,32 @@ func on_turn_start() -> void:
 	is_defending = false
 	has_absorb_barrier = false
 	has_reflect_barrier = false
+	if attack_buff_turns > 0:
+		attack_buff_turns -= 1
+	if attack_buff_turns <= 0:
+		attack_buff_value = 0
 
 func reset_enemy() -> void:
 	set_hp(get_max_hp())
 	is_defending = false
 	has_absorb_barrier = false
 	has_reflect_barrier = false
+	attack_buff_turns = 0
+	attack_buff_value = 0
 
 func get_stat_attack() -> int:
-	return 2000
+	return floori(2000 * (1 + attack_buff_value))
 
 func make_absorb_barrier() -> void:
 	has_absorb_barrier = true
 
 func make_reflect_barrier() -> void:
 	has_reflect_barrier = true
+
+func make_buff_attack() -> void:
+	attack_buff_turns += 2
+	if attack_buff_turns > MAX_BUFF_TURNS:
+		attack_buff_turns = MAX_BUFF_TURNS
+	attack_buff_value += 0.2
+	if attack_buff_value > MAX_BUFF_VALUE:
+		attack_buff_value = MAX_BUFF_VALUE
