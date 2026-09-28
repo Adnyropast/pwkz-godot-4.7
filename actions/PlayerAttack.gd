@@ -16,6 +16,7 @@ func step_instant_ko(sender: Sender) -> void:
 	if MagiciteInstantKOPlus.roll_instant_ko():
 		var damage = Enemy.hp
 		Enemy.subtract_hp(damage)
+		Player.make_attack()
 		sender.send_timed(
 			"Instant K.O.!!!",
 			step_drain.bind(sender, damage),
@@ -25,8 +26,9 @@ func step_instant_ko(sender: Sender) -> void:
 		step_damage(sender)
 
 func step_damage(sender: Sender) -> void:
-	var damage = DamageCalcs.get_modified_damage_to_enemy(1500)
+	var damage = DamageCalcs.get_modified_damage_to_enemy(Player.get_stat_attack())
 	Enemy.subtract_hp(damage)
+	Player.make_attack()
 	var enemy_name = Enemy.get_enemy_name()
 	sender.send_timed(
 		enemy_name + " takes " + str(damage) + " damage.",

@@ -1,6 +1,8 @@
 extends Node
 
 const MAX_HP = 3000
+const MAX_BUFF_TURNS: int = 9
+const MAX_BUFF_VALUE: float = 1
 
 signal player_defeated
 signal hp_changed
@@ -10,6 +12,8 @@ var defending_turns: int
 var enduring_turns: int
 var reprisal_turns: int
 var revive_turns: int
+var attack_buff_turns: int
+var attack_buff_value: float
 
 func reset_hp() -> void:
 	set_hp(MAX_HP)
@@ -40,6 +44,7 @@ func make_defend() -> void:
 	defending_turns = MagiciteTurnsPlus.get_defending_turns()
 	enduring_turns = MagiciteEndurePlus.get_enduring_turns()
 	reprisal_turns = MagiciteReprisalPlus.get_reprisal_turns()
+	buff_attack(MagiciteAttackPlus.get_buff_turns_from_defend(), MagiciteAttackPlus.get_buff_value_from_defend())
 	statuses_changed.emit()
 
 func on_turn_start() -> void:
@@ -51,6 +56,10 @@ func on_turn_start() -> void:
 		reprisal_turns -= 1
 	if revive_turns > 0:
 		revive_turns -= 1
+	if attack_buff_turns > 0:
+		attack_buff_turns -= 1
+	if attack_buff_turns <= 0:
+		attack_buff_value = 0
 	statuses_changed.emit()
 
 func is_defending() -> bool:
@@ -64,7 +73,26 @@ func has_reprisal() -> bool:
 
 func make_heal() -> void:
 	revive_turns = MagiciteRevivePlus.get_revive_turns()
+	buff_attack(MagiciteAttackPlus.get_buff_turns_from_heal(), MagiciteAttackPlus.get_buff_value_from_heal())
 	statuses_changed.emit()
 
 func has_revive() -> bool:
 	return revive_turns > 0
+
+func make_attack() -> void:
+	buff_attack(MagiciteAttackPlus.get_buff_turns_from_attack(), MagiciteAttackPlus.get_buff_value_from_attack())
+	statuses_changed.emit()
+
+func buff_attack(turns: int, value: float) -> void:
+	attack_buff_turns += turns
+	if attack_buff_turns > MAX_BUFF_TURNS:
+		attack_buff_turns = MAX_BUFF_TURNS
+	attack_buff_value += value
+	if attack_buff_value > MAX_BUFF_VALUE:
+		attack_buff_value = MAX_BUFF_VALUE
+
+func has_attack_buff() -> bool:
+	return attack_buff_turns > 0
+
+func get_stat_attack() -> int:
+	return floori(1500 * (1 + attack_buff_value))

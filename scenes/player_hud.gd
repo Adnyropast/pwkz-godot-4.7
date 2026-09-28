@@ -50,3 +50,9 @@ func on_player_statuses_changed() -> void:
 		statuses_container.add_child(item)
 		item.set_texture(preload("res://images/statuses/ef4.png"))
 		item.set_info(str(Player.revive_turns))
+	
+	if Player.has_attack_buff():
+		var item = preload("res://scenes/player_hud_status_item.tscn").instantiate()
+		statuses_container.add_child(item)
+		item.set_texture(preload("res://images/statuses/ef5.png"))
+		item.set_info(str(Player.attack_buff_turns))
