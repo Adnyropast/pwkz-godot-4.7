@@ -32,3 +32,9 @@ func on_player_statuses_changed() -> void:
 		statuses_container.add_child(item)
 		item.set_texture(preload("res://images/statuses/ef1.png"))
 		item.set_info(str(Player.defending_turns))
+	
+	if Player.is_enduring():
+		var item = preload("res://scenes/player_hud_status_item.tscn").instantiate()
+		statuses_container.add_child(item)
+		item.set_texture(preload("res://images/statuses/ef2.png"))
+		item.set_info(str(Player.enduring_turns))
