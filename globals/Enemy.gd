@@ -3,6 +3,7 @@ extends Node
 signal enemy_defeated
 var hp: int
 var is_defending: bool
+var has_absorb_barrier: bool
 
 func get_max_hp() -> int:
 	return 3000
@@ -45,10 +46,15 @@ func make_defend() -> void:
 
 func on_turn_start() -> void:
 	is_defending = false
+	has_absorb_barrier = false
 
 func reset_enemy() -> void:
 	set_hp(get_max_hp())
 	is_defending = false
+	has_absorb_barrier = false
 
 func get_stat_attack() -> int:
 	return 2000
+
+func make_absorb_barrier() -> void:
+	has_absorb_barrier = true

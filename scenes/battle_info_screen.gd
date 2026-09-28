@@ -24,3 +24,9 @@ func update_statuses() -> void:
 		statuses_container.add_child(item)
 		item.set_status_name("Defend")
 		item.set_texture(preload("res://images/statuses/ef1.png"))
+	
+	if Enemy.has_absorb_barrier:
+		var item = preload("res://scenes/battle_info_status_item.tscn").instantiate()
+		statuses_container.add_child(item)
+		item.set_status_name("Absorb Barrier")
+		item.set_texture(preload("res://images/statuses/ef7.png"))

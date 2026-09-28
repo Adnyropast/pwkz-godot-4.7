@@ -21,6 +21,9 @@ static func get_modified_damage_to_enemy(damage: int) -> int:
 	if Enemy.is_defending:
 		multiplier *= 0.6
 	
+	if Enemy.has_absorb_barrier:
+		multiplier *= -0.5
+	
 	multiplier *= MagicitePowerPlus.get_power_multiplier()
 	
 	return floori(damage * multiplier)

@@ -30,8 +30,13 @@ func step_damage(sender: Sender) -> void:
 	Enemy.subtract_hp(damage)
 	Player.make_attack()
 	var enemy_name = Enemy.get_enemy_name()
+	var message: String
+	if damage >= 0:
+		message = enemy_name + " takes " + str(damage) + " damage."
+	else:
+		message = enemy_name + " recovers " + str(-damage) + " hp."
 	sender.send_timed(
-		enemy_name + " takes " + str(damage) + " damage.",
+		message,
 		step_drain.bind(sender, damage),
 		2.0
 	)
@@ -39,6 +44,7 @@ func step_damage(sender: Sender) -> void:
 func step_drain(sender: Sender, damage: int) -> void:
 	if MagiciteDrainPlus.has_magicites():
 		var healing: int = MagiciteDrainPlus.get_drain_healing(damage)
+		healing = absi(healing)
 		Player.add_hp(healing)
 		sender.send_timed(
 			"Maria recovers " + str(healing) + " hp.",
