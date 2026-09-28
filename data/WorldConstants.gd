@@ -203,6 +203,19 @@ const PHASES: Array = [
 		],
 	],
 ]
+const WORLDS_TEXTURES: Array[Texture] = [
+	preload("res://images/worlds/me1.png"),
+	preload("res://images/worlds/me2.png"),
+	preload("res://images/worlds/me3.png"),
+	preload("res://images/worlds/me4.png"),
+	preload("res://images/worlds/me5.png"),
+	preload("res://images/worlds/me6.png"),
+	preload("res://images/worlds/me7.png"),
+	preload("res://images/worlds/me8.png"),
+]
 
 static func get_phases_count(world: int, stage: int) -> int:
 	return len(PHASES[world - 1][stage - 1])
+
+static func get_world_texture(world: int) -> Texture:
+	return WORLDS_TEXTURES[world - 1]

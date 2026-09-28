@@ -1,10 +1,12 @@
 extends Control
 
+@onready var world_texture: TextureRect = $VBoxContainer/MarginContainer/WorldTexture
 @onready var world_label: Label = $VBoxContainer/HBoxContainer/LabelWorld
 signal select_button_pressed
 var world: int
 
 func _ready() -> void:
+	world_texture.texture = WorldConstants.get_world_texture(world)
 	world_label.text = str(world)
 
 func _on_button_select_pressed() -> void:

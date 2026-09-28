@@ -17,7 +17,7 @@ mouse_filter = 2
 [node name="ButtonSelect" type="Button" parent="VBoxContainer/MarginContainer" unique_id=412336110]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer" unique_id=256375021]
+[node name="WorldTexture" type="TextureRect" parent="VBoxContainer/MarginContainer" unique_id=256375021]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 mouse_filter = 2
