@@ -22,6 +22,7 @@ Enemy="*uid://52qganqhf3lc"
 Player="*uid://cb4aoybwjua47"
 Inventory="*uid://b8xehj3i8o4ev"
 PlayerMagicites="*uid://dykat0xgqkq8w"
+Scores="*uid://cyf4quhnxffha"
 
 [display]
 

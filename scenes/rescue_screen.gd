@@ -43,6 +43,7 @@ func cleanup_step() -> void:
 		end_step()
 
 func init_step_0() -> void:
+	Scores.set_medal(WorldState.current_world)
 	prince_texture.texture = Princes.get_prince_texture(WorldState.current_world)
 	dialogue_box.set_speaker_name(Princes.get_prince_name(WorldState.current_world))
 	dialogue_box.set_message("Thank you for saving me!")
