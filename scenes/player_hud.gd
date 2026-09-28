@@ -27,7 +27,8 @@ func on_player_statuses_changed() -> void:
 	for child in statuses_container.get_children():
 		statuses_container.remove_child(child)
 	
-	if Player.is_defending:
+	if Player.is_defending():
 		var item = preload("res://scenes/player_hud_status_item.tscn").instantiate()
 		statuses_container.add_child(item)
 		item.set_texture(preload("res://images/statuses/ef1.png"))
+		item.set_info(str(Player.defending_turns))

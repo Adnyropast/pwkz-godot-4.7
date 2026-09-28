@@ -16,3 +16,21 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = ExtResource("2_pkods")
 expand_mode = 1
+
+[node name="Control" type="Control" parent="." unique_id=1906407373]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="Control" unique_id=1720996461]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0.25, 0.25)
+horizontal_alignment = 2
