@@ -24,3 +24,9 @@ static func get_modified_damage_to_enemy(damage: int) -> int:
 	multiplier *= MagicitePowerPlus.get_power_multiplier()
 	
 	return floori(damage * multiplier)
+
+static func get_base_damage_to_player() -> int:
+	var damage: int = Enemy.get_stat_attack() - Player.get_stat_defense()
+	if damage < 0:
+		damage = 0
+	return damage

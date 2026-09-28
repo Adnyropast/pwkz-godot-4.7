@@ -14,7 +14,8 @@ func step_attack(sender: Sender) -> void:
 	)
 
 func step_damage(sender: Sender) -> void:
-	var damage = DamageCalcs.get_modified_damage_to_player(1000)
+	var damage = DamageCalcs.get_base_damage_to_player()
+	damage = DamageCalcs.get_modified_damage_to_player(damage)
 	Player.subtract_hp(damage)
 	var message: String
 	if damage >= 0:

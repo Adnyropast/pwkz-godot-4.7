@@ -49,3 +49,6 @@ func on_turn_start() -> void:
 func reset_enemy() -> void:
 	set_hp(get_max_hp())
 	is_defending = false
+
+func get_stat_attack() -> int:
+	return 2000
