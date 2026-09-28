@@ -44,3 +44,6 @@ func remove_magicite(magicite: Magicite) -> void:
 
 func add_magicite(magicite: Magicite) -> void:
 	set_magicite_count(magicite, get_magicite_count(magicite) + 1)
+
+func reset_inventory() -> void:
+	magicites.clear()

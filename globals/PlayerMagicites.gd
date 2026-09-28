@@ -36,3 +36,8 @@ func unequip_magicite_at(type: EquipTypes, index: int) -> void:
 	elif type == EquipTypes.HEAL:
 		var magicite: Magicite = heal_magicites.pop_at(index)
 		Inventory.add_magicite(magicite)
+
+func reset_equipment() -> void:
+	attack_magicites.clear()
+	defend_magicites.clear()
+	heal_magicites.clear()

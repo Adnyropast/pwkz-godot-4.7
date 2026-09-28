@@ -17,9 +17,6 @@ var attack_buff_value: float
 var defense_buff_turns: int
 var defense_buff_value: float
 
-func reset_hp() -> void:
-	set_hp(MAX_HP)
-
 func set_hp(new_hp: int) -> void:
 	if new_hp > MAX_HP:
 		hp = MAX_HP
@@ -119,3 +116,14 @@ func has_defense_buff() -> bool:
 
 func get_stat_defense() -> int:
 	return floori(1000 * (1 + defense_buff_value))
+
+func reset_player() -> void:
+	set_hp(MAX_HP)
+	defending_turns = 0
+	enduring_turns = 0
+	reprisal_turns = 0
+	revive_turns = 0
+	attack_buff_turns = 0
+	attack_buff_value = 0
+	defense_buff_turns = 0
+	defense_buff_value = 0

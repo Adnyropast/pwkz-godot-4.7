@@ -22,6 +22,6 @@ static func retry_stage() -> void:
 	on_stage_start()
 
 static func on_stage_start() -> void:
-	Player.reset_hp()
+	Player.reset_player()
 	WorldState.prince_saved = false
 	Phases.on_phase_start()
