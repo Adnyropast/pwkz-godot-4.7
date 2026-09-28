@@ -33,3 +33,17 @@ static func get_base_damage_to_player() -> int:
 	if damage < 0:
 		damage = 0
 	return damage
+
+static func get_reprisal_drain_to_player(damage: int) -> int:
+	var value: int = 0
+	
+	if Enemy.has_reflect_barrier:
+		var reflect_damage: int = floori(damage * 0.5)
+		value += reflect_damage
+	
+	if MagiciteDrainPlus.has_magicites():
+		var healing: int = MagiciteDrainPlus.get_drain_healing(damage)
+		healing = absi(healing)
+		value -= healing
+	
+	return value
