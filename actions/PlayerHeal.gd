@@ -14,6 +14,7 @@ func step_heal(sender: Sender) -> void:
 
 func step_recovery(sender: Sender) -> void:
 	var healing: int = 1500
+	healing = MagiciteHealPlus.get_modified_healing(healing)
 	Player.add_hp(healing)
 	sender.send_timed(
 		"Maria recovers " + str(healing) + " hp.",
