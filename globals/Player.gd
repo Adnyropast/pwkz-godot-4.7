@@ -8,6 +8,7 @@ signal statuses_changed
 var hp: int
 var defending_turns: int
 var enduring_turns: int
+var reprisal_turns: int
 
 func reset_hp() -> void:
 	set_hp(MAX_HP)
@@ -37,6 +38,7 @@ func try_emit_player_defeated() -> void:
 func make_defend() -> void:
 	defending_turns = MagiciteTurnsPlus.get_defending_turns()
 	enduring_turns = MagiciteEndurePlus.get_enduring_turns()
+	reprisal_turns = MagiciteReprisalPlus.get_reprisal_turns()
 	statuses_changed.emit()
 
 func on_turn_start() -> void:
@@ -44,6 +46,8 @@ func on_turn_start() -> void:
 		defending_turns -= 1
 	if enduring_turns > 0:
 		enduring_turns -= 1
+	if reprisal_turns > 0:
+		reprisal_turns -= 1
 	statuses_changed.emit()
 
 func is_defending() -> bool:
@@ -51,3 +55,6 @@ func is_defending() -> bool:
 
 func is_enduring() -> bool:
 	return enduring_turns > 0
+
+func has_reprisal() -> bool:
+	return reprisal_turns > 0
