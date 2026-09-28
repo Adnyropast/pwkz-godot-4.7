@@ -9,6 +9,7 @@ var hp: int
 var defending_turns: int
 var enduring_turns: int
 var reprisal_turns: int
+var revive_turns: int
 
 func reset_hp() -> void:
 	set_hp(MAX_HP)
@@ -48,6 +49,8 @@ func on_turn_start() -> void:
 		enduring_turns -= 1
 	if reprisal_turns > 0:
 		reprisal_turns -= 1
+	if revive_turns > 0:
+		revive_turns -= 1
 	statuses_changed.emit()
 
 func is_defending() -> bool:
@@ -58,3 +61,10 @@ func is_enduring() -> bool:
 
 func has_reprisal() -> bool:
 	return reprisal_turns > 0
+
+func make_heal() -> void:
+	revive_turns = MagiciteRevivePlus.get_revive_turns()
+	statuses_changed.emit()
+
+func has_revive() -> bool:
+	return revive_turns > 0

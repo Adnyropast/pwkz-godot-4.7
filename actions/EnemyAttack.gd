@@ -55,11 +55,24 @@ func step_self_defeat(sender: Sender) -> void:
 
 func step_defeat(sender: Sender) -> void:
 	if Player.is_ko():
-		Player.try_emit_player_defeated()
-		sender.send_timed(
-			"Maria was defeated!",
-			step_end,
-			2.0
-		)
+		if Player.has_revive():
+			step_revive(sender)
+		else:
+			Player.try_emit_player_defeated()
+			sender.send_timed(
+				"Maria was defeated!",
+				step_end,
+				2.0
+			)
 	else:
 		step_end()
+
+func step_revive(sender: Sender) -> void:
+	var healing: int = 1500
+	healing = MagiciteHealPlus.get_modified_healing(healing)
+	Player.set_hp(healing)
+	sender.send_timed(
+		"But Maria was revived!",
+		step_end,
+		2.0
+	)
