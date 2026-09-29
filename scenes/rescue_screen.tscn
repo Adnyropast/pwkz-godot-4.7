@@ -4,6 +4,68 @@
 [ext_resource type="Script" uid="uid://cqox2t8v2bt4o" path="res://scenes/rescue_screen.gd" id="1_fheb7"]
 [ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="2_jvwdm"]
 
+[sub_resource type="Animation" id="Animation_jvwdm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_transform_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2wcou"]
+resource_name = "prince_breathe"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, -2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_transform_scale")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.005, 1.005), Vector2(1.01, 1.01)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6yfxq"]
+_data = {
+&"RESET": SubResource("Animation_jvwdm"),
+&"prince_breathe": SubResource("Animation_2wcou")
+}
+
 [node name="RescueScreen" type="Node3D" unique_id=906251841]
 script = ExtResource("1_fheb7")
 
@@ -18,11 +80,19 @@ grow_vertical = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, -32)
 
-[node name="PrinceTexture" type="TextureRect" parent="CenterContainer" unique_id=1701394404]
+[node name="PrinceBreathe" type="MarginContainer" parent="CenterContainer" unique_id=425234555]
+layout_mode = 2
+offset_transform_enabled = true
+
+[node name="PrinceTexture" type="TextureRect" parent="CenterContainer/PrinceBreathe" unique_id=1701394404]
 custom_minimum_size = Vector2(384, 384)
 layout_mode = 2
 texture = ExtResource("2_jvwdm")
 expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/PrinceBreathe" unique_id=1329317394]
+libraries/ = SubResource("AnimationLibrary_6yfxq")
+autoplay = &"prince_breathe"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1633957362]
 anchors_preset = 12
