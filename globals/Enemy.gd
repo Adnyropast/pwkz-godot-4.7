@@ -3,6 +3,7 @@ extends Node
 const MAX_BUFF_TURNS: int = 9
 const MAX_BUFF_VALUE: float = 1
 
+signal enemy_hurt
 signal enemy_defeated
 var hp: int
 var is_defending: bool
@@ -17,12 +18,17 @@ func get_max_hp() -> int:
 	return 3000
 
 func set_hp(new_hp: int) -> void:
+	var old_hp = hp
+	
 	if new_hp > get_max_hp():
 		hp = get_max_hp()
 	elif new_hp < 0:
 		hp = 0
 	else:
 		hp = new_hp
+	
+	if hp < old_hp:
+		enemy_hurt.emit()
 
 func subtract_hp(value_hp: int) -> void:
 	set_hp(hp - value_hp)

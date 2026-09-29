@@ -2,14 +2,10 @@ extends Node3D
 
 @onready var commands_menu_node: Node = $HBoxContainer/MarginContainer/BattleCommandsMenu
 @onready var text_box_node: Node = $HBoxContainer/BattleTextBoxContainer/BattleTextBox
-@onready var enemy_texture: TextureRect = $CenterContainer/EnemyTexture
 var turn_system: TurnSystem = TurnSystem.new()
 var one_action: bool
 
 func _ready() -> void:
-	enemy_texture.texture = Enemy.get_texture()
-	Enemy.enemy_defeated.connect(on_enemy_defeated)
-	
 	text_box_node.pause()
 	text_box_node.hide()
 	commands_menu_node.pause()
@@ -99,9 +95,6 @@ func on_enemy_turn() -> void:
 
 func on_victory() -> void:
 	end_phase()
-
-func on_enemy_defeated() -> void:
-	enemy_texture.hide()
 
 func on_defeat() -> void:
 	PopupInterfaces.open_defeat_popup()

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bmcql7jlewip3" path="res://scenes/battle_commands_menu.tscn" id="1_8rem4"]
 [ext_resource type="Script" uid="uid://cacjfswvmbfwo" path="res://scenes/battle_scene.gd" id="1_kewym"]
-[ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="2_6c5u0"]
 [ext_resource type="PackedScene" uid="uid://b7latik14ltrx" path="res://scenes/battle_text_box.tscn" id="2_gi7kc"]
+[ext_resource type="PackedScene" uid="uid://ce5k747bk21k3" path="res://scenes/enemy_node.tscn" id="2_pxwbd"]
 [ext_resource type="PackedScene" uid="uid://cktqoqd2ayamx" path="res://scenes/player_hud.tscn" id="3_vcsse"]
 
 [node name="BattleScene" type="Node3D" unique_id=818123241]
@@ -22,11 +22,8 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="EnemyTexture" type="TextureRect" parent="CenterContainer" unique_id=828051645]
-custom_minimum_size = Vector2(256, 256)
+[node name="EnemyNode" parent="CenterContainer" unique_id=1174380748 instance=ExtResource("2_pxwbd")]
 layout_mode = 2
-texture = ExtResource("2_6c5u0")
-expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1643685994]
 anchors_preset = 3
