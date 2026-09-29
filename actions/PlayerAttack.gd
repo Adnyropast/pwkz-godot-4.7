@@ -53,6 +53,7 @@ func step_drain(sender: Sender, damage: int) -> void:
 		var message: String
 		if value >= 0:
 			message = player_name + " takes " + str(value) + " damage."
+			Player.portrait_set_hurt()
 		else:
 			message = player_name + " recovers " + str(-value) + " hp."
 		sender.send_timed(
@@ -79,6 +80,7 @@ func step_self_defeat(sender: Sender) -> void:
 		step_defeat(sender)
 
 func step_revive(sender: Sender) -> void:
+	Player.portrait_stop_hurt()
 	var healing: int = 1500
 	healing = MagiciteHealPlus.get_modified_healing(healing)
 	Player.set_hp(healing)
@@ -90,6 +92,7 @@ func step_revive(sender: Sender) -> void:
 	)
 
 func step_defeat(sender: Sender) -> void:
+	Player.portrait_stop_hurt()
 	if Enemy.is_ko():
 		Enemy.try_emit_enemy_defeated()
 		var enemy_name = Enemy.get_enemy_name()

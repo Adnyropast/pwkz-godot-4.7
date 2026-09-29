@@ -24,7 +24,9 @@ func on_player_defeated() -> void:
 func on_player_portrait_changed() -> void:
 	player_texture.texture = Player.get_player_texture()
 	
-	if Player.portrait_is_attacking:
+	if Player.portrait_is_hurt:
+		player_texture_animation_player.play("player_hurt")
+	elif Player.portrait_is_attacking:
 		player_texture_animation_player.play("player_attack")
 
 func on_player_hp_changed() -> void:

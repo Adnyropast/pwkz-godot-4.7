@@ -22,6 +22,7 @@ func step_damage(sender: Sender) -> void:
 	var message: String
 	if damage >= 0:
 		message = player_name + " takes " + str(damage) + " damage."
+		Player.portrait_set_hurt()
 	else:
 		message = player_name + " recovers " + str(-damage) + " hp."
 	sender.send_timed(
@@ -31,6 +32,8 @@ func step_damage(sender: Sender) -> void:
 	)
 
 func step_reprisal(sender: Sender, damage: int) -> void:
+	Player.portrait_stop_hurt()
+	
 	var value: int = 0
 	
 	if Player.has_reprisal():

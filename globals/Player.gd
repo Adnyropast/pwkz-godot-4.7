@@ -19,12 +19,15 @@ var defense_buff_turns: int
 var defense_buff_value: float
 var player_mode: Players.Modes
 var portrait_is_attacking: bool
+var portrait_is_hurt: bool
 
 func get_player_name() -> String:
 	return Players.get_player_name(player_mode)
 
 func get_player_texture() -> Texture:
-	if Player.portrait_is_attacking:
+	if Player.portrait_is_hurt:
+		return Players.get_player_texture_hurt(player_mode)
+	elif Player.portrait_is_attacking:
 		return Players.get_player_texture_attacking(player_mode)
 	else:
 		return Players.get_player_texture(player_mode)
@@ -146,4 +149,12 @@ func portrait_set_attacking() -> void:
 
 func portrait_stop_attacking() -> void:
 	portrait_is_attacking = false
+	portrait_changed.emit()
+
+func portrait_set_hurt() -> void:
+	portrait_is_hurt = true
+	portrait_changed.emit()
+
+func portrait_stop_hurt() -> void:
+	portrait_is_hurt = false
 	portrait_changed.emit()

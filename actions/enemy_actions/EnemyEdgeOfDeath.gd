@@ -21,6 +21,7 @@ func step_damage(sender: Sender) -> void:
 	var message: String
 	if damage >= 0:
 		message = player_name + " takes " + str(damage) + " damage."
+		Player.portrait_set_hurt()
 	else:
 		message = player_name + " recovers " + str(-damage) + " hp."
 	sender.send_timed(
