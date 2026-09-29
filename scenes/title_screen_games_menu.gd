@@ -1,6 +1,10 @@
 extends Control
 
 signal canceled
+@onready var debug_button: Button = $VBoxContainer/DebugButton
+
+func _ready() -> void:
+	refresh_debug_button()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -12,9 +16,19 @@ func _on_game_button_1_pressed() -> void:
 func _on_game_button_2_pressed() -> void:
 	start_game(Players.Modes.LEONARDO)
 
+func _on_debug_button_pressed() -> void:
+	Debug.toggle_debug_on()
+	refresh_debug_button()
+
 func start_game(mode: Players.Modes) -> void:
 	Player.player_mode = mode
 	Scores.reset_score()
 	Inventory.reset_inventory()
 	PlayerMagicites.reset_equipment()
 	Worlds.move_to_first_world()
+
+func refresh_debug_button() -> void:
+	if Debug.is_debug_on():
+		debug_button.text = "Debug: On"
+	else:
+		debug_button.text = "Debug: Off"

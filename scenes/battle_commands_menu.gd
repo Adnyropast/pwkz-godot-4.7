@@ -8,6 +8,13 @@ signal pass_button_pressed
 signal attack_button_pressed
 signal defend_button_pressed
 signal heal_button_pressed
+@onready var pass_button: Button = $MarginContainer/VBoxContainer/ButtonPass
+@onready var next_phase_button: Button = $MarginContainer/VBoxContainer/ButtonNextPhase
+@onready var next_stage_button: Button = $MarginContainer/VBoxContainer/ButtonNextStage
+@onready var lose_battle_button: Button = $MarginContainer/VBoxContainer/ButtonLoseBattle
+
+func _ready() -> void:
+	refresh_debug_buttons()
 
 func _on_button_next_stage_pressed() -> void:
 	next_stage_button_pressed.emit()
@@ -42,3 +49,15 @@ func pause() -> void:
 
 func unpause() -> void:
 	process_mode = Node.PROCESS_MODE_INHERIT
+
+func refresh_debug_buttons() -> void:
+	if Debug.is_debug_on():
+		pass_button.show()
+		next_phase_button.show()
+		next_stage_button.show()
+		lose_battle_button.show()
+	else:
+		pass_button.hide()
+		next_phase_button.hide()
+		next_stage_button.hide()
+		lose_battle_button.hide()

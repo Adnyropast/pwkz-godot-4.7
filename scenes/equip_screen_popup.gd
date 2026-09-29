@@ -5,10 +5,12 @@ signal next_button_pressed
 @onready var tab_magicite_texture: TextureRect = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer3/VBoxContainer/HBoxContainer/TabMagiciteTexture
 @onready var equipped_container: Container = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer3/VBoxContainer/EquippedContainer
 @onready var magicites_container: Container = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/MagicitesContainer
+@onready var debug_max_button: Button = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/ButtonDebugMax
 var tab: PlayerMagicites.EquipTypes = PlayerMagicites.EquipTypes.ATTACK
 
 func _ready() -> void:
 	refresh_tabs()
+	refresh_debug_buttons()
 
 func _on_button_attack_pressed() -> void:
 	set_tab_attack()
@@ -92,3 +94,9 @@ func set_tab_defend() -> void:
 func set_tab_heal() -> void:
 	tab = PlayerMagicites.EquipTypes.HEAL
 	refresh_tabs()
+
+func refresh_debug_buttons() -> void:
+	if Debug.is_debug_on():
+		debug_max_button.show()
+	else:
+		debug_max_button.hide()
