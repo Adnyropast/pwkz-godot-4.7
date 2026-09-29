@@ -4,6 +4,7 @@ extends Node3D
 @onready var text_box_node: Node = $HBoxContainer/BattleTextBoxContainer/BattleTextBox
 @onready var enemy_texture: TextureRect = $CenterContainer/EnemyTexture
 var turn_system: TurnSystem = TurnSystem.new()
+var one_action: bool
 
 func _ready() -> void:
 	enemy_texture.texture = Enemy.get_texture()
@@ -35,32 +36,36 @@ func _on_battle_commands_menu_lose_battle_button_pressed() -> void:
 	PopupInterfaces.open_defeat_popup()
 
 func _on_battle_commands_menu_pass_button_pressed() -> void:
-	commands_menu_node.pause()
-	commands_menu_node.hide()
-	var action = PlayerIdle.new()
-	action.ended.connect(turn_system.end_turn)
-	action.perform(text_box_node.sender)
+	if lock_one_action():
+		commands_menu_node.pause()
+		commands_menu_node.hide()
+		var action = PlayerIdle.new()
+		action.ended.connect(turn_system.end_turn)
+		action.perform(text_box_node.sender)
 
 func _on_battle_commands_menu_attack_button_pressed() -> void:
-	commands_menu_node.pause()
-	commands_menu_node.hide()
-	var action = PlayerAttack.new()
-	action.ended.connect(turn_system.end_turn)
-	action.perform(text_box_node.sender)
+	if lock_one_action():
+		commands_menu_node.pause()
+		commands_menu_node.hide()
+		var action = PlayerAttack.new()
+		action.ended.connect(turn_system.end_turn)
+		action.perform(text_box_node.sender)
 
 func _on_battle_commands_menu_defend_button_pressed() -> void:
-	commands_menu_node.pause()
-	commands_menu_node.hide()
-	var action = PlayerDefend.new()
-	action.ended.connect(turn_system.end_turn)
-	action.perform(text_box_node.sender)
+	if lock_one_action():
+		commands_menu_node.pause()
+		commands_menu_node.hide()
+		var action = PlayerDefend.new()
+		action.ended.connect(turn_system.end_turn)
+		action.perform(text_box_node.sender)
 
 func _on_battle_commands_menu_heal_button_pressed() -> void:
-	commands_menu_node.pause()
-	commands_menu_node.hide()
-	var action = PlayerHeal.new()
-	action.ended.connect(turn_system.end_turn)
-	action.perform(text_box_node.sender)
+	if lock_one_action():
+		commands_menu_node.pause()
+		commands_menu_node.hide()
+		var action = PlayerHeal.new()
+		action.ended.connect(turn_system.end_turn)
+		action.perform(text_box_node.sender)
 
 func end_phase() -> void:
 	commands_menu_node.hide()
@@ -86,6 +91,7 @@ func on_player_turn() -> void:
 	Player.on_turn_start()
 	commands_menu_node.show()
 	commands_menu_node.unpause()
+	unlock_one_action()
 
 func on_enemy_turn() -> void:
 	Enemy.on_turn_start()
@@ -99,3 +105,12 @@ func on_enemy_defeated() -> void:
 
 func on_defeat() -> void:
 	PopupInterfaces.open_defeat_popup()
+
+func unlock_one_action() -> void:
+	one_action = false
+
+func lock_one_action() -> bool:
+	if not one_action:
+		one_action = true
+		return true
+	return false
