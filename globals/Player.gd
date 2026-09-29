@@ -59,7 +59,7 @@ func make_defend() -> void:
 	enduring_turns = MagiciteEndurePlus.get_enduring_turns()
 	reprisal_turns = MagiciteReprisalPlus.get_reprisal_turns()
 	buff_attack(MagiciteAttackPlus.get_buff_turns_from_defend(), MagiciteAttackPlus.get_buff_value_from_defend())
-	buff_attack(MagiciteDefensePlus.get_buff_turns_from_defend(), MagiciteDefensePlus.get_buff_value_from_defend())
+	buff_defense(MagiciteDefensePlus.get_buff_turns_from_defend(), MagiciteDefensePlus.get_buff_value_from_defend())
 	statuses_changed.emit()
 
 func on_turn_start() -> void:
