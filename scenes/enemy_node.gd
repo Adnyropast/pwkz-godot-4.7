@@ -1,6 +1,6 @@
 extends Control
 
-@onready var enemy_texture: TextureRect = $EnemyShake/EnemyTexture
+@onready var enemy_texture: TextureRect = $EnemyShake/EnemyBreathe/EnemyTexture
 @onready var enemy_animation_player: AnimationPlayer = $EnemyShake/EnemyAnimationPlayer
 
 func _ready() -> void:
