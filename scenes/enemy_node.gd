@@ -12,4 +12,4 @@ func on_enemy_hurt() -> void:
 	enemy_animation_player.play("enemy_hurt")
 
 func on_enemy_defeated() -> void:
-	enemy_texture.hide()
+	enemy_animation_player.play("enemy_defeat")
