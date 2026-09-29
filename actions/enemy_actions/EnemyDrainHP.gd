@@ -32,8 +32,6 @@ func step_damage(sender: Sender) -> void:
 	)
 
 func step_reprisal(sender: Sender, damage: int) -> void:
-	Player.portrait_stop_hurt()
-	
 	var value: int = 0
 	
 	if Player.has_reprisal():

@@ -31,7 +31,6 @@ func step_damage(sender: Sender) -> void:
 	)
 
 func step_reprisal(sender: Sender, damage: int) -> void:
-	Player.portrait_stop_hurt()
 	if Player.has_reprisal():
 		var reprisal_damage = MagiciteReprisalPlus.get_reprisal_damage(damage)
 		reprisal_damage = DamageCalcs.get_modified_damage_to_enemy(reprisal_damage)
@@ -73,6 +72,7 @@ func step_defeat(sender: Sender) -> void:
 		step_end()
 
 func step_revive(sender: Sender) -> void:
+	Player.portrait_stop_hurt()
 	var healing: int = 1500
 	healing = MagiciteHealPlus.get_modified_healing(healing)
 	Player.set_hp(healing)
@@ -82,3 +82,7 @@ func step_revive(sender: Sender) -> void:
 		step_end,
 		2.0
 	)
+
+func step_end() -> void:
+	Player.portrait_stop_hurt()
+	super.step_end()

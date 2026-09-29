@@ -19,7 +19,7 @@ func _ready() -> void:
 	Player.portrait_changed.connect(on_player_portrait_changed)
 
 func on_player_defeated() -> void:
-	player_texture.hide()
+	player_texture_animation_player.play("player_defeat")
 
 func on_player_portrait_changed() -> void:
 	player_texture.texture = Player.get_player_texture()

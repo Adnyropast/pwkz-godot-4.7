@@ -41,6 +41,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerTexture:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_er5qu"]
 resource_name = "player_attack"
@@ -69,6 +81,21 @@ tracks/1/keys = {
 "values": [0.0, -8.0, 0.0, 8.0, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_qcjqi"]
+resource_name = "player_defeat"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerTexture:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_or0tx"]
 resource_name = "player_hurt"
 tracks/0/type = "value"
@@ -88,6 +115,7 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_iraov"),
 &"player_attack": SubResource("Animation_er5qu"),
+&"player_defeat": SubResource("Animation_qcjqi"),
 &"player_hurt": SubResource("Animation_or0tx")
 }
 
