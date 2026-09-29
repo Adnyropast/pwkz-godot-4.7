@@ -20,3 +20,10 @@ static func get_player_texture(mode: Modes) -> Texture:
 	elif mode == Modes.LEONARDO:
 		return preload("res://images/player/c2-1.png")
 	return null
+
+static func get_player_texture_attacking(mode: Modes) -> Texture:
+	if mode == Modes.MARIA:
+		return preload("res://images/player/c1-2.png")
+	elif mode == Modes.LEONARDO:
+		return preload("res://images/player/c2-2.png")
+	return null

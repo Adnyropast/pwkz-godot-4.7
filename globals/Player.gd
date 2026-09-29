@@ -7,6 +7,7 @@ const MAX_BUFF_VALUE: float = 1
 signal player_defeated
 signal hp_changed
 signal statuses_changed
+signal portrait_changed
 var hp: int
 var defending_turns: int
 var enduring_turns: int
@@ -17,12 +18,16 @@ var attack_buff_value: float
 var defense_buff_turns: int
 var defense_buff_value: float
 var player_mode: Players.Modes
+var portrait_is_attacking: bool
 
 func get_player_name() -> String:
 	return Players.get_player_name(player_mode)
 
 func get_player_texture() -> Texture:
-	return Players.get_player_texture(player_mode)
+	if Player.portrait_is_attacking:
+		return Players.get_player_texture_attacking(player_mode)
+	else:
+		return Players.get_player_texture(player_mode)
 
 func set_hp(new_hp: int) -> void:
 	if new_hp > MAX_HP:
@@ -134,3 +139,11 @@ func reset_player() -> void:
 	attack_buff_value = 0
 	defense_buff_turns = 0
 	defense_buff_value = 0
+
+func portrait_set_attacking() -> void:
+	portrait_is_attacking = true
+	portrait_changed.emit()
+
+func portrait_stop_attacking() -> void:
+	portrait_is_attacking = false
+	portrait_changed.emit()

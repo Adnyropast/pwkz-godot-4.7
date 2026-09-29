@@ -1,6 +1,7 @@
 extends Control
 
-@onready var player_texture: TextureRect = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerTexture
+@onready var player_texture: TextureRect = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerTexture
+@onready var player_texture_animation_player: AnimationPlayer = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerTextureAnimationPlayer
 @onready var hp_bar: ProgressBar = $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HPBar
 @onready var hp_label: Label = $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/HPLabel
 @onready var max_hp_label: Label = $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/MaxHPLabel
@@ -15,9 +16,16 @@ func _ready() -> void:
 	Player.player_defeated.connect(on_player_defeated)
 	Player.hp_changed.connect(on_player_hp_changed)
 	Player.statuses_changed.connect(on_player_statuses_changed)
+	Player.portrait_changed.connect(on_player_portrait_changed)
 
 func on_player_defeated() -> void:
 	player_texture.hide()
+
+func on_player_portrait_changed() -> void:
+	player_texture.texture = Player.get_player_texture()
+	
+	if Player.portrait_is_attacking:
+		player_texture_animation_player.play("player_attack")
 
 func on_player_hp_changed() -> void:
 	hp_label.text = str(Player.hp)

@@ -3,6 +3,66 @@
 [ext_resource type="Script" uid="uid://dn3d3mqba04wm" path="res://scenes/player_hud.gd" id="1_iraov"]
 [ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="1_mlvnn"]
 
+[sub_resource type="Animation" id="Animation_iraov"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_transform_position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_er5qu"]
+resource_name = "player_attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 8.0, -16.0, 8.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_transform_position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -8.0, 0.0, 8.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_or0tx"]
+_data = {
+&"RESET": SubResource("Animation_iraov"),
+&"player_attack": SubResource("Animation_er5qu")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iraov"]
 bg_color = Color(0.003921569, 1, 0.023529412, 1)
 border_width_left = 2
@@ -41,12 +101,19 @@ layout_mode = 2
 layout_mode = 2
 alignment = 2
 
-[node name="PlayerTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1430687536]
+[node name="PlayerShakeNode" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1694613599]
+layout_mode = 2
+offset_transform_enabled = true
+
+[node name="PlayerTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode" unique_id=1430687536]
 custom_minimum_size = Vector2(256, 256)
 custom_maximum_size = Vector2(256, -1)
 layout_mode = 2
 texture = ExtResource("1_mlvnn")
 expand_mode = 1
+
+[node name="PlayerTextureAnimationPlayer" type="AnimationPlayer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode" unique_id=50866952]
+libraries/ = SubResource("AnimationLibrary_or0tx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=2145855890]
 layout_mode = 2

@@ -6,6 +6,7 @@ func perform(sender: Sender) -> void:
 	step_attack(sender)
 
 func step_attack(sender: Sender) -> void:
+	Player.portrait_set_attacking()
 	var player_name = Player.get_player_name()
 	sender.send_timed(
 		player_name + " attacks!",
@@ -44,6 +45,7 @@ func step_damage(sender: Sender) -> void:
 	)
 
 func step_drain(sender: Sender, damage: int) -> void:
+	Player.portrait_stop_attacking()
 	if MagiciteDrainPlus.has_magicites() or Enemy.has_reflect_barrier:
 		var value: int = DamageCalcs.get_reprisal_drain_to_player(damage)
 		Player.subtract_hp(value)
