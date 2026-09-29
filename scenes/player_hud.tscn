@@ -3,6 +3,92 @@
 [ext_resource type="Script" uid="uid://dn3d3mqba04wm" path="res://scenes/player_hud.gd" id="1_iraov"]
 [ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="1_mlvnn"]
 
+[sub_resource type="Animation" id="Animation_s25gh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_transform_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset_transform_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ujnyd"]
+resource_name = "player_breathe"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3333, 0.6667, 1, 1.3333, 1.6667, 2, 2.3333333, 2.6667, 3, 3.3333, 3.6667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, -2), Vector2(-3, -2), Vector2(-4, -1.5), Vector2(-3, -0.5), Vector2(-1, 0), Vector2(0, 0), Vector2(2, -2), Vector2(3, -2), Vector2(4, -1.5), Vector2(3, -0.5), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset_transform_scale")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3333, 0.6666667, 1, 1.3333, 1.6667, 2, 2.3333333, 2.6667, 3, 3.3333, 3.6667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.01, 1.01), Vector2(1.01, 1.01), Vector2(1.01, 1.01), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1.01, 1.01), Vector2(1.01, 1.01), Vector2(1.01, 1.01), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset_transform_rotation")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3333, 0.6666667, 1, 1.3333, 1.6667, 2, 2.3333333, 2.6667, 3, 3.3333, 3.6667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.012217304763960109, -0.022689280275926482, -0.034906585, -0.022689280275926482, -0.012217304763960109, 0.0, 0.012217304763960109, 0.022689280275926482, 0.03490658503988659, 0.022689280275926482, 0.012217304763960109]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lqhkl"]
+_data = {
+&"RESET": SubResource("Animation_s25gh"),
+&"player_breathe": SubResource("Animation_ujnyd")
+}
+
 [sub_resource type="Animation" id="Animation_iraov"]
 length = 0.001
 tracks/0/type = "value"
@@ -44,7 +130,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerTexture:self_modulate")
+tracks/3/path = NodePath("PlayerBreathe/PlayerTexture:self_modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -86,7 +172,7 @@ resource_name = "player_defeat"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerTexture:self_modulate")
+tracks/0/path = NodePath("PlayerBreathe/PlayerTexture:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -161,12 +247,20 @@ alignment = 2
 layout_mode = 2
 offset_transform_enabled = true
 
-[node name="PlayerTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode" unique_id=1430687536]
+[node name="PlayerBreathe" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode" unique_id=1316868348]
+layout_mode = 2
+offset_transform_enabled = true
+
+[node name="PlayerTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerBreathe" unique_id=1430687536]
 custom_minimum_size = Vector2(256, 256)
 custom_maximum_size = Vector2(256, -1)
 layout_mode = 2
 texture = ExtResource("1_mlvnn")
 expand_mode = 1
+
+[node name="BreatheAnimationPlayer" type="AnimationPlayer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerBreathe" unique_id=620507239]
+libraries/ = SubResource("AnimationLibrary_lqhkl")
+autoplay = &"player_breathe"
 
 [node name="PlayerTextureAnimationPlayer" type="AnimationPlayer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode" unique_id=50866952]
 libraries/ = SubResource("AnimationLibrary_or0tx")

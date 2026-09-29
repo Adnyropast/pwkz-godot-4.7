@@ -1,6 +1,6 @@
 extends Control
 
-@onready var player_texture: TextureRect = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerTexture
+@onready var player_texture: TextureRect = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerBreathe/PlayerTexture
 @onready var player_texture_animation_player: AnimationPlayer = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerTextureAnimationPlayer
 @onready var hp_bar: ProgressBar = $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HPBar
 @onready var hp_label: Label = $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/HPLabel
