@@ -7,7 +7,7 @@ const STEP_END_RESULTS: int = 3
 const STEP_REWARDS: int = 4
 
 @onready var dialogue_box: Node = $MarginContainer/DialogueBox
-@onready var prince_texture: TextureRect = $CenterContainer/PrinceBreathe/PrinceTexture
+@onready var prince_texture: TextureRect = $CenterContainer/FadeNode/PrinceBreathe/PrinceTexture
 var step: int = STEP_0
 
 func _ready() -> void:

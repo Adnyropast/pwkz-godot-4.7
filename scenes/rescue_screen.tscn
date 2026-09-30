@@ -66,6 +66,42 @@ _data = {
 &"prince_breathe": SubResource("Animation_2wcou")
 }
 
+[sub_resource type="Animation" id="Animation_lb1wa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/FadeNode:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6yfxq"]
+resource_name = "rescue_prince_intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/FadeNode:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lb1wa"]
+_data = {
+&"RESET": SubResource("Animation_lb1wa"),
+&"rescue_prince_intro": SubResource("Animation_6yfxq")
+}
+
 [node name="RescueScreen" type="Node3D" unique_id=906251841]
 script = ExtResource("1_fheb7")
 
@@ -80,17 +116,20 @@ grow_vertical = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, -32)
 
-[node name="PrinceBreathe" type="MarginContainer" parent="CenterContainer" unique_id=425234555]
+[node name="FadeNode" type="MarginContainer" parent="CenterContainer" unique_id=274794654]
+layout_mode = 2
+
+[node name="PrinceBreathe" type="MarginContainer" parent="CenterContainer/FadeNode" unique_id=425234555]
 layout_mode = 2
 offset_transform_enabled = true
 
-[node name="PrinceTexture" type="TextureRect" parent="CenterContainer/PrinceBreathe" unique_id=1701394404]
+[node name="PrinceTexture" type="TextureRect" parent="CenterContainer/FadeNode/PrinceBreathe" unique_id=1701394404]
 custom_minimum_size = Vector2(384, 384)
 layout_mode = 2
 texture = ExtResource("2_jvwdm")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/PrinceBreathe" unique_id=1329317394]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/FadeNode/PrinceBreathe" unique_id=1329317394]
 libraries/ = SubResource("AnimationLibrary_6yfxq")
 autoplay = &"prince_breathe"
 
@@ -109,5 +148,9 @@ theme_override_constants/margin_bottom = 32
 
 [node name="DialogueBox" parent="MarginContainer" unique_id=332011556 instance=ExtResource("1_esnag")]
 layout_mode = 2
+
+[node name="PrinceIntroAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1287730097]
+libraries/ = SubResource("AnimationLibrary_lb1wa")
+autoplay = &"rescue_prince_intro"
 
 [connection signal="next_button_pressed" from="MarginContainer/DialogueBox" to="." method="_on_dialogue_box_next_button_pressed"]
