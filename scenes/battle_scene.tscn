@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cacjfswvmbfwo" path="res://scenes/battle_scene.gd" id="1_kewym"]
 [ext_resource type="PackedScene" uid="uid://b7latik14ltrx" path="res://scenes/battle_text_box.tscn" id="2_gi7kc"]
 [ext_resource type="PackedScene" uid="uid://ce5k747bk21k3" path="res://scenes/enemy_node.tscn" id="2_pxwbd"]
+[ext_resource type="PackedScene" uid="uid://raykwsor5paf" path="res://scenes/battle_camera.tscn" id="3_1i8jf"]
 [ext_resource type="PackedScene" uid="uid://cktqoqd2ayamx" path="res://scenes/player_hud.tscn" id="3_vcsse"]
 
 [node name="BattleScene" type="Node3D" unique_id=818123241]
@@ -11,10 +12,7 @@ script = ExtResource("1_kewym")
 
 [node name="EnemyNode" parent="." unique_id=1174380748 instance=ExtResource("2_pxwbd")]
 
-[node name="CameraDistance" type="Node3D" parent="." unique_id=983206288]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
-
-[node name="Camera3D" type="Camera3D" parent="CameraDistance" unique_id=51798563]
+[node name="BattleCamera" parent="." unique_id=2097289196 instance=ExtResource("3_1i8jf")]
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1643685994]
 anchors_preset = 3
@@ -48,6 +46,7 @@ size_flags_horizontal = 3
 [node name="BattleTextBox" parent="HBoxContainer/BattleTextBoxContainer" unique_id=929214716 instance=ExtResource("2_gi7kc")]
 layout_mode = 1
 
+[connection signal="intro_animation_finished" from="BattleCamera" to="." method="_on_battle_camera_intro_animation_finished"]
 [connection signal="attack_button_pressed" from="HBoxContainer/MarginContainer/BattleCommandsMenu" to="." method="_on_battle_commands_menu_attack_button_pressed"]
 [connection signal="battle_info_button_pressed" from="HBoxContainer/MarginContainer/BattleCommandsMenu" to="." method="_on_battle_commands_menu_battle_info_button_pressed"]
 [connection signal="defend_button_pressed" from="HBoxContainer/MarginContainer/BattleCommandsMenu" to="." method="_on_battle_commands_menu_defend_button_pressed"]

@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var commands_menu_node: Node = $HBoxContainer/MarginContainer/BattleCommandsMenu
 @onready var text_box_node: Node = $HBoxContainer/BattleTextBoxContainer/BattleTextBox
+@onready var player_hud: Node = $MarginContainer/PlayerHUD
 var turn_system: TurnSystem = TurnSystem.new()
 var one_action: bool
 
@@ -10,12 +11,7 @@ func _ready() -> void:
 	text_box_node.hide()
 	commands_menu_node.pause()
 	commands_menu_node.hide()
-	
-	turn_system.defeat.connect(on_defeat)
-	turn_system.victory.connect(on_victory)
-	turn_system.player_turn.connect(on_player_turn)
-	turn_system.enemy_turn.connect(on_enemy_turn)
-	turn_system.start()
+	player_hud.hide()
 
 func _on_battle_commands_menu_next_phase_button_pressed() -> void:
 	end_phase()
@@ -63,6 +59,10 @@ func _on_battle_commands_menu_heal_button_pressed() -> void:
 		action.ended.connect(turn_system.end_turn)
 		action.perform(text_box_node.sender)
 
+func _on_battle_camera_intro_animation_finished() -> void:
+	setup_turn()
+	player_hud.show()
+
 func end_phase() -> void:
 	commands_menu_node.hide()
 	
@@ -107,3 +107,10 @@ func lock_one_action() -> bool:
 		one_action = true
 		return true
 	return false
+
+func setup_turn() -> void:
+	turn_system.defeat.connect(on_defeat)
+	turn_system.victory.connect(on_victory)
+	turn_system.player_turn.connect(on_player_turn)
+	turn_system.enemy_turn.connect(on_enemy_turn)
+	turn_system.start()

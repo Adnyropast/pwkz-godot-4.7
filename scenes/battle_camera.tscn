@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://raykwsor5paf"]
+
+[ext_resource type="Script" uid="uid://dvu1fbjqfbn34" path="res://scenes/battle_camera.gd" id="1_6we38"]
+
+[sub_resource type="Animation" id="Animation_pxwbd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1i8jf"]
+resource_name = "camera_intro"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(0.25, 4, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -4), Vector3(0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_start_animation_finished"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_svpld"]
+_data = {
+&"RESET": SubResource("Animation_pxwbd"),
+&"camera_intro": SubResource("Animation_1i8jf")
+}
+
+[node name="BattleCamera" type="Node3D" unique_id=2097289196]
+script = ExtResource("1_6we38")
+
+[node name="CameraDistance" type="Node3D" parent="." unique_id=1528616935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="ZoomNode" type="Node3D" parent="CameraDistance" unique_id=431779812]
+
+[node name="Camera3D" type="Camera3D" parent="CameraDistance/ZoomNode" unique_id=1652672561]
+
+[node name="IntroAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1169060905]
+root_node = NodePath("../CameraDistance/ZoomNode")
+libraries/ = SubResource("AnimationLibrary_svpld")
+autoplay = &"camera_intro"
