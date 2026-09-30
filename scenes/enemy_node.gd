@@ -1,10 +1,10 @@
-extends Control
+extends Node
 
-@onready var enemy_texture: TextureRect = $EnemyShake/EnemyBreathe/EnemyTexture
+@onready var enemy_sprite = $EnemyShake/EnemyBreathe/EnemySprite
 @onready var enemy_animation_player: AnimationPlayer = $EnemyShake/EnemyAnimationPlayer
 
 func _ready() -> void:
-	enemy_texture.texture = Enemy.get_texture()
+	enemy_sprite.texture = Enemy.get_texture()
 	Enemy.enemy_hurt.connect(on_enemy_hurt)
 	Enemy.enemy_defeated.connect(on_enemy_defeated)
 

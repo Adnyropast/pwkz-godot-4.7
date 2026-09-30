@@ -1,33 +1,33 @@
 [gd_scene format=3 uid="uid://ce5k747bk21k3"]
 
 [ext_resource type="Script" uid="uid://bk800b71ytl4x" path="res://scenes/enemy_node.gd" id="1_ilucu"]
-[ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="1_xk3qw"]
+[ext_resource type="Texture2D" uid="uid://b28vhbjcpsg4y" path="res://images/enemies/e02.png" id="2_lcxlm"]
 
 [sub_resource type="Animation" id="Animation_5cy0s"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset_transform_position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset_transform_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector3(1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_jde88"]
@@ -37,26 +37,26 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset_transform_position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, -2), Vector2(0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0.03, 0), Vector3(0, 0.06, 0), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset_transform_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1, 2, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.01, 1.01), Vector2(1.02, 1.02), Vector2(1, 1)]
+"values": [Vector3(1, 1, 1), Vector3(1.01, 1.01, 1.01), Vector3(1.02, 1.02, 1.02), Vector3(1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5cy0s"]
@@ -70,7 +70,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyShake:offset_transform_position")
+tracks/0/path = NodePath("EnemyShake/EnemyBreathe:offset_transform_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -82,38 +82,50 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("EnemyShake/EnemyBreathe/EnemyTexture:self_modulate")
+tracks/1/path = NodePath("EnemyShake/EnemyBreathe:offset_transform_scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("EnemyShake/EnemyBreathe:offset_transform_position")
+tracks/2/path = NodePath("EnemyShake:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("EnemyShake/EnemyBreathe:offset_transform_scale")
+tracks/3/path = NodePath("EnemyShake/EnemyBreathe/EnemySprite:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EnemyShake/EnemyBreathe/SpotLight3D:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_m02cf"]
@@ -121,14 +133,26 @@ resource_name = "enemy_defeat"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyShake/EnemyBreathe/EnemyTexture:self_modulate")
+tracks/0/path = NodePath("EnemyShake/EnemyBreathe/EnemySprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(4.415934, 2.2886982, 4.415934, 1), Color(0.49803922, 0, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 0.49803922, 1, 1), Color(0.49803922, 0, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemyShake/EnemyBreathe/SpotLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 10.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_lcxlm"]
@@ -136,14 +160,14 @@ resource_name = "enemy_hurt"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyShake:offset_transform_position")
+tracks/0/path = NodePath("EnemyShake:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-12, -4), Vector2(12, 4), Vector2(-8, -4), Vector2(8, 4), Vector2(0, 0)]
+"values": [Vector3(-0.36, 0.12, 0), Vector3(0.36, -0.12, 0), Vector3(-0.24, 0.12, 0), Vector3(0.24, -0.12, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m02cf"]
@@ -153,24 +177,22 @@ _data = {
 &"enemy_hurt": SubResource("Animation_lcxlm")
 }
 
-[node name="EnemyNode" type="MarginContainer" unique_id=1174380748]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="EnemyNode" type="Node3D" unique_id=22856656]
 script = ExtResource("1_ilucu")
 
-[node name="EnemyShake" type="MarginContainer" parent="." unique_id=1137726933]
-layout_mode = 2
-offset_transform_enabled = true
+[node name="EnemyShake" type="Node3D" parent="." unique_id=1491450682]
 
-[node name="EnemyBreathe" type="MarginContainer" parent="EnemyShake" unique_id=2062966258]
-layout_mode = 2
-offset_transform_enabled = true
+[node name="EnemyBreathe" type="Node3D" parent="EnemyShake" unique_id=2064240042]
 
-[node name="EnemyTexture" type="TextureRect" parent="EnemyShake/EnemyBreathe" unique_id=492719729]
-custom_minimum_size = Vector2(256, 256)
-layout_mode = 2
-texture = ExtResource("1_xk3qw")
-expand_mode = 1
+[node name="EnemySprite" type="Sprite3D" parent="EnemyShake/EnemyBreathe" unique_id=1775407236]
+billboard = 1
+shaded = true
+texture = ExtResource("2_lcxlm")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="EnemyShake/EnemyBreathe" unique_id=1101813516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+spot_attenuation = -2.0
+spot_angle = 90.0
 
 [node name="BreatheAnimationPlayer" type="AnimationPlayer" parent="EnemyShake/EnemyBreathe" unique_id=1887702694]
 libraries/ = SubResource("AnimationLibrary_5cy0s")
