@@ -2,6 +2,66 @@
 
 [ext_resource type="Script" uid="uid://cqq2q0hcl46fo" path="res://scenes/battle_commands_menu.gd" id="1_krgkg"]
 
+[sub_resource type="Animation" id="Animation_krgkg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlideNode:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlideNode:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v1dfc"]
+resource_name = "battle_commands_menu_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlideNode:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(-16, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlideNode:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e53yi"]
+_data = {
+&"RESET": SubResource("Animation_krgkg"),
+&"battle_commands_menu_fade_in": SubResource("Animation_v1dfc")
+}
+
 [node name="BattleCommandsMenu" type="MarginContainer" unique_id=715869591]
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,58 +70,66 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_krgkg")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1383396926]
+[node name="SlideNode" type="MarginContainer" parent="." unique_id=997306578]
+layout_mode = 2
+offset_transform_enabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="SlideNode" unique_id=1383396926]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=363262340]
+[node name="VBoxContainer" type="VBoxContainer" parent="SlideNode/MarginContainer" unique_id=363262340]
 layout_mode = 2
 
-[node name="ButtonAttack" type="Button" parent="MarginContainer/VBoxContainer" unique_id=973178347]
+[node name="ButtonAttack" type="Button" parent="SlideNode/MarginContainer/VBoxContainer" unique_id=973178347]
 layout_mode = 2
 text = "Attack"
 
-[node name="ButtonDefend" type="Button" parent="MarginContainer/VBoxContainer" unique_id=71609696]
+[node name="ButtonDefend" type="Button" parent="SlideNode/MarginContainer/VBoxContainer" unique_id=71609696]
 layout_mode = 2
 text = "Defend"
 
-[node name="ButtonHeal" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1232357565]
+[node name="ButtonHeal" type="Button" parent="SlideNode/MarginContainer/VBoxContainer" unique_id=1232357565]
 layout_mode = 2
 text = "Heal"
 
-[node name="ButtonPass" type="Button" parent="MarginContainer/VBoxContainer" unique_id=922880484]
+[node name="ButtonPass" type="Button" parent="SlideNode/MarginContainer/VBoxContainer" unique_id=922880484]
 layout_mode = 2
 text = "(Pass Turn)"
 
-[node name="ButtonBattleInfo" type="Button" parent="MarginContainer/VBoxContainer" unique_id=713008072]
+[node name="ButtonBattleInfo" type="Button" parent="SlideNode/MarginContainer/VBoxContainer" unique_id=713008072]
 layout_mode = 2
 text = "Battle Info"
 
-[node name="ButtonNextPhase" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2072037275]
+[node name="ButtonNextPhase" type="Button" parent="SlideNode/MarginContainer/VBoxContainer" unique_id=2072037275]
 layout_mode = 2
 text = "(Next Phase)"
 
-[node name="ButtonNextStage" type="Button" parent="MarginContainer/VBoxContainer" unique_id=51144591]
+[node name="ButtonNextStage" type="Button" parent="SlideNode/MarginContainer/VBoxContainer" unique_id=51144591]
 layout_mode = 2
 text = "(Next Stage)"
 
-[node name="ButtonLoseBattle" type="Button" parent="MarginContainer/VBoxContainer" unique_id=104606917]
+[node name="ButtonLoseBattle" type="Button" parent="SlideNode/MarginContainer/VBoxContainer" unique_id=104606917]
 layout_mode = 2
 text = "(Lose Battle)"
 
-[node name="ButtonRetire" type="Button" parent="MarginContainer/VBoxContainer" unique_id=412689342]
+[node name="ButtonRetire" type="Button" parent="SlideNode/MarginContainer/VBoxContainer" unique_id=412689342]
 layout_mode = 2
 text = "Retire"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonAttack" to="." method="_on_button_attack_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonDefend" to="." method="_on_button_defend_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonHeal" to="." method="_on_button_heal_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonPass" to="." method="_on_button_pass_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonBattleInfo" to="." method="_on_button_battle_info_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonNextPhase" to="." method="_on_button_next_phase_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonNextStage" to="." method="_on_button_next_stage_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonLoseBattle" to="." method="_on_button_lose_battle_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonRetire" to="." method="_on_button_retire_pressed"]
+[node name="FadeInAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1226170042]
+libraries/ = SubResource("AnimationLibrary_e53yi")
+autoplay = &"battle_commands_menu_fade_in"
+
+[connection signal="pressed" from="SlideNode/MarginContainer/VBoxContainer/ButtonAttack" to="." method="_on_button_attack_pressed"]
+[connection signal="pressed" from="SlideNode/MarginContainer/VBoxContainer/ButtonDefend" to="." method="_on_button_defend_pressed"]
+[connection signal="pressed" from="SlideNode/MarginContainer/VBoxContainer/ButtonHeal" to="." method="_on_button_heal_pressed"]
+[connection signal="pressed" from="SlideNode/MarginContainer/VBoxContainer/ButtonPass" to="." method="_on_button_pass_pressed"]
+[connection signal="pressed" from="SlideNode/MarginContainer/VBoxContainer/ButtonBattleInfo" to="." method="_on_button_battle_info_pressed"]
+[connection signal="pressed" from="SlideNode/MarginContainer/VBoxContainer/ButtonNextPhase" to="." method="_on_button_next_phase_pressed"]
+[connection signal="pressed" from="SlideNode/MarginContainer/VBoxContainer/ButtonNextStage" to="." method="_on_button_next_stage_pressed"]
+[connection signal="pressed" from="SlideNode/MarginContainer/VBoxContainer/ButtonLoseBattle" to="." method="_on_button_lose_battle_pressed"]
+[connection signal="pressed" from="SlideNode/MarginContainer/VBoxContainer/ButtonRetire" to="." method="_on_button_retire_pressed"]

@@ -8,6 +8,8 @@ var turn_system: TurnSystem = TurnSystem.new()
 var one_action: bool
 
 func _ready() -> void:
+	commands_menu_node.faded_in.connect(camera.on_commands_menu_fade_in)
+	commands_menu_node.faded_out.connect(camera.on_commands_menu_fade_out)
 	text_box_node.pause()
 	text_box_node.hide()
 	commands_menu_node.pause()

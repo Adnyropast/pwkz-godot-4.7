@@ -23,7 +23,7 @@ length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("OffsetNode/CameraDistance/ZoomNode:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -35,7 +35,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../..")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -58,7 +58,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraDistance/ZoomNode:position")
+tracks/0/path = NodePath("OffsetNode/CameraDistance/ZoomNode:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -73,7 +73,7 @@ resource_name = "camera_enemy_action_start"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraDistance/ZoomNode:position")
+tracks/0/path = NodePath("OffsetNode/CameraDistance/ZoomNode:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -94,7 +94,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraDistance/ZoomNode:position")
+tracks/0/path = NodePath("OffsetNode/CameraDistance/ZoomNode:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -109,7 +109,7 @@ resource_name = "camera_enemy_action_end"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CameraDistance/ZoomNode:position")
+tracks/0/path = NodePath("OffsetNode/CameraDistance/ZoomNode:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -125,18 +125,91 @@ _data = {
 &"camera_enemy_action_end": SubResource("Animation_c0g24")
 }
 
+[sub_resource type="Animation" id="Animation_37pdp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OffsetNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3i0ge"]
+resource_name = "battle_camera_commands_menu_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OffsetNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.2, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y7miv"]
+_data = {
+&"RESET": SubResource("Animation_37pdp"),
+&"battle_camera_commands_menu_fade_in": SubResource("Animation_3i0ge")
+}
+
+[sub_resource type="Animation" id="Animation_hmmad"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OffsetNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6pgex"]
+resource_name = "battle_camera_commands_menu_fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OffsetNode:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector3(-1.2, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jfugf"]
+_data = {
+&"RESET": SubResource("Animation_hmmad"),
+&"battle_camera_commands_menu_fade_out": SubResource("Animation_6pgex")
+}
+
 [node name="BattleCamera" type="Node3D" unique_id=2097289196]
 script = ExtResource("1_6we38")
 
-[node name="CameraDistance" type="Node3D" parent="." unique_id=1528616935]
+[node name="OffsetNode" type="Node3D" parent="." unique_id=1227026203]
+
+[node name="CameraDistance" type="Node3D" parent="OffsetNode" unique_id=1528616935]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 
-[node name="ZoomNode" type="Node3D" parent="CameraDistance" unique_id=431779812]
+[node name="ZoomNode" type="Node3D" parent="OffsetNode/CameraDistance" unique_id=431779812]
 
-[node name="Camera3D" type="Camera3D" parent="CameraDistance/ZoomNode" unique_id=1652672561]
+[node name="Camera3D" type="Camera3D" parent="OffsetNode/CameraDistance/ZoomNode" unique_id=1652672561]
 
 [node name="IntroAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1169060905]
-root_node = NodePath("../CameraDistance/ZoomNode")
 libraries/ = SubResource("AnimationLibrary_svpld")
 autoplay = &"camera_intro"
 
@@ -145,3 +218,9 @@ libraries/ = SubResource("AnimationLibrary_qysjf")
 
 [node name="EnemyActionEndAnimationPlayer" type="AnimationPlayer" parent="." unique_id=87331387]
 libraries/ = SubResource("AnimationLibrary_37pdp")
+
+[node name="BattleCommandsMenuFadeInAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1246312707]
+libraries/ = SubResource("AnimationLibrary_y7miv")
+
+[node name="BattleCommandsMenuFadeOutAnimationPlayer" type="AnimationPlayer" parent="." unique_id=669835172]
+libraries/ = SubResource("AnimationLibrary_jfugf")

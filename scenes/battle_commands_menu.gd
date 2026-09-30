@@ -8,13 +8,17 @@ signal pass_button_pressed
 signal attack_button_pressed
 signal defend_button_pressed
 signal heal_button_pressed
-@onready var pass_button: Button = $MarginContainer/VBoxContainer/ButtonPass
-@onready var next_phase_button: Button = $MarginContainer/VBoxContainer/ButtonNextPhase
-@onready var next_stage_button: Button = $MarginContainer/VBoxContainer/ButtonNextStage
-@onready var lose_battle_button: Button = $MarginContainer/VBoxContainer/ButtonLoseBattle
+signal faded_in
+signal faded_out
+@onready var pass_button: Button = $SlideNode/MarginContainer/VBoxContainer/ButtonPass
+@onready var next_phase_button: Button = $SlideNode/MarginContainer/VBoxContainer/ButtonNextPhase
+@onready var next_stage_button: Button = $SlideNode/MarginContainer/VBoxContainer/ButtonNextStage
+@onready var lose_battle_button: Button = $SlideNode/MarginContainer/VBoxContainer/ButtonLoseBattle
+@onready var fade_in_animation_player: AnimationPlayer = $FadeInAnimationPlayer
 
 func _ready() -> void:
 	refresh_debug_buttons()
+	visibility_changed.connect(on_visibility_changed)
 
 func _on_button_next_stage_pressed() -> void:
 	next_stage_button_pressed.emit()
@@ -61,3 +65,10 @@ func refresh_debug_buttons() -> void:
 		next_phase_button.hide()
 		next_stage_button.hide()
 		lose_battle_button.hide()
+
+func on_visibility_changed() -> void:
+	if visible:
+		fade_in_animation_player.play("battle_commands_menu_fade_in")
+		faded_in.emit()
+	else:
+		faded_out.emit()
