@@ -80,7 +80,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.3333, 0.6666667, 1, 1.3333, 1.6667, 2, 2.3333333, 2.6667, 3, 3.3333, 3.6667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.012217304763960109, -0.022689280275926482, -0.034906585, -0.022689280275926482, -0.012217304763960109, 0.0, 0.012217304763960109, 0.022689280275926482, 0.03490658503988659, 0.022689280275926482, 0.012217304763960109]
+"values": [0.0, -0.0122173047639601, -0.02268928027592648, -0.034906585, -0.02268928027592648, -0.0122173047639601, 0.0, 0.0122173047639601, 0.02268928027592648, 0.03490658503988659, 0.02268928027592648, 0.0122173047639601]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lqhkl"]
@@ -217,85 +217,190 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="Animation" id="Animation_lqhkl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlideNode/MarginContainer:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlideNode:offset_transform_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlideNode:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlideNode/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8y7rk"]
+resource_name = "player_hud_intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlideNode:offset_transform_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(16, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlideNode:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlideNode/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 0.25, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_50hf8"]
+_data = {
+&"RESET": SubResource("Animation_lqhkl"),
+&"player_hud_intro": SubResource("Animation_8y7rk")
+}
+
 [node name="PlayerHUD" type="MarginContainer" unique_id=1303436572]
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_iraov")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1715806515]
+[node name="SlideNode" type="MarginContainer" parent="." unique_id=1037117976]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(16, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="SlideNode" unique_id=1715806515]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=804390668]
+[node name="HBoxContainer" type="HBoxContainer" parent="SlideNode/MarginContainer" unique_id=804390668]
 layout_mode = 2
 
-[node name="StatusesContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=630778157]
+[node name="StatusesContainer" type="HBoxContainer" parent="SlideNode/MarginContainer/HBoxContainer" unique_id=630778157]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=747803102]
+[node name="VBoxContainer" type="VBoxContainer" parent="SlideNode/MarginContainer/HBoxContainer" unique_id=747803102]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=749205557]
+[node name="HBoxContainer" type="HBoxContainer" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer" unique_id=749205557]
 layout_mode = 2
 alignment = 2
 
-[node name="PlayerShakeNode" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1694613599]
+[node name="PlayerShakeNode" type="MarginContainer" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1694613599]
 layout_mode = 2
 offset_transform_enabled = true
 
-[node name="PlayerBreathe" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode" unique_id=1316868348]
+[node name="PlayerBreathe" type="MarginContainer" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode" unique_id=1316868348]
 layout_mode = 2
 offset_transform_enabled = true
 
-[node name="PlayerTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerBreathe" unique_id=1430687536]
+[node name="PlayerTexture" type="TextureRect" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerBreathe" unique_id=1430687536]
 custom_minimum_size = Vector2(256, 256)
 custom_maximum_size = Vector2(256, -1)
 layout_mode = 2
 texture = ExtResource("1_mlvnn")
 expand_mode = 1
 
-[node name="BreatheAnimationPlayer" type="AnimationPlayer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerBreathe" unique_id=620507239]
+[node name="BreatheAnimationPlayer" type="AnimationPlayer" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerBreathe" unique_id=620507239]
 libraries/ = SubResource("AnimationLibrary_lqhkl")
 autoplay = &"player_breathe"
 
-[node name="PlayerTextureAnimationPlayer" type="AnimationPlayer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode" unique_id=50866952]
+[node name="PlayerTextureAnimationPlayer" type="AnimationPlayer" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode" unique_id=50866952]
 libraries/ = SubResource("AnimationLibrary_or0tx")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=2145855890]
+[node name="VBoxContainer" type="VBoxContainer" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2145855890]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=928520073]
+[node name="HBoxContainer" type="HBoxContainer" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=928520073]
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1249563016]
+[node name="Label" type="Label" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1249563016]
 layout_mode = 2
 text = "HP"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=838264377]
+[node name="HBoxContainer" type="HBoxContainer" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=838264377]
 layout_mode = 2
 
-[node name="HPLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1937351955]
+[node name="HPLabel" type="Label" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1937351955]
 layout_mode = 2
 text = "9999"
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=651328524]
+[node name="Label2" type="Label" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=651328524]
 layout_mode = 2
 text = "/"
 
-[node name="MaxHPLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=2094498958]
+[node name="MaxHPLabel" type="Label" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=2094498958]
 layout_mode = 2
 text = "9999"
 
-[node name="HPBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=617026557]
+[node name="HPBar" type="ProgressBar" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=617026557]
 custom_minimum_size = Vector2(256, 16)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_iraov")
 value = 100.0
 show_percentage = false
+
+[node name="IntroAnimationPlayer" type="AnimationPlayer" parent="." unique_id=828550665]
+libraries/ = SubResource("AnimationLibrary_50hf8")
+autoplay = &"player_hud_intro"

@@ -1,11 +1,12 @@
 extends Control
 
-@onready var player_texture: TextureRect = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerBreathe/PlayerTexture
-@onready var player_texture_animation_player: AnimationPlayer = $MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerTextureAnimationPlayer
-@onready var hp_bar: ProgressBar = $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HPBar
-@onready var hp_label: Label = $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/HPLabel
-@onready var max_hp_label: Label = $MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/MaxHPLabel
-@onready var statuses_container: Container = $MarginContainer/HBoxContainer/StatusesContainer
+@onready var player_texture: TextureRect = $SlideNode/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerBreathe/PlayerTexture
+@onready var player_texture_animation_player: AnimationPlayer = $SlideNode/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerTextureAnimationPlayer
+@onready var hp_bar: ProgressBar = $SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HPBar
+@onready var hp_label: Label = $SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/HPLabel
+@onready var max_hp_label: Label = $SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/MaxHPLabel
+@onready var statuses_container: Container = $SlideNode/MarginContainer/HBoxContainer/StatusesContainer
+@onready var intro_animation_player: AnimationPlayer = $IntroAnimationPlayer
 
 func _ready() -> void:
 	player_texture.texture = Player.get_player_texture()
@@ -17,6 +18,7 @@ func _ready() -> void:
 	Player.hp_changed.connect(on_player_hp_changed)
 	Player.statuses_changed.connect(on_player_statuses_changed)
 	Player.portrait_changed.connect(on_player_portrait_changed)
+	visibility_changed.connect(make_play_intro_animation)
 
 func on_player_defeated() -> void:
 	player_texture_animation_player.play("player_defeat")
@@ -72,3 +74,7 @@ func on_player_statuses_changed() -> void:
 		statuses_container.add_child(item)
 		item.set_texture(preload("res://images/statuses/ef6.png"))
 		item.set_info(str(Player.defense_buff_turns))
+
+func make_play_intro_animation() -> void:
+	intro_animation_player.stop()
+	intro_animation_player.play("player_hud_intro")
