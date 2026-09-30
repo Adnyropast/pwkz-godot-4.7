@@ -3,6 +3,7 @@ extends Node3D
 @onready var commands_menu_node: Node = $HBoxContainer/MarginContainer/BattleCommandsMenu
 @onready var text_box_node: Node = $HBoxContainer/BattleTextBoxContainer/BattleTextBox
 @onready var player_hud: Node = $MarginContainer/PlayerHUD
+@onready var camera: Node = $BattleCamera
 var turn_system: TurnSystem = TurnSystem.new()
 var one_action: bool
 
@@ -91,7 +92,12 @@ func on_player_turn() -> void:
 
 func on_enemy_turn() -> void:
 	Enemy.on_turn_start()
-	EnemyActionPicker.pick_action(text_box_node.sender, turn_system.end_turn)
+	EnemyActionPicker.pick_action(text_box_node.sender, on_enemy_turn_end)
+	camera.on_enemy_action_start()
+
+func on_enemy_turn_end() -> void:
+	camera.on_enemy_action_end()
+	turn_system.end_turn()
 
 func on_victory() -> void:
 	end_phase()
