@@ -11,9 +11,11 @@ func _process(_delta: float) -> void:
 		canceled.emit()
 
 func _on_game_button_1_pressed() -> void:
+	pause()
 	start_game(Players.Modes.MARIA)
 
 func _on_game_button_2_pressed() -> void:
+	pause()
 	start_game(Players.Modes.LEONARDO)
 
 func _on_debug_button_pressed() -> void:
@@ -32,3 +34,6 @@ func refresh_debug_button() -> void:
 		debug_button.text = "Debug: On"
 	else:
 		debug_button.text = "Debug: Off"
+
+func pause() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED

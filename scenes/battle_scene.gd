@@ -17,9 +17,11 @@ func _ready() -> void:
 	player_hud.hide()
 
 func _on_battle_commands_menu_next_phase_button_pressed() -> void:
+	commands_menu_node.pause()
 	end_phase()
 
 func _on_battle_commands_menu_next_stage_button_pressed() -> void:
+	commands_menu_node.pause()
 	Stages.next_stage()
 
 func _on_battle_commands_menu_battle_info_button_pressed() -> void:

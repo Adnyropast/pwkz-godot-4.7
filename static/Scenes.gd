@@ -4,19 +4,19 @@ class_name Scenes
 
 static func go_to_battle_scene() -> void:
 	var tree: SceneTree = Engine.get_main_loop()
-	tree.change_scene_to_file("res://scenes/battle_scene.tscn")
+	FadeScreen.make_fade(tree.change_scene_to_file.bind("res://scenes/battle_scene.tscn"))
 
 static func go_to_stage_start_screen() -> void:
 	var tree: SceneTree = Engine.get_main_loop()
-	tree.change_scene_to_file("res://scenes/stage_start_screen.tscn")
+	FadeScreen.make_fade(tree.change_scene_to_file.bind("res://scenes/stage_start_screen.tscn"))
 
 static func go_to_stage_inbetween_screen() -> void:
 	var tree: SceneTree = Engine.get_main_loop()
-	tree.change_scene_to_file("res://scenes/stage_inbetween_screen.tscn")
+	FadeScreen.make_fade(tree.change_scene_to_file.bind("res://scenes/stage_inbetween_screen.tscn"))
 
 static func go_to_rescue_screen() -> void:
 	var tree: SceneTree = Engine.get_main_loop()
-	tree.change_scene_to_file("res://scenes/rescue_screen.tscn")
+	FadeScreen.make_fade(tree.change_scene_to_file.bind("res://scenes/rescue_screen.tscn"))
 
 static func go_to_world_select_screen() -> void:
 	var tree: SceneTree = Engine.get_main_loop()
@@ -24,7 +24,7 @@ static func go_to_world_select_screen() -> void:
 
 static func go_to_title_screen() -> void:
 	var tree: SceneTree = Engine.get_main_loop()
-	tree.change_scene_to_file("res://scenes/title_screen.tscn")
+	FadeScreen.make_fade(tree.change_scene_to_file.bind("res://scenes/title_screen.tscn"))
 
 static func go_to_world_select_retry_screen() -> void:
 	var tree: SceneTree = Engine.get_main_loop()
