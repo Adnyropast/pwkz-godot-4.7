@@ -2,6 +2,30 @@
 
 [ext_resource type="Script" uid="uid://dkvy6ghr7gawr" path="res://scenes/dialogue_box.gd" id="1_rc1id"]
 
+[sub_resource type="Animation" id="Animation_rc1id"]
+resource_name = "dialogue_box_text_display"
+length = 0.05
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_text_advance"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fu8b5"]
+_data = {
+&"dialogue_box_text_display": SubResource("Animation_rc1id")
+}
+
 [node name="DialogueBox" type="MarginContainer" unique_id=332011556]
 script = ExtResource("1_rc1id")
 
@@ -33,5 +57,8 @@ alignment = 2
 [node name="ButtonNext" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1721829975]
 layout_mode = 2
 text = "Next"
+
+[node name="TextDisplayAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1055940157]
+libraries/ = SubResource("AnimationLibrary_fu8b5")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonNext" to="." method="_on_button_next_pressed"]
