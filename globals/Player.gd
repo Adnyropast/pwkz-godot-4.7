@@ -41,17 +41,26 @@ func set_hp(new_hp: int) -> void:
 		hp = new_hp
 	hp_changed.emit()
 
+func affect_hp(new_hp: int) -> void:
+	var old_hp = hp
+	set_hp(new_hp)
+	if hp < old_hp:
+		Sfx.play_hit()
+	elif hp > old_hp:
+		Sfx.play_heal()
+
 func subtract_hp(value_hp: int) -> void:
-	set_hp(hp - value_hp)
+	affect_hp(hp - value_hp)
 
 func add_hp(value_hp) -> void:
-	set_hp(hp + value_hp)
+	affect_hp(hp + value_hp)
 
 func is_ko() -> int:
 	return hp <= 0
 
 func try_emit_player_defeated() -> void:
 	if is_ko():
+		Sfx.play_ko()
 		player_defeated.emit()
 
 func make_defend() -> void:

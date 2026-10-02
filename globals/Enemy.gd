@@ -18,23 +18,27 @@ func get_max_hp() -> int:
 	return 3000
 
 func set_hp(new_hp: int) -> void:
-	var old_hp = hp
-	
 	if new_hp > get_max_hp():
 		hp = get_max_hp()
 	elif new_hp < 0:
 		hp = 0
 	else:
 		hp = new_hp
-	
+
+func affect_hp(new_hp: int) -> void:
+	var old_hp = hp
+	set_hp(new_hp)
 	if hp < old_hp:
+		Sfx.play_hit()
 		enemy_hurt.emit()
+	elif hp > old_hp:
+		Sfx.play_heal()
 
 func subtract_hp(value_hp: int) -> void:
-	set_hp(hp - value_hp)
+	affect_hp(hp - value_hp)
 
 func add_hp(value_hp: int) -> void:
-	set_hp(hp + value_hp)
+	affect_hp(hp + value_hp)
 
 func get_id() -> int:
 	var current_world: int = WorldState.current_world
