@@ -11,6 +11,7 @@ const STEP_REWARDS: int = 4
 var step: int = STEP_0
 
 func _ready() -> void:
+	Bgm.play_theme_victory_rescue()
 	init_step(STEP_0)
 
 func _on_dialogue_box_next_button_pressed() -> void:

@@ -8,6 +8,7 @@ var turn_system: TurnSystem = TurnSystem.new()
 var one_action: bool
 
 func _ready() -> void:
+	Bgm.play_stage()
 	commands_menu_node.faded_in.connect(camera.on_commands_menu_fade_in)
 	commands_menu_node.faded_out.connect(camera.on_commands_menu_fade_out)
 	text_box_node.pause()
@@ -77,12 +78,14 @@ func end_phase() -> void:
 		if WorldState.is_final_stage():
 			Phases.next_phase_rescue()
 		else:
+			Bgm.play_theme_victory()
 			text_box_node.sender.send("You won!", PopupInterfaces.open_rewards_popup.bind(on_rewards_closed))
 
 func on_rewards_closed() -> void:
 	PopupInterfaces.open_equip_screen_popup(on_equip_screen_closed)
 
 func on_equip_screen_closed() -> void:
+	Bgm.stop_bgm()
 	Phases.next_phase()
 
 func on_battle_info_screen_closed() -> void:

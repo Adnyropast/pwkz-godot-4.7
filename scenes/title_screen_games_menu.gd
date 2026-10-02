@@ -23,6 +23,7 @@ func _on_debug_button_pressed() -> void:
 	refresh_debug_button()
 
 func start_game(mode: Players.Modes) -> void:
+	Bgm.stop_bgm()
 	Player.player_mode = mode
 	Scores.reset_score()
 	Inventory.reset_inventory()

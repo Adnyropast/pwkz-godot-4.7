@@ -5,6 +5,7 @@ extends Control
 @onready var games_menu: Control = $VBoxContainer/MarginContainer2/MenuContainer/TitleScreenGamesMenu
 
 func _ready() -> void:
+	Bgm.play_theme_title()
 	hide_games_menu()
 	show_start_menu()
 

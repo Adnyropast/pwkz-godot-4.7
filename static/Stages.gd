@@ -17,6 +17,7 @@ static func next_stage() -> void:
 	on_stage_start()
 
 static func retry_stage() -> void:
+	Bgm.stop_bgm()
 	WorldState.current_phase = 0
 	Scenes.go_to_stage_start_screen()
 	on_stage_start()
