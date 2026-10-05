@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cqox2t8v2bt4o" path="res://scenes/rescue_screen.gd" id="1_fheb7"]
 [ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="2_jvwdm"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wl4qe"]
+
 [sub_resource type="Animation" id="Animation_jvwdm"]
 length = 0.001
 tracks/0/type = "value"
@@ -104,6 +106,14 @@ _data = {
 
 [node name="RescueScreen" type="Node3D" unique_id=906251841]
 script = ExtResource("1_fheb7")
+
+[node name="BackgroundPanel" type="Panel" parent="." unique_id=1676459270]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wl4qe")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1170711260]
 anchors_preset = 8

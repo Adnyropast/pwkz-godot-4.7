@@ -8,9 +8,11 @@ const STEP_REWARDS: int = 4
 
 @onready var dialogue_box: Node = $MarginContainer/DialogueBox
 @onready var prince_texture: TextureRect = $CenterContainer/FadeNode/PrinceBreathe/PrinceTexture
+@onready var background_panel: Panel = $BackgroundPanel
 var step: int = STEP_0
 
 func _ready() -> void:
+	background_panel.get_theme_stylebox("panel").set("bg_color", WorldColors.get_background_color(WorldState.current_world))
 	Bgm.play_theme_victory_rescue()
 	init_step(STEP_0)
 
