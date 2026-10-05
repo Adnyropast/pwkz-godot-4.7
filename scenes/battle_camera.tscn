@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dvu1fbjqfbn34" path="res://scenes/battle_camera.gd" id="1_6we38"]
 
+[sub_resource type="Environment" id="Environment_1i8jf"]
+background_mode = 1
+
 [sub_resource type="Animation" id="Animation_pxwbd"]
 length = 0.001
 tracks/0/type = "value"
@@ -208,6 +211,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
 [node name="ZoomNode" type="Node3D" parent="OffsetNode/CameraDistance" unique_id=431779812]
 
 [node name="Camera3D" type="Camera3D" parent="OffsetNode/CameraDistance/ZoomNode" unique_id=1652672561]
+environment = SubResource("Environment_1i8jf")
 
 [node name="IntroAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1169060905]
 libraries/ = SubResource("AnimationLibrary_svpld")

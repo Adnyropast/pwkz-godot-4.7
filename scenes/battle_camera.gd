@@ -6,7 +6,11 @@ signal intro_animation_finished
 @onready var enemy_action_end_animation_player: AnimationPlayer = $EnemyActionEndAnimationPlayer
 @onready var battle_commands_menu_fade_in_animation_player: AnimationPlayer = $BattleCommandsMenuFadeInAnimationPlayer
 @onready var battle_commands_menu_fade_out_animation_player: AnimationPlayer = $BattleCommandsMenuFadeOutAnimationPlayer
+@onready var camera: Camera3D = $OffsetNode/CameraDistance/ZoomNode/Camera3D
 var is_intro_animation_finished
+
+func _ready() -> void:
+	camera.environment.background_color = WorldColors.get_background_color(WorldState.current_world)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
