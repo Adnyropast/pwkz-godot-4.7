@@ -3,8 +3,10 @@ extends Control
 @onready var shape_texture_1: TextureRect = $PanelContainer/CenterContainer/HBoxContainer/BounceNode/ShapeTexture1
 @onready var shape_texture_2: TextureRect = $PanelContainer/CenterContainer/HBoxContainer/BounceNode2/ShapeTexture2
 @onready var shape_texture_3: TextureRect = $PanelContainer/CenterContainer/HBoxContainer/BounceNode3/ShapeTexture3
+@onready var panel_container: PanelContainer = $PanelContainer
 
 func _ready() -> void:
+	panel_container.get_theme_stylebox("panel").set("bg_color", WorldColors.get_screen_color(WorldState.current_world))
 	set_textures()
 	var tween: Tween = create_tween()
 	tween.tween_callback(load_phase).set_delay(1.5)

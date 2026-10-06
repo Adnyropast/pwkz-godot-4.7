@@ -2,8 +2,10 @@ extends Control
 
 @onready var world_label: Label = $PanelContainer/HBoxContainer/LabelWorld
 @onready var stage_label: Label = $PanelContainer/HBoxContainer/LabelStage
+@onready var panel_container: PanelContainer = $PanelContainer
 
 func _ready() -> void:
+	panel_container.get_theme_stylebox("panel").set("bg_color", WorldColors.get_screen_color(WorldState.current_world))
 	world_label.text = str(WorldState.current_world)
 	stage_label.text = str(WorldState.current_stage)
 	
