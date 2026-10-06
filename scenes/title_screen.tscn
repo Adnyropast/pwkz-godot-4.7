@@ -3,6 +3,47 @@
 [ext_resource type="Script" uid="uid://4vk3t4bmgrow" path="res://scenes/title_screen.gd" id="1_fgkus"]
 [ext_resource type="PackedScene" uid="uid://dxwyamer7mw3w" path="res://scenes/title_screen_games_menu.tscn" id="2_sa3yf"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx4t0"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_sa3yf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s4lrb"]
+resource_name = "title_screen_panel_loop"
+length = 140.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 16, 32, 48, 64, 80, 96, 112, 128),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.48828125, 0.48828125, 0.48828125, 1), Color(0.48828125, 0.48828125, 0.48828125, 1), Color(0.703125, 0.44921875, 0.0625, 1), Color(0.00390625, 0.47265625, 0.3984375, 1), Color(0.25, 0.67578125, 0.99609375, 1), Color(0.55078125, 0.00390625, 0.2109375, 1), Color(0.99609375, 0.76953125, 0.00390625, 1), Color(0.99609375, 0.65625, 0.91796875, 1), Color(0.609375, 0.00390625, 0.99609375, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mgrm8"]
+_data = {
+&"RESET": SubResource("Animation_sa3yf"),
+&"title_screen_panel_loop": SubResource("Animation_s4lrb")
+}
+
 [node name="TitleScreen" type="Control" unique_id=1044247816]
 layout_mode = 3
 anchors_preset = 15
@@ -11,6 +52,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fgkus")
+
+[node name="Panel" type="Panel" parent="." unique_id=2030172669]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sx4t0")
+
+[node name="PanelAnimationPlayer" type="AnimationPlayer" parent="Panel" unique_id=2076588148]
+libraries/ = SubResource("AnimationLibrary_mgrm8")
+autoplay = &"title_screen_panel_loop"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1436553939]
 layout_mode = 1
