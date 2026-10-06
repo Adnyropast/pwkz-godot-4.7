@@ -112,6 +112,7 @@ expand_mode = 1
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer3/VBoxContainer/HBoxContainer" unique_id=1527150295]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 text = "Equipped Magicites"
 
 [node name="EquippedContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer3/VBoxContainer" unique_id=566776267]
@@ -125,6 +126,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer" unique_id=709043507]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 text = "Inventory"
 
 [node name="MagicitesContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer" unique_id=1394199896]

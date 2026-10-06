@@ -30,10 +30,12 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1180742088]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 text = "World"
 
 [node name="LabelWorld" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1280418066]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 text = "1"
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer/ButtonSelect" to="." method="_on_button_select_pressed"]

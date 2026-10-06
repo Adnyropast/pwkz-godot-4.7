@@ -377,6 +377,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1249563016]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 text = "HP"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=838264377]
@@ -384,14 +385,17 @@ layout_mode = 2
 
 [node name="HPLabel" type="Label" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=1937351955]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 text = "9999"
 
 [node name="Label2" type="Label" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=651328524]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 text = "/"
 
 [node name="MaxHPLabel" type="Label" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=2094498958]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 text = "9999"
 
 [node name="HPBar" type="ProgressBar" parent="SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=617026557]

@@ -28,17 +28,21 @@ alignment = 1
 
 [node name="Label" type="Label" parent="PanelContainer/HBoxContainer" unique_id=265011143]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 text = "Stage"
 horizontal_alignment = 1
 
 [node name="LabelWorld" type="Label" parent="PanelContainer/HBoxContainer" unique_id=248020688]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 text = "1"
 
 [node name="Label2" type="Label" parent="PanelContainer/HBoxContainer" unique_id=458230238]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 text = "-"
 
 [node name="LabelStage" type="Label" parent="PanelContainer/HBoxContainer" unique_id=900609413]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 text = "1"
