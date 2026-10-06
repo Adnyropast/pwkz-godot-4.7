@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bk800b71ytl4x" path="res://scenes/enemy_node.gd" id="1_ilucu"]
 [ext_resource type="Texture2D" uid="uid://b28vhbjcpsg4y" path="res://images/enemies/e02.png" id="2_lcxlm"]
+[ext_resource type="Texture2D" uid="uid://b4ocdyl5kcpg8" path="res://images/enemies/palettes/e02-palette.png" id="2_m02cf"]
 
 [sub_resource type="Animation" id="Animation_5cy0s"]
 length = 0.001
@@ -225,6 +226,12 @@ transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
 billboard = 1
 shaded = true
 texture = ExtResource("2_lcxlm")
+
+[node name="PaletteSprite" type="Sprite3D" parent="EnemyShake/EnemyBreathe/EnemySprite" unique_id=2063202281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.001)
+billboard = 1
+shaded = true
+texture = ExtResource("2_m02cf")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="EnemyShake/EnemyBreathe" unique_id=1101813516]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)

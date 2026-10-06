@@ -25,6 +25,29 @@ const ENEMIES_TEXTURES: Array[Texture] = [
 	preload("res://images/enemies/e28.png"),
 ]
 
+const ENEMIES_PALETTES: Array[Texture] = [
+	preload("res://images/enemies/palettes/e01-palette.png"),
+	preload("res://images/enemies/palettes/e02-palette.png"),
+	preload("res://images/enemies/palettes/e03-palette.png"),
+	preload("res://images/enemies/palettes/e04-palette.png"),
+	preload("res://images/enemies/palettes/e05-palette.png"),
+	preload("res://images/enemies/palettes/e06-palette.png"),
+	preload("res://images/enemies/palettes/e07-palette.png"),
+	preload("res://images/enemies/palettes/e08-palette.png"),
+	preload("res://images/enemies/palettes/e09-palette.png"),
+	preload("res://images/enemies/palettes/e10-palette.png"),
+	preload("res://images/enemies/palettes/e11-palette.png"),
+	preload("res://images/enemies/palettes/e12-palette.png"),
+	preload("res://images/enemies/e21.png"),
+	preload("res://images/enemies/e22.png"),
+	preload("res://images/enemies/e23.png"),
+	preload("res://images/enemies/e24.png"),
+	preload("res://images/enemies/e25.png"),
+	preload("res://images/enemies/e26.png"),
+	preload("res://images/enemies/e27.png"),
+	preload("res://images/enemies/e28.png"),
+]
+
 const ENEMIES_NAMES: Array[String] = [
 	"Slime",
 	"Goblin Swordsman",
@@ -59,3 +82,6 @@ static func get_enemy_texture(id: int) -> Texture:
 
 static func get_enemy_name(id: int) -> String:
 	return ENEMIES_NAMES[convert_enemy_id(id)]
+
+static func get_enemy_palette_texture(id: int) -> Texture:
+	return ENEMIES_PALETTES[convert_enemy_id(id)]

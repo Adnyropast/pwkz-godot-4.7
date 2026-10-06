@@ -24,8 +24,22 @@ static var SCREENS: Array[Color] = [
 	Color.html("#390179"),
 ]
 
+static var ENEMIES: Array[Color] = [
+	Color.html("#E1E1E1"),
+	Color.html("#B47310"),
+	Color.html("#01FF06"),
+	Color.html("#01D9FF"),
+	Color.html("#FF0113"),
+	Color.html("#FFF501"),
+	Color.html("#FF01EB"),
+	Color.html("#9C01FF"),
+]
+
 static func get_background_color(world: int) -> Color:
 	return BACKGROUNDS[world - 1]
 
 static func get_screen_color(world: int) -> Color:
 	return SCREENS[world - 1]
+
+static func get_enemy_color(world: int) -> Color:
+	return ENEMIES[world - 1]

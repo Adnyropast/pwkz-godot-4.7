@@ -52,6 +52,9 @@ func get_enemy_name() -> String:
 func get_texture() -> Texture:
 	return Enemies.get_enemy_texture(get_id())
 
+func get_palette_texture() -> Texture:
+	return Enemies.get_enemy_palette_texture(get_id())
+
 func is_ko() -> bool:
 	return hp <= 0
 
