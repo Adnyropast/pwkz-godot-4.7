@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://0du506w3iplr"]
+
+[ext_resource type="Script" uid="uid://i6ndn2yepujh" path="res://scenes/background_animations/circles_background_animation.gd" id="1_p6a0g"]
+
+[node name="CirclesBackgroundAnimation" type="Node3D" unique_id=42832528]
+script = ExtResource("1_p6a0g")
+
+[node name="BackgroundDistance" type="Node3D" parent="." unique_id=635323951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)

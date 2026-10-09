@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bkwjnkfe6llnr"]
+
+[ext_resource type="PackedScene" uid="uid://bgmgr78v810c6" path="res://scenes/background_animations/background_animation_single_particle.tscn" id="1_5scmj"]
+[ext_resource type="Script" uid="uid://m5y0jwsrupka" path="res://scenes/background_animations/circles_background_animation_spinner.gd" id="1_i0pug"]
+
+[node name="CirclesBackgroundAnimationSpinner" type="Node3D" unique_id=1548135259]
+script = ExtResource("1_i0pug")
+
+[node name="Spinner" type="Node3D" parent="." unique_id=1163452924]
+
+[node name="SpinnerDistance" type="Node3D" parent="Spinner" unique_id=1766924576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="RotationReset" type="Node3D" parent="Spinner/SpinnerDistance" unique_id=1634734757]
+
+[node name="BackgroundAnimationSingleParticle" parent="Spinner/SpinnerDistance/RotationReset" unique_id=362538802 instance=ExtResource("1_5scmj")]

@@ -6,9 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://ce5k747bk21k3" path="res://scenes/enemy_node.tscn" id="2_pxwbd"]
 [ext_resource type="PackedScene" uid="uid://raykwsor5paf" path="res://scenes/battle_camera.tscn" id="3_1i8jf"]
 [ext_resource type="PackedScene" uid="uid://cktqoqd2ayamx" path="res://scenes/player_hud.tscn" id="3_vcsse"]
+[ext_resource type="PackedScene" uid="uid://0du506w3iplr" path="res://scenes/background_animations/circles_background_animation.tscn" id="7_svpld"]
 
 [node name="BattleScene" type="Node3D" unique_id=818123241]
 script = ExtResource("1_kewym")
+
+[node name="BackgroundAnimation" type="Node3D" parent="." unique_id=307994292]
+
+[node name="CirclesBackgroundAnimation" parent="BackgroundAnimation" unique_id=42832528 instance=ExtResource("7_svpld")]
 
 [node name="EnemyNode" parent="." unique_id=1174380748 instance=ExtResource("2_pxwbd")]
 

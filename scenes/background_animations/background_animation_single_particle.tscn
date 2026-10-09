@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bgmgr78v810c6"]
+
+[ext_resource type="Script" uid="uid://du1cjmwbmik4u" path="res://scenes/background_animations/background_animation_single_particle.gd" id="1_kcjur"]
+
+[node name="BackgroundAnimationSingleParticle" type="Node3D" unique_id=362538802]
+script = ExtResource("1_kcjur")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1546059444]
+modulate = Color(1, 1, 1, 0.24705882)
