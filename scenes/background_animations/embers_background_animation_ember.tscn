@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cmyx0leedlqb7"]
+
+[ext_resource type="Script" uid="uid://ch1hmarg4c6g5" path="res://scenes/background_animations/embers_background_animation_ember.gd" id="1_w68yi"]
+[ext_resource type="PackedScene" uid="uid://bgmgr78v810c6" path="res://scenes/background_animations/background_animation_single_particle.tscn" id="1_yf51f"]
+
+[node name="EmbersBackgroundAnimationEmber" type="Node3D" unique_id=560173492]
+script = ExtResource("1_w68yi")
+
+[node name="Speed" type="Node3D" parent="." unique_id=996129588]
+
+[node name="BackgroundAnimationSingleParticle" parent="Speed" unique_id=362538802 instance=ExtResource("1_yf51f")]
