@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://oqlon83gqx8t"]
+
+[ext_resource type="Script" uid="uid://bhcp0km2685d3" path="res://scenes/background_animations/dash_dotted_background_animation_lane.gd" id="1_j86yb"]
+
+[node name="DashDottedBackgroundAnimationLane" type="Node3D" unique_id=639464584]
+script = ExtResource("1_j86yb")
+
+[node name="Container" type="Node3D" parent="." unique_id=1548835062]
