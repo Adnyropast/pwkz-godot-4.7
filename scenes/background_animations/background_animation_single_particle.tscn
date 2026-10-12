@@ -2,8 +2,50 @@
 
 [ext_resource type="Script" uid="uid://du1cjmwbmik4u" path="res://scenes/background_animations/background_animation_single_particle.gd" id="1_kcjur"]
 
+[sub_resource type="Animation" id="Animation_kcjur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeIn:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xp8b8"]
+resource_name = "bg_anim_single_particle_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeIn:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fseb7"]
+_data = {
+&"RESET": SubResource("Animation_kcjur"),
+&"bg_anim_single_particle_fade_in": SubResource("Animation_xp8b8")
+}
+
 [node name="BackgroundAnimationSingleParticle" type="Node3D" unique_id=362538802]
 script = ExtResource("1_kcjur")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1546059444]
+[node name="FadeIn" type="Sprite3D" parent="." unique_id=320556787]
+
+[node name="Sprite3D" type="Sprite3D" parent="FadeIn" unique_id=1546059444]
 modulate = Color(1, 1, 1, 0.24705882)
+
+[node name="FadeInAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1265715572]
+libraries/ = SubResource("AnimationLibrary_fseb7")
+autoplay = &"bg_anim_single_particle_fade_in"

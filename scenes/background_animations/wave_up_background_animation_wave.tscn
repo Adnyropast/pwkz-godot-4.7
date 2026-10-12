@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://byajeqcajgoei"]
+
+[ext_resource type="Script" uid="uid://2uu425won65l" path="res://scenes/background_animations/wave_up_background_animation_wave.gd" id="1_0v5uj"]
+[ext_resource type="PackedScene" uid="uid://bgmgr78v810c6" path="res://scenes/background_animations/background_animation_single_particle.tscn" id="2_dkqlq"]
+
+[node name="WaveUpBackgroundAnimationWave" type="Node3D" unique_id=1808102259]
+script = ExtResource("1_0v5uj")
+
+[node name="Raising" type="Node3D" parent="." unique_id=98943878]
+
+[node name="Oscillate" type="Node3D" parent="Raising" unique_id=410769341]
+
+[node name="RotationReset" type="Node3D" parent="Raising/Oscillate" unique_id=57722254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="BackgroundAnimationSingleParticle" parent="Raising/Oscillate/RotationReset" unique_id=362538802 instance=ExtResource("2_dkqlq")]

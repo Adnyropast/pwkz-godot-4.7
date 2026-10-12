@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bbkhrc6f7c7m5"]
+
+[ext_resource type="Script" uid="uid://bucbr1j57pcjo" path="res://scenes/background_animations/wave_up_background_animation.gd" id="1_mkpao"]
+
+[sub_resource type="Animation" id="Animation_mkpao"]
+resource_name = "bg_anim_wave_up_create"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"create_waves"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hujgp"]
+_data = {
+&"bg_anim_wave_up_create": SubResource("Animation_mkpao")
+}
+
+[node name="WaveUpBackgroundAnimation" type="Node3D" unique_id=1890846791]
+script = ExtResource("1_mkpao")
+
+[node name="BackgroundDistance" type="Node3D" parent="." unique_id=315948856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+
+[node name="GroundLevel" type="Node3D" parent="BackgroundDistance" unique_id=600980131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
+
+[node name="CreateAnimationPlayer" type="AnimationPlayer" parent="." unique_id=708329664]
+libraries/ = SubResource("AnimationLibrary_hujgp")
+autoplay = &"bg_anim_wave_up_create"

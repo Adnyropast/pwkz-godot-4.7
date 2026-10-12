@@ -4,10 +4,12 @@ extends Node3D
 @onready var text_box_node: Node = $HBoxContainer/BattleTextBoxContainer/BattleTextBox
 @onready var player_hud: Node = $MarginContainer/PlayerHUD
 @onready var camera: Node = $BattleCamera
+@onready var background_animation: Node3D = $BackgroundAnimation
 var turn_system: TurnSystem = TurnSystem.new()
 var one_action: bool
 
 func _ready() -> void:
+	background_animation.add_child(BackgroundAnimations.pick_random_animation())
 	Bgm.play_stage()
 	commands_menu_node.faded_in.connect(camera.on_commands_menu_fade_in)
 	commands_menu_node.faded_out.connect(camera.on_commands_menu_fade_out)
