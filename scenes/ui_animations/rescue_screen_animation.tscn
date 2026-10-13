@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dhy5uqe263jyc"]
+
+[ext_resource type="Script" uid="uid://qjj8p56xles8" path="res://scenes/ui_animations/rescue_screen_animation.gd" id="1_e4oxi"]
+
+[node name="RescueScreenAnimation" type="CenterContainer" unique_id=1928560748]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e4oxi")
+
+[node name="Container" type="CenterContainer" parent="." unique_id=1359236633]
+layout_mode = 2
