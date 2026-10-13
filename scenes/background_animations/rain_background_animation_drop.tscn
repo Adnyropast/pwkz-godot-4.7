@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d4hui4soqulov"]
+
+[ext_resource type="Script" uid="uid://blejolgoahcqx" path="res://scenes/background_animations/rain_background_animation_drop.gd" id="1_ufg1b"]
+[ext_resource type="PackedScene" uid="uid://bgmgr78v810c6" path="res://scenes/background_animations/background_animation_single_particle.tscn" id="2_my4rr"]
+
+[node name="RainBackgroundAnimationDrop" type="Node3D" unique_id=489164130]
+script = ExtResource("1_ufg1b")
+
+[node name="Speed" type="Node3D" parent="." unique_id=1047638823]
+
+[node name="BackgroundAnimationSingleParticle" parent="Speed" unique_id=362538802 instance=ExtResource("2_my4rr")]
