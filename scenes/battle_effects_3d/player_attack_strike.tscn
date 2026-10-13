@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://lt7hwxf2kxoc"]
+
+[ext_resource type="Script" uid="uid://7tui14vhfcnf" path="res://scenes/battle_effects_3d/player_attack_strike.gd" id="1_fry4l"]
+
+[node name="PlayerAttackStrike" type="Node3D" unique_id=1562447141]
+script = ExtResource("1_fry4l")
+
+[node name="ForegroundDistance" type="Node3D" parent="." unique_id=316531019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)

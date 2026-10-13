@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bb47cwj4gn1xo"]
+
+[ext_resource type="Script" uid="uid://bdskkbm6rasx5" path="res://scenes/battle_effects_3d/player_attack_hit_explosion.gd" id="1_2pgng"]
+
+[node name="PlayerAttackHitExplosion" type="Node3D" unique_id=2128365759]
+script = ExtResource("1_2pgng")
+
+[node name="Container" type="Node3D" parent="." unique_id=1194560777]

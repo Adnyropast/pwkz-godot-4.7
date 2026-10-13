@@ -7,6 +7,7 @@ func perform(sender: Sender) -> void:
 
 func step_attack(sender: Sender) -> void:
 	Player.portrait_set_attacking()
+	BattleEffects.make_player_attack_strike()
 	var player_name = Player.get_player_name()
 	sender.send_timed(
 		player_name + " attacks!",
@@ -19,6 +20,7 @@ func step_instant_ko(sender: Sender) -> void:
 		var damage = Enemy.hp
 		Enemy.subtract_hp(damage)
 		Player.make_attack()
+		BattleEffects.make_player_attack_hit()
 		sender.send_timed(
 			"Instant K.O.!!!",
 			step_drain.bind(sender, damage),
@@ -35,6 +37,7 @@ func step_damage(sender: Sender) -> void:
 	var enemy_name = Enemy.get_enemy_name()
 	var message: String
 	if damage >= 0:
+		BattleEffects.make_player_attack_hit()
 		message = enemy_name + " takes " + str(damage) + " damage."
 	else:
 		message = enemy_name + " recovers " + str(-damage) + " hp."
