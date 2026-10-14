@@ -1,5 +1,8 @@
 extends Control
 
+class_name PlayerHUD
+
+@onready var player_texture_container: Container = $SlideNode/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerBreathe
 @onready var player_texture: TextureRect = $SlideNode/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerBreathe/PlayerTexture
 @onready var player_texture_animation_player: AnimationPlayer = $SlideNode/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayerShakeNode/PlayerTextureAnimationPlayer
 @onready var hp_bar: ProgressBar = $SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HPBar
@@ -7,8 +10,10 @@ extends Control
 @onready var max_hp_label: Label = $SlideNode/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/MaxHPLabel
 @onready var statuses_container: Container = $SlideNode/MarginContainer/HBoxContainer/StatusesContainer
 @onready var intro_animation_player: AnimationPlayer = $IntroAnimationPlayer
+static var current: Control
 
 func _ready() -> void:
+	current = self
 	player_texture.texture = Player.get_player_texture()
 	hp_bar.max_value = Player.MAX_HP
 	hp_bar.value = Player.hp
