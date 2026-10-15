@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dadq2mk6srwve"]
+
+[ext_resource type="Script" uid="uid://drxtp2r7cwrnb" path="res://scenes/battle_effects_ui/enemy_attack_hit_explosion.gd" id="1_lfv4v"]
+
+[node name="EnemyAttackHitExplosion" type="CenterContainer" unique_id=1290867112]
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+script = ExtResource("1_lfv4v")

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cb6dorewca6vy"]
+
+[ext_resource type="Script" uid="uid://crspnagawgtik" path="res://scenes/battle_effects_ui/enemy_attack_hit.gd" id="1_5lger"]
+
+[node name="EnemyAttackHit" type="CenterContainer" unique_id=984860785]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5lger")

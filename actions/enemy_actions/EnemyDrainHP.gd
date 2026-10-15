@@ -18,6 +18,7 @@ func step_damage(sender: Sender) -> void:
 	damage = floori(damage * 0.5)
 	damage = DamageCalcs.get_modified_damage_to_player(damage)
 	Player.subtract_hp(damage)
+	BattleEffects.make_enemy_attack_hit()
 	var player_name = Player.get_player_name()
 	var message: String
 	if damage >= 0:

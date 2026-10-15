@@ -57,6 +57,7 @@ func step_drain(sender: Sender, damage: int) -> void:
 		if value >= 0:
 			message = player_name + " takes " + str(value) + " damage."
 			Player.portrait_set_hurt()
+			BattleEffects.make_enemy_attack_hit()
 		else:
 			message = player_name + " recovers " + str(-value) + " hp."
 			BattleEffects.make_player_heal_sparkles()

@@ -21,3 +21,7 @@ static func make_player_heal_circle() -> void:
 static func make_player_heal_sparkles() -> void:
 	var node: Control = preload("res://scenes/battle_effects_ui/player_heal_sparkles.tscn").instantiate()
 	PlayerHUD.current.player_texture_container.add_child(node)
+
+static func make_enemy_attack_hit() -> void:
+	var node: Control = preload("res://scenes/battle_effects_ui/enemy_attack_hit.tscn").instantiate()
+	PlayerHUD.current.player_texture_container.add_child(node)
