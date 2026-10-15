@@ -6,6 +6,7 @@ func perform(sender: Sender) -> void:
 	step_heal(sender)
 
 func step_heal(sender: Sender) -> void:
+	BattleEffects.make_player_heal_circle()
 	var player_name = Player.get_player_name()
 	sender.send_timed(
 		player_name + " heals!",
@@ -18,6 +19,7 @@ func step_recovery(sender: Sender) -> void:
 	healing = MagiciteHealPlus.get_modified_healing(healing)
 	Player.add_hp(healing)
 	Player.make_heal()
+	BattleEffects.make_player_heal_sparkles()
 	var player_name = Player.get_player_name()
 	sender.send_timed(
 		player_name + " recovers " + str(healing) + " hp.",

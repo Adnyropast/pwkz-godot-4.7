@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://c6hha2rsjjhcs"]
+
+[ext_resource type="Texture2D" uid="uid://baq1b0faluuxp" path="res://images/particles/sparkles.png" id="1_j53fh"]
+[ext_resource type="Script" uid="uid://drmohid85qdk3" path="res://scenes/battle_effects_ui/player_heal_sparkles_sparkle.gd" id="1_utvra"]
+
+[sub_resource type="Animation" id="Animation_j53fh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Speed/Scale/Opacity:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Speed/Scale:offset_transform_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_utvra"]
+resource_name = "player_heal_sparkles_sparkle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Speed/Scale/Opacity:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.003921569, 1, 0.023529412, 1), Color(0.003921569, 0.4745098, 0.4, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Speed/Scale:offset_transform_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3n62r"]
+_data = {
+&"RESET": SubResource("Animation_j53fh"),
+&"player_heal_sparkles_sparkle": SubResource("Animation_utvra")
+}
+
+[node name="PlayerHealSparklesSparkle" type="CenterContainer" unique_id=1949919690]
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+script = ExtResource("1_utvra")
+
+[node name="Speed" type="CenterContainer" parent="." unique_id=1537262945]
+layout_mode = 2
+offset_transform_enabled = true
+
+[node name="Scale" type="CenterContainer" parent="Speed" unique_id=2007474846]
+layout_mode = 2
+offset_transform_enabled = true
+
+[node name="Opacity" type="CenterContainer" parent="Speed/Scale" unique_id=1957788708]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Speed/Scale/Opacity" unique_id=1790662108]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_j53fh")
+expand_mode = 1
+
+[node name="SparkleAnimationPlayer" type="AnimationPlayer" parent="." unique_id=280590097]
+libraries/ = SubResource("AnimationLibrary_3n62r")
+autoplay = &"player_heal_sparkles_sparkle"

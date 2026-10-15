@@ -59,6 +59,7 @@ func step_drain(sender: Sender, damage: int) -> void:
 			Player.portrait_set_hurt()
 		else:
 			message = player_name + " recovers " + str(-value) + " hp."
+			BattleEffects.make_player_heal_sparkles()
 		sender.send_timed(
 			message,
 			step_self_defeat.bind(sender),
