@@ -7,6 +7,7 @@ func perform(sender: Sender) -> void:
 
 func step_defend(sender: Sender) -> void:
 	Enemy.make_defend()
+	BattleEffects.make_enemy_defend_shield()
 	var enemy_name = Enemy.get_enemy_name()
 	sender.send_timed(
 		enemy_name + " defends!",

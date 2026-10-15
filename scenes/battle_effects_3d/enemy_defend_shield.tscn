@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://ck2rbme3lem7t"]
+
+[ext_resource type="Texture2D" uid="uid://c05kfc68pavxs" path="res://images/particles/shield.png" id="1_1nb52"]
+[ext_resource type="Script" uid="uid://dg6kh4wbkpitl" path="res://scenes/battle_effects_3d/enemy_defend_shield.gd" id="1_ix7gu"]
+
+[sub_resource type="Animation" id="Animation_1nb52"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ForegroundDistance/Scale:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ForegroundDistance/Scale/Opacity:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ix7gu"]
+resource_name = "enemy_defend_shield"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ForegroundDistance/Scale:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector3(0.333, 0.333, 0.333), Vector3(2, 2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ForegroundDistance/Scale/Opacity:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bodrt"]
+_data = {
+&"RESET": SubResource("Animation_1nb52"),
+&"enemy_defend_shield": SubResource("Animation_ix7gu")
+}
+
+[node name="EnemyDefendShield" type="Node3D" unique_id=894470319]
+script = ExtResource("1_ix7gu")
+
+[node name="ForegroundDistance" type="Node3D" parent="." unique_id=1573930919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+
+[node name="Scale" type="Node3D" parent="ForegroundDistance" unique_id=803322768]
+
+[node name="Opacity" type="Sprite3D" parent="ForegroundDistance/Scale" unique_id=1581522846]
+
+[node name="Color" type="Sprite3D" parent="ForegroundDistance/Scale/Opacity" unique_id=1060479621]
+modulate = Color(0.003921569, 0.8509804, 1, 1)
+
+[node name="Sprite3D" type="Sprite3D" parent="ForegroundDistance/Scale/Opacity/Color" unique_id=1372576012]
+modulate = Color(1, 1, 1, 0.24705882)
+texture = ExtResource("1_1nb52")
+
+[node name="ShieldAnimationPlayer" type="AnimationPlayer" parent="." unique_id=718966951]
+libraries/ = SubResource("AnimationLibrary_bodrt")
+autoplay = &"enemy_defend_shield"
