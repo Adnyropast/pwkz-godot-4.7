@@ -18,6 +18,7 @@ func step_recovery(sender: Sender) -> void:
 	if randi_range(0, 99) < healing_chance:
 		var healing: int = 500
 		Enemy.add_hp(healing)
+		BattleEffects.make_enemy_heal_sparkles()
 		var enemy_name = Enemy.get_enemy_name()
 		sender.send_timed(
 			enemy_name + " recovers " + str(healing) + " hp.",

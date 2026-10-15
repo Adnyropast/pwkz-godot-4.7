@@ -41,6 +41,7 @@ func step_damage(sender: Sender) -> void:
 		message = enemy_name + " takes " + str(damage) + " damage."
 	else:
 		message = enemy_name + " recovers " + str(-damage) + " hp."
+		BattleEffects.make_enemy_heal_sparkles()
 	sender.send_timed(
 		message,
 		step_drain.bind(sender, damage),

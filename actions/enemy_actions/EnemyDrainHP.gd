@@ -49,6 +49,7 @@ func step_reprisal(sender: Sender, damage: int) -> void:
 		message = enemy_name + " takes " + str(value) + " damage back!"
 	else:
 		message = enemy_name + " recovers " + str(-value) + " hp."
+		BattleEffects.make_enemy_heal_sparkles()
 	sender.send_timed(
 		message,
 		step_self_defeat.bind(sender),

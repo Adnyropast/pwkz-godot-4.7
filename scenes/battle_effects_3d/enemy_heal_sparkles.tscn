@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://by5ctffbbh4ka"]
+
+[ext_resource type="Script" uid="uid://blacaeoqgj1nj" path="res://scenes/battle_effects_3d/enemy_heal_sparkles.gd" id="1_afeny"]
+[ext_resource type="Texture2D" uid="uid://dywk1xdafqm0k" path="res://images/particles/circle-outline.png" id="1_wqvjl"]
+
+[sub_resource type="Animation" id="Animation_afeny"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ForegroundDistance/Scale:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ForegroundDistance/Scale/Opacity:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wqvjl"]
+resource_name = "enemy_heal_sparkles"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ForegroundDistance/Scale:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector3(0.333, 0.333, 0.333), Vector3(2, 2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ForegroundDistance/Scale/Opacity:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_afeny"]
+_data = {
+&"RESET": SubResource("Animation_afeny"),
+&"enemy_heal_sparkles": SubResource("Animation_wqvjl")
+}
+
+[node name="EnemyHealSparkles" type="Node3D" unique_id=1780044238]
+script = ExtResource("1_afeny")
+
+[node name="ForegroundDistance" type="Node3D" parent="." unique_id=1775213326]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+
+[node name="Scale" type="Node3D" parent="ForegroundDistance" unique_id=134216281]
+
+[node name="Opacity" type="Sprite3D" parent="ForegroundDistance/Scale" unique_id=828157142]
+
+[node name="Sprite3D" type="Sprite3D" parent="ForegroundDistance/Scale/Opacity" unique_id=1235763191]
+modulate = Color(0.003921569, 1, 0.023529412, 0.49803922)
+texture = ExtResource("1_wqvjl")
+
+[node name="SparklesAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1996328937]
+libraries/ = SubResource("AnimationLibrary_afeny")
+autoplay = &"enemy_heal_sparkles"

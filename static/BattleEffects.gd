@@ -39,3 +39,7 @@ static func make_enemy_defend_shield_reflect() -> void:
 	var node: Node3D = preload("res://scenes/battle_effects_3d/enemy_defend_shield.tscn").instantiate()
 	Engine.get_main_loop().root.add_child(node)
 	node.make_reflect_barrier()
+
+static func make_enemy_heal_sparkles() -> void:
+	var node: Node3D = preload("res://scenes/battle_effects_3d/enemy_heal_sparkles.tscn").instantiate()
+	Engine.get_main_loop().root.add_child(node)
