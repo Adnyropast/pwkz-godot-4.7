@@ -223,6 +223,16 @@ const WORLDS_SHAPES: Array[Texture] = [
 	preload("res://images/shapes/sh7.png"),
 	preload("res://images/shapes/sh8.png"),
 ]
+const WORLDS_SHAPES_WHITE: Array[Texture] = [
+	preload("res://images/shapes_white/shw1.png"),
+	preload("res://images/shapes_white/shw2.png"),
+	preload("res://images/shapes_white/shw3.png"),
+	preload("res://images/shapes_white/shw4.png"),
+	preload("res://images/shapes_white/shw5.png"),
+	preload("res://images/shapes_white/shw6.png"),
+	preload("res://images/shapes_white/shw7.png"),
+	preload("res://images/shapes_white/shw8.png"),
+]
 
 static func get_phases_count(world: int, stage: int) -> int:
 	return len(PHASES[world - 1][stage - 1])
@@ -232,3 +242,6 @@ static func get_world_texture(world: int) -> Texture:
 
 static func get_world_shape(world: int) -> Texture:
 	return WORLDS_SHAPES[world - 1]
+
+static func get_world_shape_white(world: int) -> Texture:
+	return WORLDS_SHAPES_WHITE[world - 1]

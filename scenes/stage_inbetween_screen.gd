@@ -22,6 +22,9 @@ func load_phase() -> void:
 		Scenes.go_to_battle_scene()
 
 func set_textures() -> void:
-	shape_texture_1.texture = WorldState.get_world_shape()
-	shape_texture_2.texture = WorldState.get_world_shape()
-	shape_texture_3.texture = WorldState.get_world_shape()
+	shape_texture_1.texture = WorldState.get_world_shape_white()
+	shape_texture_1.modulate = WorldColors.get_screen_shape_color(WorldState.current_world)
+	shape_texture_2.texture = WorldState.get_world_shape_white()
+	shape_texture_2.modulate = WorldColors.get_screen_shape_color(WorldState.current_world)
+	shape_texture_3.texture = WorldState.get_world_shape_white()
+	shape_texture_3.modulate = WorldColors.get_screen_shape_color(WorldState.current_world)

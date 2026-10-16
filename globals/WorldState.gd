@@ -19,3 +19,6 @@ func is_final_world() -> bool:
 
 func get_world_shape() -> Texture:
 	return WorldConstants.get_world_shape(current_world)
+
+func get_world_shape_white() -> Texture:
+	return WorldConstants.get_world_shape_white(current_world)
