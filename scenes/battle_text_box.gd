@@ -11,10 +11,16 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
-		if confirm_tween and confirm_tween.is_running():
-			TimeScale.action_skip_speed_up()
-		else:
-			confirm()
+		skip_action()
+
+func _on_screen_button_pressed() -> void:
+	skip_action()
+
+func skip_action() -> void:
+	if confirm_tween and confirm_tween.is_running():
+		TimeScale.action_skip_speed_up()
+	else:
+		confirm()
 
 func confirm() -> void:
 	TimeScale.action_skip_speed_reset()

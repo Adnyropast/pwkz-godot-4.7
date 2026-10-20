@@ -15,6 +15,9 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		load_phase()
 
+func _on_screen_button_pressed() -> void:
+	load_phase()
+
 func load_phase() -> void:
 	if WorldState.prince_saved:
 		Scenes.go_to_rescue_screen()

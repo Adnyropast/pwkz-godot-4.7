@@ -4,6 +4,7 @@ extends Control
 @onready var start_menu: Control = $VBoxContainer/MarginContainer2/MenuContainer/StartMenu
 @onready var games_menu: Control = $VBoxContainer/MarginContainer2/MenuContainer/TitleScreenGamesMenu
 @onready var first_button: Button = $VBoxContainer/MarginContainer2/MenuContainer/StartMenu/VBoxContainer/ButtonStart
+@onready var cancel_button: Button = $VBoxContainer/HBoxContainer/MarginContainer4/CancelButton
 
 func _ready() -> void:
 	Bgm.play_theme_title()
@@ -20,6 +21,10 @@ func _on_title_screen_games_menu_canceled() -> void:
 	hide_games_menu()
 	show_start_menu()
 
+func _on_cancel_button_pressed() -> void:
+	hide_games_menu()
+	show_start_menu()
+
 func hide_start_menu() -> void:
 	start_menu.process_mode = Node.PROCESS_MODE_DISABLED
 	start_menu.hide()
@@ -31,7 +36,9 @@ func show_start_menu() -> void:
 func hide_games_menu() -> void:
 	games_menu.process_mode = Node.PROCESS_MODE_DISABLED
 	games_menu.hide()
+	cancel_button.hide()
 
 func show_games_menu() -> void:
+	cancel_button.show()
 	games_menu.show()
 	games_menu.process_mode = Node.PROCESS_MODE_INHERIT

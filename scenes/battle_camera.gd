@@ -7,6 +7,7 @@ signal intro_animation_finished
 @onready var battle_commands_menu_fade_in_animation_player: AnimationPlayer = $BattleCommandsMenuFadeInAnimationPlayer
 @onready var battle_commands_menu_fade_out_animation_player: AnimationPlayer = $BattleCommandsMenuFadeOutAnimationPlayer
 @onready var camera: Camera3D = $OffsetNode/CameraDistance/ZoomNode/Camera3D
+@onready var screen_button: Button = $ScreenButton
 var is_intro_animation_finished
 
 func _ready() -> void:
@@ -16,12 +17,16 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		skip_start_animation()
 
+func _on_screen_button_pressed() -> void:
+	skip_start_animation()
+
 func skip_start_animation() -> void:
 	if not is_intro_animation_finished:
 		intro_animation_player.stop()
 		on_start_animation_finished()
 
 func on_start_animation_finished() -> void:
+	screen_button.hide()
 	is_intro_animation_finished = true
 	intro_animation_finished.emit()
 

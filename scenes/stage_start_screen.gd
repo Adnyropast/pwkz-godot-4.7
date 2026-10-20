@@ -16,5 +16,8 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		load_stage()
 
+func _on_screen_button_pressed() -> void:
+	load_stage()
+
 func load_stage() -> void:
 	Scenes.go_to_battle_scene()

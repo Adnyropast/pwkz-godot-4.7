@@ -113,14 +113,27 @@ text = "Start"
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=757428876]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=651847140]
 layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=27651756]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer4" unique_id=1481883350]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(96, 64)
+layout_mode = 2
+focus_mode = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=757428876]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer3" unique_id=1371360661]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3" unique_id=1371360661]
 layout_mode = 2
 theme_override_constants/outline_size = 4
 text = "v.0.0.0"
@@ -128,3 +141,4 @@ horizontal_alignment = 2
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/MenuContainer/StartMenu/VBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
 [connection signal="canceled" from="VBoxContainer/MarginContainer2/MenuContainer/TitleScreenGamesMenu" to="." method="_on_title_screen_games_menu_canceled"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer4/CancelButton" to="." method="_on_cancel_button_pressed"]
