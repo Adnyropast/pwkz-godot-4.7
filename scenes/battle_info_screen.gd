@@ -6,6 +6,7 @@ signal close_button_pressed
 @onready var max_hp_label: Label = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/MaxHPLabel
 @onready var hp_bar: ProgressBar = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/VBoxContainer/HPBar
 @onready var statuses_container: Container = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/StatusesContainer
+@onready var first_button: Button = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/ButtonClose
 
 func _ready() -> void:
 	name_label.text = Enemy.get_enemy_name()
@@ -14,6 +15,7 @@ func _ready() -> void:
 	hp_bar.max_value = Enemy.get_max_hp()
 	hp_bar.value = Enemy.hp
 	update_statuses()
+	Navigation.set_first_button(first_button)
 
 func _on_button_close_pressed() -> void:
 	close_button_pressed.emit()

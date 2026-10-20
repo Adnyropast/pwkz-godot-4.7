@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ck7l035kk02g4" path="res://scenes/return_to_title_popup.gd" id="1_uouyy"]
 
+[sub_resource type="InputEventAction" id="InputEventAction_diuuc"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_8hnld"]
+events = [SubResource("InputEventAction_diuuc")]
+
 [node name="ReturnToTitlePopup" type="Control" unique_id=1811353790]
 layout_mode = 3
 anchors_preset = 15
@@ -43,6 +49,7 @@ layout_mode = 2
 
 [node name="ButtonCancel" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1500220850]
 layout_mode = 2
+shortcut = SubResource("Shortcut_8hnld")
 text = "Cancel"
 
 [node name="ButtonReturnToTitle" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1016886591]

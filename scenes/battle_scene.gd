@@ -91,7 +91,7 @@ func on_equip_screen_closed() -> void:
 	Phases.next_phase()
 
 func on_battle_info_screen_closed() -> void:
-	commands_menu_node.unpause()
+	commands_menu_node.on_battle_info_screen_closed()
 
 func on_player_turn() -> void:
 	Player.on_turn_start()

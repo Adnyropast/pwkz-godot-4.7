@@ -6,11 +6,13 @@ signal next_button_pressed
 @onready var equipped_container: Container = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer3/VBoxContainer/EquippedContainer
 @onready var magicites_container: Container = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/MagicitesContainer
 @onready var debug_max_button: Button = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/ButtonDebugMax
+@onready var first_button: Button = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/ButtonAttack
 var tab: PlayerMagicites.EquipTypes = PlayerMagicites.EquipTypes.ATTACK
 
 func _ready() -> void:
 	refresh_tabs()
 	refresh_debug_buttons()
+	Navigation.set_first_button(first_button)
 
 func _on_button_attack_pressed() -> void:
 	set_tab_attack()
@@ -31,10 +33,12 @@ func _on_button_next_pressed() -> void:
 func on_inventory_magicite_item_pressed(magicite: Magicite) -> void:
 	PlayerMagicites.equip_magicite_end(tab, magicite)
 	refresh_tabs()
+	focus_equipped_magicite()
 
 func on_equipped_magicite_item_pressed(index: int) -> void:
 	PlayerMagicites.unequip_magicite_at(tab, index)
 	refresh_tabs()
+	focus_equipped_magicite_index(index)
 
 func refresh_equipped_magicites(magicites: Array[Magicite]) -> void:
 	for child in equipped_container.get_children():
@@ -100,3 +104,18 @@ func refresh_debug_buttons() -> void:
 		debug_max_button.show()
 	else:
 		debug_max_button.hide()
+
+func focus_equipped_magicite_index(index: int) -> void:
+	equipped_container.get_child(index).make_grab_focus()
+
+func focus_equipped_magicite() -> void:
+	var magicites: Array
+	
+	if tab == PlayerMagicites.EquipTypes.ATTACK:
+		magicites = PlayerMagicites.attack_magicites
+	elif tab == PlayerMagicites.EquipTypes.DEFEND:
+		magicites = PlayerMagicites.defend_magicites
+	elif tab == PlayerMagicites.EquipTypes.HEAL:
+		magicites = PlayerMagicites.heal_magicites
+	
+	equipped_container.get_child(magicites.size() - 1).make_grab_focus()

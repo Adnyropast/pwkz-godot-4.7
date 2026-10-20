@@ -3,10 +3,12 @@ extends Control
 signal next_button_pressed
 
 @onready var magicites_container: Container = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MagicitesContainer
+@onready var first_button: Button = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonNext
 
 func _ready() -> void:
 	var magicites: Dictionary[Magicite, int] = RewardSystem.add_and_get_random_magicites()
 	set_magicite_items(magicites)
+	Navigation.set_first_button(first_button)
 
 func _on_button_next_pressed() -> void:
 	next_button_pressed.emit()

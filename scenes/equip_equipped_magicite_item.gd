@@ -3,6 +3,7 @@ extends Control
 signal button_pressed
 @onready var magicite_texture: TextureRect = $PanelContainer/MarginContainer/HBoxContainer/MagiciteTexture
 @onready var name_label: Label = $PanelContainer/MarginContainer/HBoxContainer/NameLabel
+@onready var item_button: Button = $ItemButton
 var index: int
 
 func _on_item_button_pressed() -> void:
@@ -24,3 +25,6 @@ func set_magicite(magicite: Magicite) -> void:
 	else:
 		set_magicite_texture(magicite.get_texture())
 		set_magicite_name(magicite.name)
+
+func make_grab_focus() -> void:
+	Navigation.button_grab_focus(item_button)

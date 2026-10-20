@@ -5,6 +5,7 @@ signal next_button_pressed
 @onready var name_label: Label = $VBoxContainer/LabelName
 @onready var message_label: Label = $VBoxContainer/PanelContainer/MarginContainer/LabelMessage
 @onready var text_display_animation_player = $TextDisplayAnimationPlayer
+@onready var first_button: Button = $VBoxContainer/HBoxContainer/ButtonNext
 
 func _on_button_next_pressed() -> void:
 	pause()
@@ -23,6 +24,7 @@ func set_message(message: String) -> void:
 	message_label.visible_characters = 0
 	text_display_animation_player.play("dialogue_box_text_display")
 	unpause()
+	Navigation.button_grab_focus(first_button)
 
 func pause() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED

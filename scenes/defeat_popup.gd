@@ -1,5 +1,10 @@
 extends Control
 
+@onready var first_button: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ButtonRetry
+
+func _ready() -> void:
+	Navigation.set_first_button(first_button)
+
 func _on_button_retry_pressed() -> void:
 	queue_free()
 	PopupInterfaces.open_equip_screen_popup(Stages.retry_stage)

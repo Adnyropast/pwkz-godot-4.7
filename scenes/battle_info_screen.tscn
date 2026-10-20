@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://c1jesb7rsuyhm" path="res://scenes/battle_info_screen.gd" id="1_kywye"]
 
+[sub_resource type="InputEventAction" id="InputEventAction_4ct37"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_wx5fh"]
+events = [SubResource("InputEventAction_4ct37")]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wl4qe"]
 bg_color = Color(0.003921569, 1, 0.023529412, 1)
 border_width_left = 2
@@ -80,6 +86,7 @@ layout_mode = 2
 
 [node name="ButtonClose" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer" unique_id=1950087175]
 layout_mode = 2
+shortcut = SubResource("Shortcut_wx5fh")
 text = "Close"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=2068745041]

@@ -1,6 +1,10 @@
 extends Control
 
 signal cancel_button_pressed
+@onready var first_button: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ButtonCancel
+
+func _ready() -> void:
+	Navigation.set_first_button(first_button)
 
 func _on_button_cancel_pressed() -> void:
 	cancel_button_pressed.emit()

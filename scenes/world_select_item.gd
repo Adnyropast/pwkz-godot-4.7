@@ -2,6 +2,7 @@ extends Control
 
 @onready var world_texture: TextureRect = $VBoxContainer/MarginContainer/WorldTexture
 @onready var world_label: Label = $VBoxContainer/HBoxContainer/LabelWorld
+@onready var first_button: Button = $VBoxContainer/MarginContainer/ButtonSelect
 signal select_button_pressed
 var world: int
 
@@ -14,3 +15,6 @@ func _on_button_select_pressed() -> void:
 
 func set_world(p_world: int) -> void:
 	world = p_world
+
+func set_first_item() -> void:
+	Navigation.set_first_button(first_button)

@@ -5,6 +5,12 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_517bk"]
 
+[sub_resource type="InputEventAction" id="InputEventAction_vocee"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_kywye"]
+events = [SubResource("InputEventAction_vocee")]
+
 [node name="WorldSelectRetryScreen" type="Control" unique_id=1882678397]
 layout_mode = 3
 anchors_preset = 15
@@ -47,6 +53,7 @@ layout_mode = 2
 
 [node name="ButtonCancel" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1374933242]
 layout_mode = 2
+shortcut = SubResource("Shortcut_kywye")
 text = "Cancel"
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/ButtonCancel" to="." method="_on_button_cancel_pressed"]

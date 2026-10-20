@@ -3,11 +3,14 @@ extends Control
 @onready var menu_container: Container = $VBoxContainer/MarginContainer2/MenuContainer
 @onready var start_menu: Control = $VBoxContainer/MarginContainer2/MenuContainer/StartMenu
 @onready var games_menu: Control = $VBoxContainer/MarginContainer2/MenuContainer/TitleScreenGamesMenu
+@onready var first_button: Button = $VBoxContainer/MarginContainer2/MenuContainer/StartMenu/VBoxContainer/ButtonStart
 
 func _ready() -> void:
 	Bgm.play_theme_title()
 	hide_games_menu()
 	show_start_menu()
+	Navigation.set_first_button_visibility_changed(first_button)
+	Navigation.button_grab_focus(first_button)
 
 func _on_button_start_pressed() -> void:
 	hide_start_menu()

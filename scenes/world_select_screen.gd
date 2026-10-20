@@ -19,8 +19,12 @@ func unpause() -> void:
 	process_mode = Node.PROCESS_MODE_INHERIT
 
 func set_worlds(worlds: Array[int]) -> void:
+	var i: int = 0
 	for world in worlds:
 		var item: Node = InterfaceItems.create_world_select_item(world)
 		var select_button_pressed: Signal = item.select_button_pressed
 		select_button_pressed.connect(on_select_button_pressed)
 		worlds_container.add_child(item)
+		if i == 0:
+			item.set_first_item()
+		i = i + 1

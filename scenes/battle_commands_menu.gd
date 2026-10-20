@@ -15,10 +15,14 @@ signal faded_out
 @onready var next_stage_button: Button = $SlideNode/MarginContainer/VBoxContainer/ButtonNextStage
 @onready var lose_battle_button: Button = $SlideNode/MarginContainer/VBoxContainer/ButtonLoseBattle
 @onready var fade_in_animation_player: AnimationPlayer = $FadeInAnimationPlayer
+@onready var first_button: Button = $SlideNode/MarginContainer/VBoxContainer/ButtonAttack
+@onready var battle_info_button: Button = $SlideNode/MarginContainer/VBoxContainer/ButtonBattleInfo
+@onready var retire_button: Button = $SlideNode/MarginContainer/VBoxContainer/ButtonRetire
 
 func _ready() -> void:
 	refresh_debug_buttons()
 	visibility_changed.connect(on_visibility_changed)
+	Navigation.set_first_button(first_button)
 
 func _on_button_next_stage_pressed() -> void:
 	next_stage_button_pressed.emit()
@@ -31,7 +35,7 @@ func _on_button_battle_info_pressed() -> void:
 
 func _on_button_retire_pressed() -> void:
 	pause()
-	PopupInterfaces.open_return_to_title_popup(unpause)
+	PopupInterfaces.open_return_to_title_popup(on_return_to_title_popup_canceled)
 
 func _on_button_lose_battle_pressed() -> void:
 	lose_battle_button_pressed.emit()
@@ -72,3 +76,11 @@ func on_visibility_changed() -> void:
 		faded_in.emit()
 	else:
 		faded_out.emit()
+
+func on_battle_info_screen_closed() -> void:
+	battle_info_button.grab_focus()
+	unpause()
+
+func on_return_to_title_popup_canceled() -> void:
+	retire_button.grab_focus()
+	unpause()
