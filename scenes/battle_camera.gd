@@ -13,10 +13,6 @@ var is_intro_animation_finished
 func _ready() -> void:
 	camera.environment.background_color = WorldColors.get_background_color(WorldState.current_world)
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		skip_start_animation()
-
 func _on_screen_button_pressed() -> void:
 	skip_start_animation()
 

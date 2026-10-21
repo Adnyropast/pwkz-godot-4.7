@@ -17,10 +17,6 @@ func _on_button_start_pressed() -> void:
 	hide_start_menu()
 	show_games_menu()
 
-func _on_title_screen_games_menu_canceled() -> void:
-	hide_games_menu()
-	show_start_menu()
-
 func _on_cancel_button_pressed() -> void:
 	hide_games_menu()
 	show_start_menu()

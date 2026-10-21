@@ -9,10 +9,6 @@ func _ready() -> void:
 	sender.message_sent.connect(on_message_sent)
 	sender.timed_message_sent.connect(on_timed_message_sent)
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		skip_action()
-
 func _on_screen_button_pressed() -> void:
 	skip_action()
 

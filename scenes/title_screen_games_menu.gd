@@ -1,16 +1,11 @@
 extends Control
 
-signal canceled
 @onready var debug_button: Button = $VBoxContainer/DebugButton
 @onready var first_button: Button = $VBoxContainer/GameButton1
 
 func _ready() -> void:
 	refresh_debug_button()
 	Navigation.set_first_button_visibility_changed(first_button)
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		canceled.emit()
 
 func _on_game_button_1_pressed() -> void:
 	pause()

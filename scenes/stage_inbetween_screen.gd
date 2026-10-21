@@ -11,10 +11,6 @@ func _ready() -> void:
 	var tween: Tween = create_tween()
 	tween.tween_callback(load_phase).set_delay(1.5)
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		load_phase()
-
 func _on_screen_button_pressed() -> void:
 	load_phase()
 
