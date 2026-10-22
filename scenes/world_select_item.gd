@@ -17,4 +17,4 @@ func set_world(p_world: int) -> void:
 	world = p_world
 
 func set_first_item() -> void:
-	Navigation.set_first_button(first_button)
+	Navigation.button_grab_focus(first_button)

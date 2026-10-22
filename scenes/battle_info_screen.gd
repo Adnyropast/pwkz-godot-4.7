@@ -15,7 +15,7 @@ func _ready() -> void:
 	hp_bar.max_value = Enemy.get_max_hp()
 	hp_bar.value = Enemy.hp
 	update_statuses()
-	Navigation.set_first_button(first_button)
+	Navigation.button_grab_focus(first_button)
 
 func _on_button_close_pressed() -> void:
 	close_button_pressed.emit()

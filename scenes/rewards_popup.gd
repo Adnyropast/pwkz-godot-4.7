@@ -8,7 +8,7 @@ signal next_button_pressed
 func _ready() -> void:
 	var magicites: Dictionary[Magicite, int] = RewardSystem.add_and_get_random_magicites()
 	set_magicite_items(magicites)
-	Navigation.set_first_button(first_button)
+	Navigation.button_grab_focus(first_button)
 
 func _on_button_next_pressed() -> void:
 	next_button_pressed.emit()

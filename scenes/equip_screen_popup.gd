@@ -12,7 +12,7 @@ var tab: PlayerMagicites.EquipTypes = PlayerMagicites.EquipTypes.ATTACK
 func _ready() -> void:
 	refresh_tabs()
 	refresh_debug_buttons()
-	Navigation.set_first_button(first_button)
+	Navigation.button_grab_focus(first_button)
 
 func _on_button_attack_pressed() -> void:
 	set_tab_attack()

@@ -22,7 +22,7 @@ signal faded_out
 func _ready() -> void:
 	refresh_debug_buttons()
 	visibility_changed.connect(on_visibility_changed)
-	Navigation.set_first_button(first_button)
+	Navigation.set_first_button_visibility_changed(first_button)
 
 func _on_button_next_stage_pressed() -> void:
 	next_stage_button_pressed.emit()
