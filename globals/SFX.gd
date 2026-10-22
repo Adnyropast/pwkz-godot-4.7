@@ -10,6 +10,7 @@ func reset_sound_select() -> void:
 
 func on_node_added(node: Node) -> void:
 	if node is Button:
+		node.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
 		node.focus_entered.connect(on_node_focus_entered)
 		node.pressed.connect(on_node_pressed)
 
