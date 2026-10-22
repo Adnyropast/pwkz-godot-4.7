@@ -1,6 +1,7 @@
 extends Control
 
 @onready var label_node: Label = $MarginContainer/PanelContainer/MarginContainer/Label
+@onready var screen_button: Button = $ScreenButton
 signal closed
 var confirm_tween: Tween
 var sender: Sender = Sender.new()
@@ -8,6 +9,7 @@ var sender: Sender = Sender.new()
 func _ready() -> void:
 	sender.message_sent.connect(on_message_sent)
 	sender.timed_message_sent.connect(on_timed_message_sent)
+	Navigation.set_first_button_visibility_changed(screen_button)
 
 func _on_screen_button_pressed() -> void:
 	skip_action()

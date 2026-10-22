@@ -12,6 +12,7 @@ var is_intro_animation_finished
 
 func _ready() -> void:
 	camera.environment.background_color = WorldColors.get_background_color(WorldState.current_world)
+	Navigation.button_grab_focus(screen_button)
 
 func _on_screen_button_pressed() -> void:
 	skip_start_animation()

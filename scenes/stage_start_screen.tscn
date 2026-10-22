@@ -4,12 +4,6 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvwdm"]
 
-[sub_resource type="InputEventAction" id="InputEventAction_fm0x4"]
-action = &"ui_accept"
-
-[sub_resource type="Shortcut" id="Shortcut_v7b06"]
-events = [SubResource("InputEventAction_fm0x4")]
-
 [node name="StageStartScreen" type="Control" unique_id=731072768]
 layout_mode = 3
 anchors_preset = 15
@@ -61,7 +55,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-shortcut = SubResource("Shortcut_v7b06")
-shortcut_in_tooltip = false
 
 [connection signal="pressed" from="ScreenButton" to="." method="_on_screen_button_pressed"]
