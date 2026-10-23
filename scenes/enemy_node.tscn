@@ -107,7 +107,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("EnemyShake/EnemyBreathe/EnemySprite:modulate")
+tracks/3/path = NodePath("EnemyShake/EnemyBreathe/BossScale/EnemySprite:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -134,7 +134,7 @@ resource_name = "enemy_defeat"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyShake/EnemyBreathe/EnemySprite:modulate")
+tracks/0/path = NodePath("EnemyShake/EnemyBreathe/BossScale/EnemySprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -183,7 +183,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyShake/EnemyBreathe/EnemySprite:modulate")
+tracks/0/path = NodePath("EnemyShake/EnemyBreathe/BossScale/EnemySprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -198,7 +198,7 @@ resource_name = "enemy_intro"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyShake/EnemyBreathe/EnemySprite:modulate")
+tracks/0/path = NodePath("EnemyShake/EnemyBreathe/BossScale/EnemySprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -222,12 +222,14 @@ transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
 
 [node name="EnemyBreathe" type="Node3D" parent="EnemyShake" unique_id=2064240042]
 
-[node name="EnemySprite" type="Sprite3D" parent="EnemyShake/EnemyBreathe" unique_id=1775407236]
+[node name="BossScale" type="Node3D" parent="EnemyShake/EnemyBreathe" unique_id=1071840297]
+
+[node name="EnemySprite" type="Sprite3D" parent="EnemyShake/EnemyBreathe/BossScale" unique_id=1775407236]
 billboard = 1
 shaded = true
 texture = ExtResource("2_lcxlm")
 
-[node name="PaletteSprite" type="Sprite3D" parent="EnemyShake/EnemyBreathe/EnemySprite" unique_id=2063202281]
+[node name="PaletteSprite" type="Sprite3D" parent="EnemyShake/EnemyBreathe/BossScale/EnemySprite" unique_id=2063202281]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.001)
 billboard = 1
 shaded = true
