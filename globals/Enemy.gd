@@ -16,6 +16,7 @@ var defense_buff_value: float
 
 func get_max_hp() -> int:
 	var value: float = EnemyBaseStats.get_base_max_hp()
+	value *= EnemyStatModifiers.get_modifier_max_hp()
 	if is_boss():
 		value *= 10
 	return floori(value)
@@ -93,6 +94,7 @@ func reset_enemy() -> void:
 
 func get_stat_attack() -> int:
 	var value: float = EnemyBaseStats.get_base_attack()
+	value *= EnemyStatModifiers.get_modifier_attack()
 	if is_boss():
 		value *= 1.1
 	value *= (1 + attack_buff_value)
@@ -100,6 +102,7 @@ func get_stat_attack() -> int:
 
 func get_stat_defense() -> int:
 	var value: float = EnemyBaseStats.get_base_defense()
+	value *= EnemyStatModifiers.get_modifier_defense()
 	if is_boss():
 		value *= 1.1
 	value *= (1 + defense_buff_value)
