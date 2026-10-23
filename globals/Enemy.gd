@@ -15,7 +15,7 @@ var defense_buff_turns: int
 var defense_buff_value: float
 
 func get_max_hp() -> int:
-	var value: float = 3000
+	var value: float = EnemyBaseStats.get_base_max_hp()
 	if is_boss():
 		value *= 10
 	return floori(value)
@@ -92,14 +92,14 @@ func reset_enemy() -> void:
 	defense_buff_value = 0
 
 func get_stat_attack() -> int:
-	var value: float = 2000
+	var value: float = EnemyBaseStats.get_base_attack()
 	if is_boss():
 		value *= 1.1
 	value *= (1 + attack_buff_value)
 	return floori(value)
 
 func get_stat_defense() -> int:
-	var value: float = 500
+	var value: float = EnemyBaseStats.get_base_defense()
 	if is_boss():
 		value *= 1.1
 	value *= (1 + defense_buff_value)
