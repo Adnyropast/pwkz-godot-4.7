@@ -15,7 +15,10 @@ var defense_buff_turns: int
 var defense_buff_value: float
 
 func get_max_hp() -> int:
-	return 3000
+	var value: float = 3000
+	if is_boss():
+		value *= 10
+	return floori(value)
 
 func set_hp(new_hp: int) -> void:
 	if new_hp > get_max_hp():
@@ -89,10 +92,18 @@ func reset_enemy() -> void:
 	defense_buff_value = 0
 
 func get_stat_attack() -> int:
-	return floori(2000 * (1 + attack_buff_value))
+	var value: float = 2000
+	if is_boss():
+		value *= 1.1
+	value *= (1 + attack_buff_value)
+	return floori(value)
 
 func get_stat_defense() -> int:
-	return floori(500 * (1 + defense_buff_value))
+	var value: float = 500
+	if is_boss():
+		value *= 1.1
+	value *= (1 + defense_buff_value)
+	return floori(value)
 
 func make_absorb_barrier() -> void:
 	has_absorb_barrier = true
@@ -115,3 +126,6 @@ func make_buff_defense() -> void:
 	defense_buff_value += 0.2
 	if defense_buff_value > MAX_BUFF_VALUE:
 		defense_buff_value = MAX_BUFF_VALUE
+
+func is_boss() -> bool:
+	return Enemies.get_enemy_is_boss(get_id())

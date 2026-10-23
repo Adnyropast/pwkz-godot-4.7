@@ -85,3 +85,6 @@ static func get_enemy_name(id: int) -> String:
 
 static func get_enemy_palette_texture(id: int) -> Texture:
 	return ENEMIES_PALETTES[convert_enemy_id(id)]
+
+static func get_enemy_is_boss(id: int) -> bool:
+	return id > 20
