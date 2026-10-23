@@ -3,10 +3,12 @@ extends Control
 signal continue_button_pressed
 @onready var medals_container: Container = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MedalsContainer
 @onready var player_name_label: Label = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/PlayerNameLabel
+@onready var first_button: Button = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ButtonContinue
 
 func _ready() -> void:
 	set_worlds_medals()
 	set_player_name()
+	Navigation.button_grab_focus(first_button)
 
 func _on_button_continue_pressed() -> void:
 	continue_button_pressed.emit()
