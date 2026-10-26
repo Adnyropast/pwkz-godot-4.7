@@ -5,20 +5,27 @@ signal close_button_pressed
 @onready var hp_label: Label = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/HPLabel
 @onready var max_hp_label: Label = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/VBoxContainer/HBoxContainer/HBoxContainer/MaxHPLabel
 @onready var hp_bar: ProgressBar = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/VBoxContainer/HPBar
+@onready var attack_label: Label = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/HBoxContainer/AttackLabel
+@onready var defense_label: Label = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/HBoxContainer2/DefenseLabel
 @onready var statuses_container: Container = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/StatusesContainer
 @onready var first_button: Button = $MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/ButtonClose
 
 func _ready() -> void:
-	name_label.text = Enemy.get_enemy_name()
-	max_hp_label.text = str(Enemy.get_max_hp())
-	hp_label.text = str(Enemy.hp)
-	hp_bar.max_value = Enemy.get_max_hp()
-	hp_bar.value = Enemy.hp
+	update_stats()
 	update_statuses()
 	Navigation.button_grab_focus(first_button)
 
 func _on_button_close_pressed() -> void:
 	close_button_pressed.emit()
+
+func update_stats() -> void:
+	name_label.text = Enemy.get_enemy_name()
+	max_hp_label.text = str(Enemy.get_max_hp())
+	hp_label.text = str(Enemy.hp)
+	hp_bar.max_value = Enemy.get_max_hp()
+	hp_bar.value = Enemy.hp
+	attack_label.text = str(Enemy.get_stat_attack())
+	defense_label.text = str(Enemy.get_stat_defense())
 
 func update_statuses() -> void:
 	if Enemy.is_defending:

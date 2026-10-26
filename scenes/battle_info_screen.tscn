@@ -135,6 +135,28 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_wl4qe")
 value = 100.0
 show_percentage = false
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer" unique_id=1473702504]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=1076770607]
+layout_mode = 2
+text = "Attack:"
+
+[node name="AttackLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=130728787]
+layout_mode = 2
+text = "9999"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer" unique_id=125287112]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/HBoxContainer2" unique_id=674385384]
+layout_mode = 2
+text = "Defense:"
+
+[node name="DefenseLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer/HBoxContainer2" unique_id=87448442]
+layout_mode = 2
+text = "9999"
+
 [node name="StatusesContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer" unique_id=1303263917]
 layout_mode = 2
 
