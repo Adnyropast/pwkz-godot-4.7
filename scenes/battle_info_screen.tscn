@@ -84,6 +84,14 @@ theme_override_constants/margin_bottom = 16
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer" unique_id=307346053]
 layout_mode = 2
 
+[node name="EnemyButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer" unique_id=2080860584]
+layout_mode = 2
+text = "Enemy"
+
+[node name="PlayerButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer" unique_id=2100355248]
+layout_mode = 2
+text = "Player"
+
 [node name="ButtonClose" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer" unique_id=1950087175]
 layout_mode = 2
 shortcut = SubResource("Shortcut_wx5fh")
@@ -160,4 +168,6 @@ text = "9999"
 [node name="StatusesContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer" unique_id=1303263917]
 layout_mode = 2
 
+[connection signal="focus_entered" from="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/EnemyButton" to="." method="_on_enemy_button_focus_entered"]
+[connection signal="focus_entered" from="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/PlayerButton" to="." method="_on_player_button_focus_entered"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer/ButtonClose" to="." method="_on_button_close_pressed"]
