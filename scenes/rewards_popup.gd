@@ -4,14 +4,20 @@ signal next_button_pressed
 
 @onready var magicites_container: Container = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MagicitesContainer
 @onready var first_button: Button = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonNext
+var min_rewards_count: int = 1
+var max_rewards_count: int = 1
 
 func _ready() -> void:
-	var magicites: Dictionary[Magicite, int] = RewardSystem.add_and_get_random_magicites()
+	var magicites: Dictionary[Magicite, int] = RewardSystem.add_and_get_random_magicites(min_rewards_count, max_rewards_count)
 	set_magicite_items(magicites)
 	Navigation.button_grab_focus(first_button)
 
 func _on_button_next_pressed() -> void:
 	next_button_pressed.emit()
+
+func set_rewards_min_max(min_count: int, max_count: int) -> void:
+	min_rewards_count = min_count
+	max_rewards_count = max_count
 
 func set_magicite_items(magicites: Dictionary[Magicite, int]) -> void:
 	for i in range(0, magicites.size()):

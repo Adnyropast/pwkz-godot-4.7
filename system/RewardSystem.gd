@@ -16,8 +16,8 @@ const magicites: Array[Magicite] = [
 	preload("res://resources/magicites/ma11.tres"),
 ]
 
-static func get_random_magicites() -> Dictionary[Magicite, int]:
-	var rewards_count: int = randi_range(1, 3)
+static func get_random_magicites(min_count: int, max_count: int) -> Dictionary[Magicite, int]:
+	var rewards_count: int = randi_range(min_count, max_count)
 	var res: Dictionary[Magicite, int]
 	
 	for i in range(0, rewards_count):
@@ -27,8 +27,8 @@ static func get_random_magicites() -> Dictionary[Magicite, int]:
 	
 	return res
 
-static func add_and_get_random_magicites() -> Dictionary[Magicite, int]:
-	var rewards: Dictionary[Magicite, int] = get_random_magicites()
+static func add_and_get_random_magicites(min_count: int, max_count: int) -> Dictionary[Magicite, int]:
+	var rewards: Dictionary[Magicite, int] = get_random_magicites(min_count, max_count)
 	Inventory.add_magicites(rewards)
 	return rewards
 

@@ -81,7 +81,7 @@ func end_phase() -> void:
 			Phases.next_phase_rescue()
 		else:
 			Bgm.play_theme_victory()
-			text_box_node.sender.send("You won!", PopupInterfaces.open_rewards_popup.bind(on_rewards_closed))
+			text_box_node.sender.send("You won!", PopupInterfaces.open_rewards_popup.bind(on_rewards_closed, 1, 2))
 
 func on_rewards_closed() -> void:
 	PopupInterfaces.open_equip_screen_popup(on_equip_screen_closed)

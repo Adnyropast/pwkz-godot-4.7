@@ -67,7 +67,7 @@ func cleanup_step_end_results() -> void:
 	init_step(STEP_1)
 
 func init_step_rewards() -> void:
-	PopupInterfaces.open_rewards_popup(cleanup_step)
+	PopupInterfaces.open_rewards_popup(cleanup_step, 2, 3)
 
 func cleanup_step_rewards() -> void:
 	if WorldState.is_final_world():

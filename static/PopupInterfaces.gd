@@ -10,9 +10,10 @@ static func open_end_results_popup(callback_callable: Callable) -> void:
 	continue_button_pressed.connect(popup.queue_free)
 	tree.root.add_child(popup)
 
-static func open_rewards_popup(callback_callable: Callable) -> void:
+static func open_rewards_popup(callback_callable: Callable, min_count: int, max_count: int) -> void:
 	var tree: SceneTree = Engine.get_main_loop()
 	var popup = preload("res://scenes/rewards_popup.tscn").instantiate()
+	popup.set_rewards_min_max(min_count, max_count)
 	var next_button_pressed: Signal = popup.next_button_pressed
 	next_button_pressed.connect(callback_callable)
 	next_button_pressed.connect(popup.queue_free)
