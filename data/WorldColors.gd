@@ -14,14 +14,14 @@ static var BACKGROUNDS: Array[Color] = [
 ]
 
 static var SCREENS: Array[Color] = [
-	Color.html("#616161"),
-	Color.html("#a56e40"),
-	Color.html("#18aa66"),
-	Color.html("#2e9ce0"),
-	Color.html("#af1818"),
-	Color.html("#ebe300"),
-	Color.html("#f797ef"),
-	Color.html("#6a0b9d"),
+	Color.html("#6A6A6A"),
+	Color.html("#7F6641"),
+	Color.html("#3B9B3D"),
+	Color.html("#3B3B9B"),
+	Color.html("#9B3B42"),
+	Color.html("#9B973B"),
+	Color.html("#9B3B93"),
+	Color.html("#763B9B"),
 ]
 
 static var ENEMIES: Array[Color] = [
