@@ -53,3 +53,8 @@ static func get_reprisal_drain_to_player(damage: int) -> int:
 		value -= healing
 	
 	return value
+
+static func get_damage_roll_modified_damage(damage: int) -> int:
+	var multiplier: float = randf_range(0.9, 1.1)
+	damage = floori(damage * multiplier)
+	return damage

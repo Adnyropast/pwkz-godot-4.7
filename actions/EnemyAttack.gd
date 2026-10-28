@@ -16,6 +16,7 @@ func step_attack(sender: Sender) -> void:
 func step_damage(sender: Sender) -> void:
 	var damage = DamageCalcs.get_base_damage_to_player()
 	damage = DamageCalcs.get_modified_damage_to_player(damage)
+	damage = DamageCalcs.get_damage_roll_modified_damage(damage)
 	Player.subtract_hp(damage)
 	BattleEffects.make_enemy_attack_hit()
 	var player_name = Player.get_player_name()

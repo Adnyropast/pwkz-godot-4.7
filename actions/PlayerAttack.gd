@@ -32,6 +32,7 @@ func step_instant_ko(sender: Sender) -> void:
 func step_damage(sender: Sender) -> void:
 	var damage = DamageCalcs.get_base_damage_to_enemy()
 	damage = DamageCalcs.get_modified_damage_to_enemy(damage)
+	damage = DamageCalcs.get_damage_roll_modified_damage(damage)
 	Enemy.subtract_hp(damage)
 	Player.make_attack()
 	var enemy_name = Enemy.get_enemy_name()
