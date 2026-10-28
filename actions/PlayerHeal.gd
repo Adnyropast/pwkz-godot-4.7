@@ -17,6 +17,7 @@ func step_heal(sender: Sender) -> void:
 func step_recovery(sender: Sender) -> void:
 	var healing: int = 1500
 	healing = MagiciteHealPlus.get_modified_healing(healing)
+	healing = HealingCalcs.get_healing_roll_modified_healing(healing)
 	Player.add_hp(healing)
 	Player.make_heal()
 	BattleEffects.make_player_heal_sparkles()
