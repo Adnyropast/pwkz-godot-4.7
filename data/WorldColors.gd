@@ -3,14 +3,14 @@ extends Node
 class_name WorldColors
 
 static var BACKGROUNDS: Array[Color] = [
-	Color.html("#404040"),
-	Color.html("#7e583a"),
-	Color.html("#3f785e"),
-	Color.html("#3b8db0"),
-	Color.html("#831b1b"),
-	Color.html("#f7ec73"),
-	Color.html("#f9b8f7"),
-	Color.html("#8f4cae"),
+	Color.html("#272727"),
+	Color.html("#382405"),
+	Color.html("#005002"),
+	Color.html("#000050"),
+	Color.html("#500006"),
+	Color.html("#504D00"),
+	Color.html("#50354A"),
+	Color.html("#310050"),
 ]
 
 static var SCREENS: Array[Color] = [
