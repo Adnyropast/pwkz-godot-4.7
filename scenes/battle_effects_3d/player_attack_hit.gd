@@ -15,6 +15,6 @@ func delay_explosion(delay: float, x: float, y: float) -> void:
 
 func make_explosion(x: float, y: float) -> void:
 	var node: Node3D = preload("res://scenes/battle_effects_3d/player_attack_hit_explosion.tscn").instantiate()
-	node.position.x = x
-	node.position.y = y
+	node.position.x = x + randf_range(-0.3, 0.3)
+	node.position.y = y + randf_range(-0.3, 0.3)
 	container.add_child(node)

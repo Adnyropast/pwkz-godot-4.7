@@ -15,6 +15,6 @@ func delay_create(delay: float, x: float, y: float) -> void:
 
 func create_explosion(x: float, y: float) -> void:
 	var node: Control = preload("res://scenes/battle_effects_ui/enemy_attack_hit_explosion.tscn").instantiate()
-	node.offset_transform_position.x = x
-	node.offset_transform_position.y = y
+	node.offset_transform_position.x = x + randf_range(-20, 20)
+	node.offset_transform_position.y = y + randf_range(-20, 20)
 	container.add_child(node)
