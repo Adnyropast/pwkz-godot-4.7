@@ -5,7 +5,8 @@ extends Control
 var speed: Vector2
 
 func _ready() -> void:
-	texture_rect.texture = WorldConstants.get_world_shape(WorldState.current_world)
+	texture_rect.texture = WorldConstants.get_world_shape_white(WorldState.current_world)
+	texture_rect.self_modulate = WorldColors.get_arena_shape_color(WorldState.current_world)
 	var tween: Tween = create_tween()
 	tween.tween_callback(queue_free).set_delay(3.0)
 

@@ -51,7 +51,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Transparent" type="CenterContainer" parent="Speed/Opacity" unique_id=758882051]
-modulate = Color(1, 1, 1, 0.24705882)
+modulate = Color(1, 1, 1, 0.7490196)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Speed/Opacity/Transparent" unique_id=866782533]
