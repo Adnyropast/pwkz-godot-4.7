@@ -72,22 +72,7 @@ func step_drain(sender: Sender, damage: int) -> void:
 		step_defeat(sender)
 
 func step_self_defeat(sender: Sender) -> void:
-	if Player.is_ko():
-		if Player.has_revive():
-			step_revive(sender)
-		else:
-			Player.try_emit_player_defeated()
-			var player_name = Player.get_player_name()
-			sender.send_timed(
-				player_name + " was defeated!",
-				step_defeat.bind(sender),
-				2.0
-			)
-	else:
-		step_defeat(sender)
-
-func step_revive(sender: Sender) -> void:
-	PlayerReviveActionStep.step_revive(sender, step_defeat.bind(sender))
+	PlayerDefeatActionStep.step_defeat(sender, step_defeat.bind(sender))
 
 func step_defeat(sender: Sender) -> void:
 	Player.portrait_stop_hurt()
