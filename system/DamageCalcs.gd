@@ -10,9 +10,6 @@ static func get_modified_damage_to_player(damage: int) -> int:
 	
 	damage = floori(damage * multiplier)
 	
-	if Player.is_enduring() and Player.hp - damage <= 0:
-		damage = Player.hp - 1
-	
 	return damage
 
 static func get_modified_damage_to_enemy(damage: int) -> int:
@@ -57,4 +54,9 @@ static func get_reprisal_drain_to_player(damage: int) -> int:
 static func get_damage_roll_modified_damage(damage: int) -> int:
 	var multiplier: float = randf_range(0.9, 1.1)
 	damage = floori(damage * multiplier)
+	return damage
+
+static func get_player_endure_modified_damage(damage: int) -> int:
+	if Player.is_enduring() and Player.hp - damage <= 0:
+		damage = Player.hp - 1
 	return damage
