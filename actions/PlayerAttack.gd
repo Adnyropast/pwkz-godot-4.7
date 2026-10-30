@@ -76,13 +76,4 @@ func step_self_defeat(sender: Sender) -> void:
 
 func step_defeat(sender: Sender) -> void:
 	Player.portrait_stop_hurt()
-	if Enemy.is_ko():
-		Enemy.try_emit_enemy_defeated()
-		var enemy_name = Enemy.get_enemy_name()
-		sender.send_timed(
-			enemy_name + " was defeated!",
-			step_end,
-			2.0
-		)
-	else:
-		step_end()
+	EnemyDefeatActionStep.step_defeat(sender, step_end)

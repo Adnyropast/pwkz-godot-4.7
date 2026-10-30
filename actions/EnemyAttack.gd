@@ -47,16 +47,7 @@ func step_reprisal(sender: Sender, damage: int) -> void:
 		step_defeat(sender)
 
 func step_self_defeat(sender: Sender) -> void:
-	if Enemy.is_ko():
-		Enemy.try_emit_enemy_defeated()
-		var enemy_name = Enemy.get_enemy_name()
-		sender.send_timed(
-			enemy_name + " was defeated!",
-			step_defeat.bind(sender),
-			2.0
-		)
-	else:
-		step_defeat(sender)
+	EnemyDefeatActionStep.step_defeat(sender, step_defeat.bind(sender))
 
 func step_defeat(sender: Sender) -> void:
 	PlayerDefeatActionStep.step_defeat(sender, step_end)
