@@ -6,5 +6,5 @@ var speed: Vector3
 
 func _process(delta: float) -> void:
 	speed = speed * pow(1 / 1.01, 60 * delta)
-	speed_node.position += speed
+	speed_node.position += speed * 60 * delta
 	rotate_node.rotation.z = atan(speed.y / speed.x)

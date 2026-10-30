@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 
 func process_raise(delta: float) -> void:
 	raising_force += RAISING_SPEED * delta
-	raising_node.position.y += raising_force
+	raising_node.position.y += raising_force * 60 * delta
 
 func process_oscillate(delta: float) -> void:
 	var angle: float = TAU / OSCILLATE_DURATION * delta

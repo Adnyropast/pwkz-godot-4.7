@@ -10,4 +10,4 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	speed += force * delta
-	speed_node.position += speed
+	speed_node.position += speed * 60 * delta
