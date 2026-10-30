@@ -18,41 +18,4 @@ func step_damage(sender: Sender) -> void:
 	damage = DamageCalcs.get_modified_damage_to_player(damage)
 	damage = DamageCalcs.get_damage_roll_modified_damage(damage)
 	damage = DamageCalcs.get_player_endure_modified_damage(damage)
-	Player.subtract_hp(damage)
-	BattleEffects.make_enemy_attack_hit()
-	var player_name = Player.get_player_name()
-	var message: String
-	if damage >= 0:
-		message = player_name + " takes " + str(damage) + " damage."
-		Player.portrait_set_hurt()
-	else:
-		message = player_name + " recovers " + str(-damage) + " hp."
-	sender.send_timed(
-		message,
-		step_reprisal.bind(sender, damage),
-		2.0
-	)
-
-func step_reprisal(sender: Sender, damage: int) -> void:
-	if Player.has_reprisal():
-		var reprisal_damage = MagiciteReprisalPlus.get_reprisal_damage(damage)
-		reprisal_damage = DamageCalcs.get_modified_damage_to_enemy(reprisal_damage)
-		Enemy.subtract_hp(reprisal_damage)
-		var enemy_name = Enemy.get_enemy_name()
-		sender.send_timed(
-			enemy_name + " takes " + str(reprisal_damage) + " damage back!",
-			step_self_defeat.bind(sender),
-			2.0
-		)
-	else:
-		step_defeat(sender)
-
-func step_self_defeat(sender: Sender) -> void:
-	EnemyDefeatActionStep.step_defeat(sender, step_defeat.bind(sender))
-
-func step_defeat(sender: Sender) -> void:
-	PlayerDefeatActionStep.step_defeat(sender, step_end)
-
-func step_end() -> void:
-	Player.portrait_stop_hurt()
-	super.step_end()
+	PlayerDamageActionStep.step_damage(sender, step_end, damage, false)

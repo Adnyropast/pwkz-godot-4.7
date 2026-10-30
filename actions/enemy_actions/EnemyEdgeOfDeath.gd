@@ -17,17 +17,4 @@ func step_damage(sender: Sender) -> void:
 	var damage = Player.hp - 1
 	damage = DamageCalcs.get_modified_damage_to_player(damage)
 	damage = DamageCalcs.get_player_endure_modified_damage(damage)
-	Player.subtract_hp(damage)
-	BattleEffects.make_enemy_attack_hit()
-	var player_name = Player.get_player_name()
-	var message: String
-	if damage >= 0:
-		message = player_name + " takes " + str(damage) + " damage."
-		Player.portrait_set_hurt()
-	else:
-		message = player_name + " recovers " + str(-damage) + " hp."
-	sender.send_timed(
-		message,
-		step_reprisal.bind(sender, damage),
-		2.0
-	)
+	PlayerDamageActionStep.step_damage(sender, step_end, damage, false)
