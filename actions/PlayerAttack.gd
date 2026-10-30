@@ -87,17 +87,7 @@ func step_self_defeat(sender: Sender) -> void:
 		step_defeat(sender)
 
 func step_revive(sender: Sender) -> void:
-	Player.portrait_stop_hurt()
-	var healing: int = 1500
-	healing = MagiciteHealPlus.get_modified_healing(healing)
-	Player.set_hp(healing)
-	BattleEffects.make_player_heal_sparkles()
-	var player_name = Player.get_player_name()
-	sender.send_timed(
-		"But " + player_name + " was revived!",
-		step_defeat.bind(sender),
-		2.0
-	)
+	PlayerReviveActionStep.step_revive(sender, step_defeat.bind(sender))
 
 func step_defeat(sender: Sender) -> void:
 	Player.portrait_stop_hurt()
