@@ -20,3 +20,13 @@ static func get_reprisal_damage(damage: int) -> int:
 			count += 1
 	
 	return floori(damage * count * 1.0)
+
+static func get_reprisal_percentage() -> int:
+	var count: int = 0
+	
+	for i in range(0, PlayerMagicites.defend_magicites.size()):
+		var magicite: Magicite = PlayerMagicites.defend_magicites[i]
+		if magicite == MAGICITE:
+			count += 1
+	
+	return count * 100

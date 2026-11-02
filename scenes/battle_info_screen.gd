@@ -107,7 +107,7 @@ func update_statuses_player() -> void:
 	if Player.has_reprisal():
 		var item = preload("res://scenes/battle_info_status_item.tscn").instantiate()
 		statuses_container.add_child(item)
-		item.set_status_name("Reprisal " + str(Player.reprisal_turns) + " turns")
+		item.set_status_name("Reprisal " + str(MagiciteReprisalPlus.get_reprisal_percentage()) + "% " + str(Player.reprisal_turns) + " turns")
 		item.set_texture(preload("res://images/statuses/ef3.png"))
 	
 	if Player.has_revive():
