@@ -3,7 +3,7 @@ extends Control
 @onready var menu_container: Container = $VBoxContainer/MarginContainer2/MenuContainer
 @onready var start_menu: Control = $VBoxContainer/MarginContainer2/MenuContainer/StartMenu
 @onready var games_menu: Control = $VBoxContainer/MarginContainer2/MenuContainer/TitleScreenGamesMenu
-@onready var first_button: Button = $VBoxContainer/MarginContainer2/MenuContainer/StartMenu/VBoxContainer/ButtonStart
+@onready var first_button: Button = $VBoxContainer/MarginContainer2/MenuContainer/StartMenu/Control/ButtonStart
 @onready var cancel_button: Button = $VBoxContainer/HBoxContainer/MarginContainer4/CancelButton
 
 func _ready() -> void:
