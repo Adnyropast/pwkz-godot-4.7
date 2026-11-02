@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bwkdfdijygs4" path="res://scenes/equip_inventory_magicite_item.gd" id="1_dk5fb"]
 [ext_resource type="Texture2D" uid="uid://dh4ttleyycexo" path="res://icon.svg" id="1_ou04n"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dk5fb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="EquipInventoryMagiciteItem" type="MarginContainer" unique_id=2050400391]
 offset_right = 122.0
 offset_bottom = 24.0
@@ -10,32 +13,58 @@ script = ExtResource("1_dk5fb")
 
 [node name="ItemButton" type="Button" parent="." unique_id=347893219]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_dk5fb")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=477232588]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="MagiciteTexture" type="TextureRect" parent="HBoxContainer" unique_id=1462188113]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=1736499747]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer" unique_id=921652983]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer" unique_id=540426131]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MagiciteTexture" type="TextureRect" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1462188113]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("1_ou04n")
 expand_mode = 1
 
-[node name="NameLabel" type="Label" parent="HBoxContainer" unique_id=627692225]
+[node name="NameLabel" type="Label" parent="HBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=627692225]
 layout_mode = 2
 text = "Magicite"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=584766784]
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer" unique_id=1041245105]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer2" unique_id=691960089]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer2/MarginContainer" unique_id=584766784]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer" unique_id=2082850577]
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer2/MarginContainer/HBoxContainer" unique_id=2082850577]
 layout_mode = 2
 text = "×"
 
-[node name="QuantityLabel" type="Label" parent="HBoxContainer/HBoxContainer" unique_id=1885091666]
+[node name="QuantityLabel" type="Label" parent="HBoxContainer/PanelContainer2/MarginContainer/HBoxContainer" unique_id=1885091666]
 layout_mode = 2
 text = "1"
 

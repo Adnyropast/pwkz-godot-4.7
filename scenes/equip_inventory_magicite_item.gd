@@ -1,9 +1,9 @@
 extends Control
 
 signal button_pressed
-@onready var magicite_texture: TextureRect = $HBoxContainer/MagiciteTexture
-@onready var name_label: Label = $HBoxContainer/NameLabel
-@onready var quantity_label: Label = $HBoxContainer/HBoxContainer/QuantityLabel
+@onready var magicite_texture: TextureRect = $HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/MagiciteTexture
+@onready var name_label: Label = $HBoxContainer/PanelContainer/MarginContainer/HBoxContainer/NameLabel
+@onready var quantity_label: Label = $HBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/QuantityLabel
 var magicite: Magicite
 
 func _on_item_button_pressed() -> void:
