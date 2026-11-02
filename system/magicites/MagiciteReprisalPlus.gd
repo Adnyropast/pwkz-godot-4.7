@@ -8,7 +8,7 @@ static func get_reprisal_turns() -> int:
 	for i in range(0, PlayerMagicites.defend_magicites.size()):
 		var magicite: Magicite = PlayerMagicites.defend_magicites[i]
 		if magicite == MAGICITE:
-			return 1
+			return MagiciteTurnsPlus.get_defending_turns()
 	return 0
 
 static func get_reprisal_damage(damage: int) -> int:
