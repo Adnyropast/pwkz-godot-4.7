@@ -19,4 +19,4 @@ static func get_reprisal_damage(damage: int) -> int:
 		if magicite == MAGICITE:
 			count += 1
 	
-	return floori(damage * count * 0.2)
+	return floori(damage * count * 1.0)
