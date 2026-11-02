@@ -9,7 +9,7 @@ func set_magicite_count(magicite: Magicite, count: int) -> void:
 	if count > 99:
 		magicites.set(magicite, 99)
 	elif count <= 0:
-		magicites.erase(magicite)
+		magicites.set(magicite, 0)
 	else:
 		magicites.set(magicite, count)
 
@@ -24,8 +24,10 @@ func filter_magicites(type: Magicite.MagiciteType) -> Dictionary[Magicite, int]:
 	var res: Dictionary[Magicite, int]
 	for i in range(0, magicites.size()):
 		var magicite: Magicite = magicites.keys()[i]
-		if magicite.type == type or magicite.type == Magicite.MagiciteType.STATUS:
-			res.set(magicite, magicites.get(magicite))
+		var count: int = get_magicite_count(magicite)
+		var type_match: bool = magicite.type == type or magicite.type == Magicite.MagiciteType.STATUS
+		if type_match and count > 0:
+			res.set(magicite, count)
 	return res
 
 func get_attack_magicites() -> Dictionary[Magicite, int]:
@@ -47,3 +49,6 @@ func add_magicite(magicite: Magicite) -> void:
 
 func reset_inventory() -> void:
 	magicites.clear()
+	for i in range(0, MagicitesSorting.ORDER.size()):
+		var magicite: Magicite = MagicitesSorting.ORDER[i]
+		set_magicite_count(magicite, 0)
