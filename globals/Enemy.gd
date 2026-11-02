@@ -33,12 +33,9 @@ func affect_hp(new_hp: int) -> void:
 	var old_hp = hp
 	set_hp(new_hp)
 	if hp < old_hp:
-		Sfx.play_hit()
 		enemy_hurt.emit()
 		if is_ko() and is_boss():
 			TimeScale.start_final_blow()
-	elif hp > old_hp:
-		Sfx.play_heal()
 
 func subtract_hp(value_hp: int) -> void:
 	affect_hp(hp - value_hp)
