@@ -70,13 +70,13 @@ func update_statuses_enemy() -> void:
 	if Enemy.attack_buff_turns > 0:
 		var item = preload("res://scenes/battle_info_status_item.tscn").instantiate()
 		statuses_container.add_child(item)
-		item.set_status_name("Attack +" + str(floori(Enemy.attack_buff_value * 100)) + "% " + str(Enemy.attack_buff_turns) + " turns")
+		item.set_status_name("Attack +" + str(floori(Enemy.attack_buff_value * 100)) + "% " + GrammarStrings.n_turns(Enemy.attack_buff_turns))
 		item.set_texture(preload("res://images/statuses/ef5.png"))
 	
 	if Enemy.defense_buff_turns > 0:
 		var item = preload("res://scenes/battle_info_status_item.tscn").instantiate()
 		statuses_container.add_child(item)
-		item.set_status_name("Defense +" + str(floori(Enemy.defense_buff_value * 100)) + "% " + str(Enemy.defense_buff_turns) + " turns")
+		item.set_status_name("Defense +" + str(floori(Enemy.defense_buff_value * 100)) + "% " + GrammarStrings.n_turns(Enemy.defense_buff_turns))
 		item.set_texture(preload("res://images/statuses/ef6.png"))
 
 func update_stats_player() -> void:
@@ -95,37 +95,37 @@ func update_statuses_player() -> void:
 	if Player.is_defending():
 		var item = preload("res://scenes/battle_info_status_item.tscn").instantiate()
 		statuses_container.add_child(item)
-		item.set_status_name("Defend " + str(Player.defending_turns) + " turns")
+		item.set_status_name("Defend " + GrammarStrings.n_turns(Player.defending_turns))
 		item.set_texture(preload("res://images/statuses/ef1.png"))
 	
 	if Player.is_enduring():
 		var item = preload("res://scenes/battle_info_status_item.tscn").instantiate()
 		statuses_container.add_child(item)
-		item.set_status_name("Endure " + str(Player.enduring_turns) + " turns")
+		item.set_status_name("Endure " + GrammarStrings.n_turns(Player.enduring_turns))
 		item.set_texture(preload("res://images/statuses/ef2.png"))
 	
 	if Player.has_reprisal():
 		var item = preload("res://scenes/battle_info_status_item.tscn").instantiate()
 		statuses_container.add_child(item)
-		item.set_status_name("Reprisal " + str(MagiciteReprisalPlus.get_reprisal_percentage()) + "% " + str(Player.reprisal_turns) + " turns")
+		item.set_status_name("Reprisal " + str(MagiciteReprisalPlus.get_reprisal_percentage()) + "% " + GrammarStrings.n_turns(Player.reprisal_turns))
 		item.set_texture(preload("res://images/statuses/ef3.png"))
 	
 	if Player.has_revive():
 		var item = preload("res://scenes/battle_info_status_item.tscn").instantiate()
 		statuses_container.add_child(item)
-		item.set_status_name("Revive " + str(Player.revive_turns) + " turns")
+		item.set_status_name("Revive " + GrammarStrings.n_turns(Player.revive_turns))
 		item.set_texture(preload("res://images/statuses/ef4.png"))
 	
 	if Player.has_attack_buff():
 		var item = preload("res://scenes/battle_info_status_item.tscn").instantiate()
 		statuses_container.add_child(item)
-		item.set_status_name("Attack +" + str(floori(Player.attack_buff_value * 100)) + "% " + str(Player.attack_buff_turns) + " turns")
+		item.set_status_name("Attack +" + str(floori(Player.attack_buff_value * 100)) + "% " + GrammarStrings.n_turns(Player.attack_buff_turns))
 		item.set_texture(preload("res://images/statuses/ef5.png"))
 	
 	if Player.has_defense_buff():
 		var item = preload("res://scenes/battle_info_status_item.tscn").instantiate()
 		statuses_container.add_child(item)
-		item.set_status_name("Defense +" + str(floori(Player.defense_buff_value * 100)) + "% " + str(Player.defense_buff_turns) + " turns")
+		item.set_status_name("Defense +" + str(floori(Player.defense_buff_value * 100)) + "% " + GrammarStrings.n_turns(Player.defense_buff_turns))
 		item.set_texture(preload("res://images/statuses/ef6.png"))
 
 func refresh_tabs() -> void:
