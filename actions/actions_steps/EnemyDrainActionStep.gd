@@ -19,6 +19,7 @@ static func step_drain(sender: Sender, step_next: Callable, damage: int, drain_d
 		var message: String
 		if value > 0 or (value == 0 and not drain_damage):
 			message = enemy_name + " takes " + str(value) + " damage back!"
+			BattleEffects.make_player_attack_hit()
 		else:
 			message = enemy_name + " recovers " + str(-value) + " hp."
 			BattleEffects.make_enemy_heal_sparkles()
