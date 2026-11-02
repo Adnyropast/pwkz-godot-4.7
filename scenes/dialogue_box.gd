@@ -5,7 +5,7 @@ signal next_button_pressed
 @onready var name_label: Label = $VBoxContainer/LabelName
 @onready var message_label: Label = $VBoxContainer/PanelContainer/MarginContainer/LabelMessage
 @onready var text_display_animation_player = $TextDisplayAnimationPlayer
-@onready var first_button: Button = $VBoxContainer/HBoxContainer/ButtonNext
+@onready var first_button: Button = $VBoxContainer/PanelContainer/Control/Control/ButtonNext
 
 func _on_button_next_pressed() -> void:
 	pause()
