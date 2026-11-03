@@ -37,6 +37,54 @@ theme_override_constants/margin_bottom = 16
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1342171979]
 layout_mode = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=970521208]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=650057078]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master Volume"
+
+[node name="MasterVolumeHSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1275423700]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1609819786]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1741835110]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music"
+
+[node name="BGMHSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2070300141]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1037568309]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=204879]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sound Effects"
+
+[node name="SFXHSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=2061148975]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=128163958]
+layout_mode = 2
+
 [node name="DebugButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1584436195]
 layout_mode = 2
 text = "Debug: On"
@@ -49,5 +97,8 @@ layout_mode = 2
 shortcut = SubResource("Shortcut_05p07")
 text = "Close"
 
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/MasterVolumeHSlider" to="." method="_on_master_volume_h_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer2/BGMHSlider" to="." method="_on_bgmh_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer3/SFXHSlider" to="." method="_on_sfxh_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/DebugButton" to="." method="_on_debug_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

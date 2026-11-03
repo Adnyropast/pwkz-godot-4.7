@@ -1,5 +1,10 @@
 extends AudioStreamPlayer
 
+var volume: float = 0.8
+
+func _ready() -> void:
+	refresh_volume()
+
 func stop_bgm() -> void:
 	stream = null
 
@@ -28,3 +33,10 @@ func play_theme_victory() -> void:
 func play_theme_victory_rescue() -> void:
 	var audio_stream: AudioStream = preload("res://audio/bgm/th3.ogg")
 	play_stream(audio_stream)
+
+func refresh_volume() -> void:
+	volume_linear = volume * MasterVolume.volume
+
+func set_volume(new_volume: float) -> void:
+	volume = new_volume
+	refresh_volume()

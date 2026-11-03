@@ -9,3 +9,8 @@ static func button_grab_focus(button: Button) -> void:
 	if button.is_visible_in_tree():
 		Sfx.reset_sound_select()
 		button.grab_focus.call_deferred()
+
+static func control_grab_focus(control: Control) -> void:
+	if control.is_visible_in_tree():
+		Sfx.reset_sound_select()
+		control.grab_focus.call_deferred()
