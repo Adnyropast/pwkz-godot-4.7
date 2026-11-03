@@ -52,3 +52,10 @@ func reset_inventory() -> void:
 	for i in range(0, MagicitesSorting.ORDER.size()):
 		var magicite: Magicite = MagicitesSorting.ORDER[i]
 		set_magicite_count(magicite, 0)
+
+func get_total_magicites_count() -> int:
+	var total: int = 0
+	for i in range(0, magicites.size()):
+		var count: int = magicites.values()[i]
+		total += count
+	return total

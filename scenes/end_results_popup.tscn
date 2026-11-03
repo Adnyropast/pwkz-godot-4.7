@@ -148,6 +148,16 @@ text = "Defeats:"
 layout_mode = 2
 text = "999"
 
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2017864107]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5" unique_id=366451215]
+layout_mode = 2
+text = "Magicites Count:"
+
+[node name="MagicitesCountLabel" type="Label" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5" unique_id=893991024]
+layout_mode = 2
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2072725692]
 layout_mode = 2
 alignment = 2

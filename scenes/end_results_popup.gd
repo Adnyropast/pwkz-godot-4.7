@@ -6,6 +6,7 @@ signal continue_button_pressed
 @onready var date_time_label: Label = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2/DateTimeLabel
 @onready var play_time_label: Label = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3/PlayTimeLabel
 @onready var defeats_label: Label = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4/DefeatsLabel
+@onready var magicites_count_label: Label = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5/MagicitesCountLabel
 @onready var first_button: Button = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ButtonContinue
 
 func _ready() -> void:
@@ -14,6 +15,7 @@ func _ready() -> void:
 	set_date_time()
 	set_play_time()
 	set_defeats()
+	set_magicites_count()
 	Navigation.button_grab_focus(first_button)
 
 func _on_button_continue_pressed() -> void:
@@ -42,3 +44,6 @@ func set_play_time() -> void:
 
 func set_defeats() -> void:
 	defeats_label.text = str(DefeatsCounter.defeats_count)
+
+func set_magicites_count() -> void:
+	magicites_count_label.text = str(Inventory.get_total_magicites_count())
