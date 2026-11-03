@@ -44,6 +44,7 @@ static func open_return_to_title_popup(callback_callable: Callable) -> void:
 	tree.root.add_child(popup)
 
 static func open_defeat_popup() -> void:
+	DefeatsCounter.increase_defeats()
 	var tree: SceneTree = Engine.get_main_loop()
 	var popup = preload("res://scenes/defeat_popup.tscn").instantiate()
 	tree.root.add_child(popup)

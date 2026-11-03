@@ -137,6 +137,17 @@ text = "Play Time:"
 layout_mode = 2
 text = "999:99:99"
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=49263989]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" unique_id=1903128962]
+layout_mode = 2
+text = "Defeats:"
+
+[node name="DefeatsLabel" type="Label" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" unique_id=1942574862]
+layout_mode = 2
+text = "999"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2072725692]
 layout_mode = 2
 alignment = 2

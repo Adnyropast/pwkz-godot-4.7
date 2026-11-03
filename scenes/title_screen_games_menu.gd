@@ -23,6 +23,7 @@ func start_game(mode: Players.Modes) -> void:
 	Bgm.stop_bgm()
 	Player.player_mode = mode
 	Scores.reset_score()
+	DefeatsCounter.reset_defeats()
 	Inventory.reset_inventory()
 	PlayerMagicites.reset_equipment()
 	PlayTimeTracker.reset()
