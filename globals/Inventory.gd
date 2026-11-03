@@ -55,6 +55,9 @@ func reset_inventory() -> void:
 
 func get_total_magicites_count() -> int:
 	var total: int = 0
+	total += PlayerMagicites.attack_magicites.size()
+	total += PlayerMagicites.defend_magicites.size()
+	total += PlayerMagicites.heal_magicites.size()
 	for i in range(0, magicites.size()):
 		var count: int = magicites.values()[i]
 		total += count
