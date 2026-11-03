@@ -1,10 +1,9 @@
 extends Control
 
-@onready var debug_button: Button = $VBoxContainer/DebugButton
+@onready var settings_button: Button = $VBoxContainer/SettingsButton
 @onready var first_button: Button = $VBoxContainer/GameButton1
 
 func _ready() -> void:
-	refresh_debug_button()
 	Navigation.set_first_button_visibility_changed(first_button)
 
 func _on_game_button_1_pressed() -> void:
@@ -15,9 +14,9 @@ func _on_game_button_2_pressed() -> void:
 	pause()
 	start_game(Players.Modes.LEONARDO)
 
-func _on_debug_button_pressed() -> void:
-	Debug.toggle_debug_on()
-	refresh_debug_button()
+func _on_settings_button_pressed() -> void:
+	pause()
+	PopupInterfaces.open_settings_popup(on_settings_closed)
 
 func start_game(mode: Players.Modes) -> void:
 	Bgm.stop_bgm()
@@ -29,11 +28,12 @@ func start_game(mode: Players.Modes) -> void:
 	PlayTimeTracker.reset()
 	Worlds.move_to_first_world()
 
-func refresh_debug_button() -> void:
-	if Debug.is_debug_on():
-		debug_button.text = "Debug: On"
-	else:
-		debug_button.text = "Debug: Off"
-
 func pause() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
+
+func unpause() -> void:
+	process_mode = Node.PROCESS_MODE_INHERIT
+
+func on_settings_closed() -> void:
+	unpause()
+	Navigation.button_grab_focus(settings_button)

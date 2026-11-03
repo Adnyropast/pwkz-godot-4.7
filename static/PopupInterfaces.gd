@@ -48,3 +48,11 @@ static func open_defeat_popup() -> void:
 	var tree: SceneTree = Engine.get_main_loop()
 	var popup = preload("res://scenes/defeat_popup.tscn").instantiate()
 	tree.root.add_child(popup)
+
+static func open_settings_popup(callback_callable: Callable) -> void:
+	var tree: SceneTree = Engine.get_main_loop()
+	var popup = preload("res://scenes/settings_menu.tscn").instantiate()
+	var closed: Signal = popup.closed
+	closed.connect(callback_callable)
+	closed.connect(popup.queue_free)
+	tree.root.add_child(popup)
