@@ -25,6 +25,7 @@ func start_game(mode: Players.Modes) -> void:
 	Scores.reset_score()
 	Inventory.reset_inventory()
 	PlayerMagicites.reset_equipment()
+	PlayTimeTracker.reset()
 	Worlds.move_to_first_world()
 
 func refresh_debug_button() -> void:

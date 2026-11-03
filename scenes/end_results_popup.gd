@@ -4,12 +4,14 @@ signal continue_button_pressed
 @onready var medals_container: Container = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MedalsContainer
 @onready var player_name_label: Label = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/PlayerNameLabel
 @onready var date_time_label: Label = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2/DateTimeLabel
+@onready var play_time_label: Label = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3/PlayTimeLabel
 @onready var first_button: Button = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ButtonContinue
 
 func _ready() -> void:
 	set_worlds_medals()
 	set_player_name()
 	set_date_time()
+	set_play_time()
 	Navigation.button_grab_focus(first_button)
 
 func _on_button_continue_pressed() -> void:
@@ -32,3 +34,6 @@ func set_player_name() -> void:
 
 func set_date_time() -> void:
 	date_time_label.text = DateTimeStrings.get_current_date_time()
+
+func set_play_time() -> void:
+	play_time_label.text = DateTimeStrings.time_ms_to_time_string(PlayTimeTracker.time_ms)
