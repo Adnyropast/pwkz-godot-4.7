@@ -7,6 +7,7 @@ signal continue_button_pressed
 @onready var play_time_label: Label = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3/PlayTimeLabel
 @onready var defeats_label: Label = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4/DefeatsLabel
 @onready var magicites_count_label: Label = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5/MagicitesCountLabel
+@onready var game_version_label: Label = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer6/GameVersionLabel
 @onready var first_button: Button = $PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ButtonContinue
 
 func _ready() -> void:
@@ -16,6 +17,7 @@ func _ready() -> void:
 	set_play_time()
 	set_defeats()
 	set_magicites_count()
+	set_game_version()
 	Navigation.button_grab_focus(first_button)
 
 func _on_button_continue_pressed() -> void:
@@ -47,3 +49,6 @@ func set_defeats() -> void:
 
 func set_magicites_count() -> void:
 	magicites_count_label.text = str(Inventory.get_total_magicites_count())
+
+func set_game_version() -> void:
+	game_version_label.text = GameVersion.VERSION

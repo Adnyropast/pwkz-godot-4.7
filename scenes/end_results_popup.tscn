@@ -158,6 +158,15 @@ text = "Magicites Count:"
 [node name="MagicitesCountLabel" type="Label" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5" unique_id=893991024]
 layout_mode = 2
 
+[node name="HBoxContainer6" type="HBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=563932669]
+layout_mode = 2
+alignment = 2
+
+[node name="GameVersionLabel" type="Label" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer6" unique_id=845400090]
+modulate = Color(1, 1, 1, 0.7490196)
+layout_mode = 2
+text = "v.0.0.0"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2072725692]
 layout_mode = 2
 alignment = 2

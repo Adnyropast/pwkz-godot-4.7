@@ -1,5 +1,6 @@
 extends Control
 
+@onready var game_version_label: Label = $VBoxContainer/HBoxContainer/MarginContainer3/GameVersionLabel
 @onready var menu_container: Container = $VBoxContainer/MarginContainer2/MenuContainer
 @onready var start_menu: Control = $VBoxContainer/MarginContainer2/MenuContainer/StartMenu
 @onready var games_menu: Control = $VBoxContainer/MarginContainer2/MenuContainer/TitleScreenGamesMenu
@@ -7,6 +8,7 @@ extends Control
 @onready var cancel_button: Button = $VBoxContainer/HBoxContainer/MarginContainer4/CancelButton
 
 func _ready() -> void:
+	set_game_version()
 	Bgm.play_theme_title()
 	hide_games_menu()
 	show_start_menu()
@@ -38,3 +40,6 @@ func show_games_menu() -> void:
 	cancel_button.show()
 	games_menu.show()
 	games_menu.process_mode = Node.PROCESS_MODE_INHERIT
+
+func set_game_version() -> void:
+	game_version_label.text = GameVersion.VERSION
