@@ -95,6 +95,7 @@ layout_mode = 2
 [node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=791167058]
 layout_mode = 2
 shortcut = SubResource("Shortcut_05p07")
+shortcut_in_tooltip = false
 text = "Close"
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/MasterVolumeHSlider" to="." method="_on_master_volume_h_slider_value_changed"]
