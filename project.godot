@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="PWKZ Godot 4.7"
+config/name="Tartlein Kingdoms Godot 4.7"
 run/main_scene="uid://dwq2odlfwmq21"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="uid://dbnqh278lcyo0"
